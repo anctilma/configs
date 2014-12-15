@@ -33,7 +33,6 @@ filetype plugin indent on    " required
 
 filetype on
 
-
 " map F12 to toggle NERDTree
 nmap <silent> <F12> :NERDTreeToggle<CR>
 
@@ -86,16 +85,16 @@ let g:syntastic_mode_map = {"mode": "passive"}
 " disable arrow navigation
 noremap <Up> ddkP
 noremap <Down> ddp
-noremap <Left> <NOP>
-noremap <Right> <NOP>
-inoremap <Up> <NOP>
-inoremap <Down> <NOP>
-inoremap <Left> <NOP>
-inoremap <Right> <NOP>
-vnoremap <Up> <NOP>
-vnoremap <Down> <NOP>
-vnoremap <Left> <NOP>
-vnoremap <Right> <NOP>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+vnoremap <Up> <Nop>
+vnoremap <Down> <Nop>
+vnoremap <Left> <Nop>
+vnoremap <Right> <Nop>
 
 " map bashing j and k in random order to ESC
 inoremap jk <esc>
@@ -106,6 +105,10 @@ imap <leader>' ''<ESC>i
 imap <leader>" ""<ESC>i
 imap <leader>( ()<ESC>i
 imap <leader>[ []<ESC>i
+
+" center after search
+nmap n nzz
+nmap N Nzz
 
 " replace tabs with 4 spaces
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
