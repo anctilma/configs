@@ -59,7 +59,7 @@ let g:airline_theme = 'jellybeans'
 let g:airline_powerline_fonts = 1
 " enablle support for timuxline
 let g:airline#extensions#tmuxline#enabled = 1
-" disable whitespace detection by default.
+" disable whitespace detection
 let g:airline#extensions#whitespace#enabled = 0
 
 " tmuxline configuration
@@ -83,7 +83,7 @@ let g:syntastic_mode_map = {"mode": "passive"}
 "let g:airline_right_sep = ''
 "let g:airline_right_alt_sep = ''
 
-" disable arrow navigation
+" disable arrow navigation and add line move on arrow up and down
 noremap <Up> ddkP
 noremap <Down> ddp
 noremap <Left> <Nop>
@@ -100,6 +100,15 @@ vnoremap <Right> <Nop>
 " map bashing j and k in random order to ESC
 inoremap jk <esc>
 inoremap kj <esc>
+
+" map ctrl-tab to buffer next
+nmap <c-tab> :bn<CR>
+
+" map ctrl-x to buffer delete
+nmap <c-x> :bd<CR>
+
+" map Ctrl-K Ctrl-O to toggle .h/.cpp file (same as Visual Studio)
+ map <c-k><c-o> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 
 " quick pairs
 imap <leader>' ''<ESC>i

@@ -66,9 +66,9 @@ let g:syntastic_mode_map = {"mode": "passive"}
 "let g:airline_right_sep = ''
 "let g:airline_right_alt_sep = ''
 
-" disable arrow navigation
-noremap <Up> <NOP>
-noremap <Down> <NOP>
+" disable arrow navigation and add line move on arrow up and down
+noremap <Up> ddkP
+noremap <Down> ddp
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 inoremap <Up> <NOP>
@@ -80,13 +80,18 @@ vnoremap <Down> <NOP>
 vnoremap <Left> <NOP>
 vnoremap <Right> <NOP>
 
-" map ctrl-arrow up/down to move current line.
-noremap <C-Up> ddkP
-noremap <C-Down> ddp
-
 " map bashing j and k in random order to ESC
 inoremap jk <esc>
 inoremap kj <esc>
+
+" map ctrl-tab to buffer next
+nmap <c-tab> :bn<CR>
+
+" map ctrl-x to buffer delete
+nmap <c-x> :bd<CR>
+
+" map Ctrl-K Ctrl-O to toggle .h/.cpp file (same as Visual Studio)
+ map <c-k><c-o> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 
 " quick pairs
 imap <leader>' ''<ESC>i
@@ -97,6 +102,10 @@ imap <leader>[ []<ESC>i
 " enable using ctrl-numpad+ for incrementing since ctrl-a is remapped to
 " select all on Windows.
 noremap <C-kPlus> <C-A>
+
+" center after search
+nmap n nzz
+nmap N Nzz
 
 " replace tabs with 4 spaces
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
