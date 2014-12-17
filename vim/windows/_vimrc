@@ -66,9 +66,9 @@ let g:syntastic_mode_map = {"mode": "passive"}
 "let g:airline_right_sep = ''
 "let g:airline_right_alt_sep = ''
 
-" disable arrow navigation
-noremap <Up> <NOP>
-noremap <Down> <NOP>
+" disable arrow navigation and add line move on arrow up and down
+noremap <Up> ddkP
+noremap <Down> ddp
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 inoremap <Up> <NOP>
@@ -80,13 +80,15 @@ vnoremap <Down> <NOP>
 vnoremap <Left> <NOP>
 vnoremap <Right> <NOP>
 
-" map ctrl-arrow up/down to move current line.
-noremap <C-Up> ddkP
-noremap <C-Down> ddp
-
 " map bashing j and k in random order to ESC
 inoremap jk <esc>
 inoremap kj <esc>
+
+" map ctrl-tab to buffer cycling
+nmap <c-tab> :bn<CR>
+
+" map ctrl-x to buffer delete
+nmap <c-x> :bd<CR>
 
 " quick pairs
 imap <leader>' ''<ESC>i
