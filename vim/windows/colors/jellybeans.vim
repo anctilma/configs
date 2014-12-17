@@ -34,7 +34,7 @@
     <meta name="selected-link" value="repo_source" data-pjax-transient>
       <meta name="google-analytics" content="UA-3769691-2">
 
-    <meta content="collector.githubapp.com" name="octolytics-host" /><meta content="collector-cdn.github.com" name="octolytics-script-host" /><meta content="github" name="octolytics-app-id" /><meta content="18D4F665:6AF8:F685FD:548BBEB1" name="octolytics-dimension-request_id" />
+    <meta content="collector.githubapp.com" name="octolytics-host" /><meta content="collector-cdn.github.com" name="octolytics-script-host" /><meta content="github" name="octolytics-app-id" /><meta content="18D4F665:6AF8:F687BC:548BBEB3" name="octolytics-dimension-request_id" />
     
     <meta content="Rails, view, blob#show" name="analytics-event" />
 
@@ -44,7 +44,7 @@
 
 
     <meta content="authenticity_token" name="csrf-param" />
-<meta content="vjfMWUyhF52eDd+iBcnlc+l3UnLoBh0ZzVCHhGODxNngw0FmPFunzAldIA4JwWOcWUdPFN5bpt4O/DZwsTgrsw==" name="csrf-token" />
+<meta content="gKRiEn3Sh5O4BVbPTUb/04Px1uTv5F1ASP8YxVqFPetRtsc1IJaO0nLHCvipA8gltRNQDQTj8FBIGi30bfnTKA==" name="csrf-token" />
 
     <link href="https://assets-cdn.github.com/assets/github-c7f434a471766a748d862b4cb294526acd6901321d901cc64028f53af8490603.css" media="all" rel="stylesheet" type="text/css" />
     <link href="https://assets-cdn.github.com/assets/github2-761398b51b4a87682bde8f8b3479da06f8bde788a3fae6fb10b018a384748cf0.css" media="all" rel="stylesheet" type="text/css" />
@@ -2834,7 +2834,7 @@ Fixes #30. Also a reversal on #11.">More contrast for Cursor and MatchParen</a>
     </a>
 
     <ul class="site-footer-links">
-      <li>&copy; 2014 <span title="0.03356s from github-fe129-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
+      <li>&copy; 2014 <span title="0.03003s from github-fe119-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
         <li><a href="/site/terms">Terms</a></li>
         <li><a href="/site/privacy">Privacy</a></li>
         <li><a href="/security">Security</a></li>

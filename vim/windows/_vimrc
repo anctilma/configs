@@ -50,8 +50,8 @@ set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 " show only the file name
 let g:airline#extensions#tabline#fnamemod = ':t'
-" set wombat theme for airline
-let g:airline_theme = 'wombat'
+" set jellybeans theme for airline
+let g:airline_theme = 'jellybeans'
 " use the patched fonts
 let g:airline_powerline_fonts = 1
 " disable whitespace detection
@@ -113,8 +113,8 @@ set relativenumber
 " show whitespaces when calling set list
 set listchars=tab:>\ ,eol:¬,extends:>,precedes:<
 
-" use the wombat color scheme
-colorscheme wombat
+" use the jellybeans color scheme
+colorscheme jellybeans
 
 " don't create the ~filename files
 set nobackup 
