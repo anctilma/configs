@@ -165,10 +165,10 @@ if has('gui_running')
   colorscheme jellybeans
   set guifont=Consolas\ 12
 else
-  colorscheme jellybeans
   set term=xterm-256color
   set t_ut= "disable Background Color Erase (BCE)
   set t_Co=256
+  colorscheme jellybeans
 endif
 
 " disable startup screen
