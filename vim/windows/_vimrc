@@ -84,11 +84,14 @@ vnoremap <Right> <NOP>
 inoremap jk <esc>
 inoremap kj <esc>
 
-" map ctrl-tab to buffer cycling
+" map ctrl-tab to buffer next
 nmap <c-tab> :bn<CR>
 
 " map ctrl-x to buffer delete
 nmap <c-x> :bd<CR>
+
+" map Ctrl-K Ctrl-O to toggle .h/.cpp file (same as Visual Studio)
+ map <c-k><c-o> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 
 " quick pairs
 imap <leader>' ''<ESC>i
@@ -99,6 +102,10 @@ imap <leader>[ []<ESC>i
 " enable using ctrl-numpad+ for incrementing since ctrl-a is remapped to
 " select all on Windows.
 noremap <C-kPlus> <C-A>
+
+" center after search
+nmap n nzz
+nmap N Nzz
 
 " replace tabs with 4 spaces
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
