@@ -25,6 +25,7 @@ Plugin 'tpope/vim-obsession'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-vinegar'
+Plugin 'tpope/vim-dispatch'
 Plugin 'scrooloose/syntastic'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'terryma/vim-multiple-cursors'
@@ -52,8 +53,8 @@ set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 " show only the file name
 let g:airline#extensions#tabline#fnamemod = ':t'
-" set wombat theme for airline
-let g:airline_theme = 'wombat'
+" set jellybeans theme for airline
+let g:airline_theme = 'jellybeans'
 " use the patched fonts
 let g:airline_powerline_fonts = 1
 " enablle support for timuxline
@@ -151,11 +152,11 @@ if has('gui_running')
   set guioptions-=T " remove tool bar
   "set guioptions-=m " remove menu bar
   set guioptions-=r " remove righ-hand scroll bar
-  " use the wombat color scheme
-  colorscheme wombat
+  " use the jellybeans color scheme
+  colorscheme jellybeans
   set guifont=Consolas\ 12
 else
-  colorscheme wombat256mod
+  colorscheme jellybeans
   set term=xterm-256color
   set t_ut= "disable Background Color Erase (BCE)
   set t_Co=256
