@@ -86,6 +86,7 @@ inoremap kj <esc>
 
 " map ctrl-tab to buffer next
 nmap <c-tab> :bn<CR>
+nmap <c-s-tab> :bp<CR>
 
 " map ctrl-x to buffer delete
 nmap <c-x> :bd<CR>
