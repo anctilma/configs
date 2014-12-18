@@ -43,7 +43,6 @@ nmap <silent> <F11> :AirlineToggleWhitespace<CR>:SyntasticToggleMode<CR>
 " change de default comment style to c++
 autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
 
-
 " You complete me configuration
 let g:ycm_show_diagnostics_ui = 0
 
@@ -100,9 +99,6 @@ vnoremap <Right> <Nop>
 " map bashing j and k in random order to ESC
 inoremap jk <esc>
 inoremap kj <esc>
-
-" map ctrl-tab to buffer next
-nmap <c-tab> :bn<CR>
 
 " map ctrl-x to buffer delete
 nmap <c-x> :bd<CR>
@@ -169,6 +165,13 @@ else
   set t_ut= "disable Background Color Erase (BCE)
   set t_Co=256
   colorscheme jellybeans
+  set timeout timeoutlen=1000 ttimeoutlen=100
+  set <F13>=[27;5;9~ " assign the key code sent by putty when tying ctrl-tab to the F13 key (this requires a patched version of putty)
+  set <F14>=[27;6;9~ " assign the key code sent by putty when tying ctrl-tab to the F14 key (this requires a patched version of putty)
+  " map ctrl-tab to next buffer
+  nmap <F13> :bn<CR>
+  " map ctrl-shift-tab to previous buffer
+  nmap <F14> :bp<CR>
 endif
 
 " disable startup screen
