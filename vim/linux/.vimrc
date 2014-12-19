@@ -38,7 +38,7 @@ filetype on
 nmap <silent> <F12> :NERDTreeToggle<CR>
 
 " map F11 to toggle whitespace detection
-nmap <silent> <F11> :AirlineToggleWhitespace<CR>:SyntasticToggleMode<CR>
+nmap <silent> <F10> :AirlineToggleWhitespace<CR>:SyntasticToggleMode<CR>
 
 " change de default comment style to c++
 autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
@@ -159,7 +159,10 @@ if has('gui_running')
   set guioptions-=r " remove righ-hand scroll bar
   " use the jellybeans color scheme
   colorscheme jellybeans
-  set guifont=Consolas\ 12
+  set guifont=Inconsolata\ for\ Powerline\ Medium\ 13
+  set linespace=0
+  nmap <c-tab> :bn<CR>
+  nmap <c-s-tab> :bp<CR>
 else
   set term=xterm-256color
   set t_ut= "disable Background Color Erase (BCE)
@@ -167,7 +170,7 @@ else
   colorscheme jellybeans
   set timeout timeoutlen=1000 ttimeoutlen=100
   set <F13>=[27;5;9~ " assign the key code sent by putty when tying ctrl-tab to the F13 key (this requires a patched version of putty)
-  set <F14>=[27;6;9~ " assign the key code sent by putty when tying ctrl-tab to the F14 key (this requires a patched version of putty)
+  set <F14>=[27;6;9~ " assign the key code sent by putty when tying ctrl-shift-tab to the F14 key (this requires a patched version of putty)
   " map ctrl-tab to next buffer
   nmap <F13> :bn<CR>
   " map ctrl-shift-tab to previous buffer
