@@ -5,20 +5,16 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#begin()
 
-" let Vundle manage Vundle
+" let vundle manage vundle
 " required! 
 Plugin 'gmarik/vundle'
 
-" My bundles here:
+" my bundles here:
 "Plugin 'Valloric/YouCompleteMe'
 Plugin 'bling/vim-airline'
 Plugin 'edkolev/tmuxline.vim'
-Plugin 'kien/ctrlp.vim'                                      
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
+Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-obsession'
@@ -27,11 +23,20 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-dispatch'
 Plugin 'scrooloose/syntastic'
-Plugin 'Lokaltog/vim-easymotion'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'godlygeek/tabular'
+"Plugin 'Shougo/unite.vim'
+
+" Bundles for snippets support.
+"Plugin 'SirVer/ultisnips'
+Plugin 'tomtom/tlib_vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+
 call vundle#end()
 filetype plugin indent on    " required
-
 filetype on
 
 " map F12 to toggle NERDTree
