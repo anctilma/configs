@@ -34,6 +34,7 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
+Plugin 'alvan/vim-closetag'
 
 call vundle#end()
 filetype plugin indent on    " required
@@ -47,6 +48,9 @@ nmap <silent> <F10> :AirlineToggleWhitespace<CR>:SyntasticToggleMode<CR>
 
 " change de default comment style to c++
 autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
+
+" enable closetag for xml,html,htm,xhtml and ndb files.
+let g:closetag_filenames = "*.xml,*.html,*.htm,*.xhtml,*.ndb,*.2db,*.config"
 
 " You complete me configuration
 let g:ycm_show_diagnostics_ui = 0
@@ -111,6 +115,10 @@ nmap <c-x> :bd<CR>
 " map Ctrl-K Ctrl-O to toggle .h/.cpp file (same as Visual Studio)
  map <c-k><c-o> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 
+" ctrl-p configuration
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_map = '<leader>f'
+
 " quick pairs
 imap <leader>' ''<ESC>i
 imap <leader>" ""<ESC>i
@@ -118,8 +126,8 @@ imap <leader>( ()<ESC>i
 imap <leader>[ []<ESC>i
 
 " center after search
-nmap n nzz
-nmap N Nzz
+"nmap n nzz
+"nmap N Nzz
 
 " replace tabs with 4 spaces
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
@@ -143,7 +151,7 @@ set nobackup
 set nohlsearch
 
 " turn on virtual edit so we can navigate beyond the valid text.
-set virtualedit=all
+"set virtualedit=all
 
 " turn on the wildmenu
 set wildmenu
