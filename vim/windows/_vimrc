@@ -27,6 +27,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'godlygeek/tabular'
+Plugin 'mileszs/ack.vim'
 "Plugin 'Shougo/unite.vim'
 
 " Bundles for snippets support.
