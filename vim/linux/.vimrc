@@ -1,45 +1,37 @@
 set nocompatible
-filetype off
 
-" enable vundle
-set rtp+=~/.vim/bundle/vundle/
-call vundle#begin()
+" my pluggins here:
+call plug#begin('~/.vim/plugged')
 
-" let vundle manage vundle
-" required! 
-Plugin 'gmarik/vundle'
+Plug 'bling/vim-airline'
+Plug 'edkolev/tmuxline.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-dispatch'
+Plug 'scrooloose/syntastic'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'terryma/vim-expand-region'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'godlygeek/tabular'
+Plug 'mileszs/ack.vim'
 
-" my bundles here:
-"Plugin 'Valloric/YouCompleteMe'
-Plugin 'bling/vim-airline'
-Plugin 'edkolev/tmuxline.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-obsession'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-vinegar'
-Plugin 'tpope/vim-dispatch'
-Plugin 'scrooloose/syntastic'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'godlygeek/tabular'
-Plugin 'mileszs/ack.vim'
-"Plugin 'Shougo/unite.vim'
+" Plugins for snippets support.
+Plug 'SirVer/ultisnips'
+Plug 'tomtom/tlib_vim'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+Plug 'alvan/vim-closetag'
 
-" Bundles for snippets support.
-"Plugin 'SirVer/ultisnips'
-Plugin 'tomtom/tlib_vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-Plugin 'alvan/vim-closetag'
+" On demand plugins
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 
-call vundle#end()
-filetype plugin indent on    " required
-filetype on
+call plug#end()
 
 " map F12 to toggle NERDTree
 nmap <silent> <F12> :NERDTreeToggle<CR>
@@ -116,9 +108,15 @@ nmap <c-x> :bd<CR>
 " map Ctrl-K Ctrl-O to toggle .h/.cpp file (same as Visual Studio)
  map <c-k><c-o> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 
+" map leader key to comma
+let mapleader = ","
+
 " ctrl-p configuration
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_map = '<leader>f'
+
+" shortcut for remvoving trailing whitespaces
+nnoremap <Leader>rtw :%s/\s\+$//e<CR>
 
 " quick pairs
 imap <leader>' ''<ESC>i
@@ -140,13 +138,13 @@ set cindent
 set number
 
 " enable relative line numbers
-set relativenumber 
+set relativenumber
 
 " show whitespaces when calling set list
 set listchars=tab:>\ ,eol:¬,extends:>,precedes:<
 
 " don't create the ~filename files
-set nobackup 
+set nobackup
 
 " turn off highlighted search by default, turn on only when needed.
 set nohlsearch
@@ -162,9 +160,6 @@ set nowrap
 
 " enable cursorline
 set cul
-
-" map leader key to comma
-let mapleader = ","
 
 " gui only options
 if has('gui_running')
