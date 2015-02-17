@@ -28,6 +28,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'terryma/vim-expand-region'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'godlygeek/tabular'
+Plugin 'mileszs/ack.vim'
 "Plugin 'Shougo/unite.vim'
 
 " Bundles for snippets support.
