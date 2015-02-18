@@ -19,6 +19,7 @@ Plug 'terryma/vim-expand-region'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'godlygeek/tabular'
 Plug 'mileszs/ack.vim'
+Plug 'majutsushi/tagbar'
 
 " Plugins for snippets support.
 Plug 'SirVer/ultisnips'
@@ -36,8 +37,14 @@ call plug#end()
 " map F12 to toggle NERDTree
 nmap <silent> <F12> :NERDTreeToggle<CR>
 
-" map F11 to toggle whitespace detection
+" map F10 to toggle whitespace detection
 nmap <silent> <F10> :AirlineToggleWhitespace<CR>:SyntasticToggleMode<CR>
+
+" map F9 to toggle tag bar
+nmap <silent> <F9> :TagbarToggle<CR>
+
+" otherwise, use cscope for navigation
+set cscopetag
 
 " change de default comment style to c++
 autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
