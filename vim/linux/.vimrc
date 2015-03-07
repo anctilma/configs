@@ -20,6 +20,9 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'godlygeek/tabular'
 Plug 'mileszs/ack.vim'
 Plug 'majutsushi/tagbar'
+Plug 'ervandew/supertab'
+"Plug 'sjl/gundo.vim'
+"Plug 'airblade/vim-gitgutter'
 
 " Plugins for snippets support.
 Plug 'SirVer/ultisnips'
@@ -46,8 +49,8 @@ nmap <silent> <F9> :TagbarToggle<CR>
 " otherwise, use cscope for navigation
 set cscopetag
 
-" change de default comment style to c++
-autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
+" change de default comment style to c++ for c++ files
+autocmd FileType cpp,cs setlocal commentstring=//\ %s
 
 " enable closetag for xml,html,htm,xhtml and ndb files.
 let g:closetag_filenames = "*.xml,*.html,*.htm,*.xhtml,*.ndb,*.2db,*.config"
@@ -96,14 +99,6 @@ noremap <Up> ddkP
 noremap <Down> ddp
 noremap <Left> <Nop>
 noremap <Right> <Nop>
-inoremap <Up> <Nop>
-inoremap <Down> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
-vnoremap <Up> <Nop>
-vnoremap <Down> <Nop>
-vnoremap <Left> <Nop>
-vnoremap <Right> <Nop>
 
 " map bashing j and k in random order to ESC
 inoremap jk <esc>
@@ -156,6 +151,14 @@ set nobackup
 " turn off highlighted search by default, turn on only when needed.
 set nohlsearch
 
+" turn on incremental search (search as character are entered).
+set incsearch
+
+" redraw only when we need to.
+set lazyredraw
+
+" briefly hightligh matching [{()}]
+
 " turn on virtual edit so we can navigate beyond the valid text.
 "set virtualedit=all
 
@@ -167,6 +170,23 @@ set nowrap
 
 " enable cursorline
 set cul
+
+" reasonable folding
+set foldenable
+set foldlevelstart=10
+set foldnestmax=10
+nnoremap <space> za
+"set foldmethod=indent
+set foldmethod=marker
+
+" map leader key to comma
+let mapleader = ","
+
+" highlight last inserted text
+nnoremap gV `[v`]
+
+" toggle gundo
+"nnoremap <leader>u :GundoToggle<CR>
 
 " gui only options
 if has('gui_running')
