@@ -117,9 +117,6 @@ let mapleader = ","
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_map = '<leader>f'
 
-" shortcut for remvoving trailing whitespaces
-nnoremap <Leader>rtw :%s/\s\+$//e<CR>
-
 " quick pairs
 imap <leader>' ''<ESC>i
 imap <leader>" ""<ESC>i
