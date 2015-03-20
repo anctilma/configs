@@ -23,6 +23,9 @@ Plug 'godlygeek/tabular'
 Plug 'mileszs/ack.vim'
 Plug 'majutsushi/tagbar'
 Plug 'ervandew/supertab'
+Plug 'osyo-manga/vim-over'
+Plug 'Shougo/vimshell.vim'
+Plug 'Shougo/vimproc.vim'
 "Plug 'sjl/gundo.vim'
 "Plug 'airblade/vim-gitgutter'
 
@@ -144,8 +147,8 @@ set nohlsearch
 " turn on incremental search (search as character are entered).
 set incsearch
 
-" redraw only when we need to.
-set lazyredraw
+" redraw only when we need to (does not work well with vimshell)
+"set lazyredraw
 
 " briefly hightligh matching [{()}]
 
