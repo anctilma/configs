@@ -3,9 +3,11 @@ set nocompatible
 " my pluggins here:
 call plug#begin('~/.vim/plugged')
 
+Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
 Plug 'edkolev/tmuxline.vim'
 Plug 'kien/ctrlp.vim'
+Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-obsession'
@@ -18,9 +20,11 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'terryma/vim-expand-region'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'godlygeek/tabular'
-Plug 'mileszs/ack.vim'
+Plug 'rking/ag.vim'
 Plug 'majutsushi/tagbar'
 Plug 'ervandew/supertab'
+Plug 'Shougo/vimproc.vim'
+Plug 'Shougo/vimshell.vim'
 "Plug 'sjl/gundo.vim'
 "Plug 'airblade/vim-gitgutter'
 
@@ -32,8 +36,8 @@ Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'alvan/vim-closetag'
 
-" On demand plugins
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+" On demand plugins example.
+"Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 
 call plug#end()
 
@@ -82,9 +86,6 @@ let g:tmuxline_powerline_separators = 1
 "    \ 'right_alt' : '<',
 "    \ 'space' : ' '}
 
-" ctrl-p configuration
-let g:ctrlp_working_path_mode = 0
-
 " disable syntastic active check by default
 let g:syntastic_mode_map = {"mode": "passive"}
 
@@ -105,7 +106,7 @@ inoremap jk <esc>
 inoremap kj <esc>
 
 " map ctrl-x to buffer delete
-nmap <c-x> :bd<CR>
+nnoremap <c-x> :bd<CR>
 
 " map Ctrl-K Ctrl-O to toggle .h/.cpp file (same as Visual Studio)
  map <c-k><c-o> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
@@ -116,6 +117,12 @@ let mapleader = ","
 " ctrl-p configuration
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_map = '<leader>f'
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+      \ --ignore .git
+      \ --ignore .svn
+      \ --ignore "**/*.pyc"
+      \ -g ""'
 
 " quick pairs
 imap <leader>' ''<ESC>i
