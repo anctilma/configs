@@ -6,6 +6,7 @@ behave mswin
 " my plugins here:
 call plug#begin('~/vimfiles/plugged')
 
+Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-surround'
@@ -26,7 +27,6 @@ Plug 'ervandew/supertab'
 Plug 'osyo-manga/vim-over'
 Plug 'Shougo/vimshell.vim'
 Plug 'Shougo/vimproc.vim'
-
 Plug 'sjl/gundo.vim'
 "Plug 'airblade/vim-gitgutter'
 
@@ -39,7 +39,7 @@ Plug 'honza/vim-snippets'
 Plug 'alvan/vim-closetag'
 
 " on demand plugins
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+"Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 
 call plug#end()
 
