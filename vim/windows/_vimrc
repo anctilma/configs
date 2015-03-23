@@ -26,30 +26,34 @@ Plug 'ervandew/supertab'
 Plug 'osyo-manga/vim-over'
 Plug 'Shougo/vimshell.vim'
 Plug 'Shougo/vimproc.vim'
-"Plug 'sjl/gundo.vim'
+
+Plug 'sjl/gundo.vim'
 "Plug 'airblade/vim-gitgutter'
 
-" Plugins for snippets support.
-"Plug 'SirVer/ultisnips'
+" Plugins for snippets support
+Plug 'sirver/ultisnips'
 Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'alvan/vim-closetag'
 
-" On demand plugins
+" on demand plugins
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 
 call plug#end()
 
 " map F12 to toggle NERDTree
-nmap <silent> <F12> :NERDTreeToggle<CR>
+noremap <silent> <F12> :NERDTreeToggle<CR>
 
 " map F10 to toggle whitespace detection
-nmap <silent> <F10> :AirlineToggleWhitespace<CR>:SyntasticToggleMode<CR>
+noremap <silent> <F10> :AirlineToggleWhitespace<CR>:SyntasticToggleMode<CR>
 
 " map F9 to toggle tag bar
-nmap <silent> <F9> :TagbarToggle<CR>
+noremap <silent> <F9> :TagbarToggle<CR>
+
+" map F% to toggle gundo
+nnoremap <F5> :GundoToggle<CR>
 
 " otherwise, use cscope for navigation
 set cscopetag
@@ -113,7 +117,7 @@ imap <leader>( ()<ESC>i
 imap <leader>[ []<ESC>i
 
 " enable using ctrl-numpad+ for incrementing since ctrl-a is remapped to
-" select all on Windows.
+" select all on Windows
 noremap <C-kPlus> <C-A>
 
 " center after search
@@ -144,15 +148,15 @@ set nobackup
 " turn off highlighted search by default, turn on only when needed.
 set nohlsearch
 
-" turn on incremental search (search as character are entered).
+" turn on incremental search (search as character are entered)
 set incsearch
 
-" redraw only when we need to (does not work well with vimshell)
-"set lazyredraw
+" redraw only when we need to
+set lazyredraw
 
 " briefly hightligh matching [{()}]
 
-" turn on virtual edit so we can navigate beyond the valid text.
+" turn on virtual edit so we can navigate beyond the valid text
 "set virtualedit=all
 
 " turn on the wildmenu
@@ -177,9 +181,6 @@ let mapleader = ","
 
 " highlight last inserted text
 nnoremap gV `[v`]
-
-" toggle gundo
-"nnoremap <leader>u :GundoToggle<CR>
 
 " gui only options
 if has('gui_running')
