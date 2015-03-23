@@ -25,7 +25,7 @@ Plug 'majutsushi/tagbar'
 Plug 'ervandew/supertab'
 Plug 'Shougo/vimproc.vim'
 Plug 'Shougo/vimshell.vim'
-"Plug 'sjl/gundo.vim'
+Plug 'sjl/gundo.vim'
 "Plug 'airblade/vim-gitgutter'
 
 " Plugins for snippets support.
@@ -49,6 +49,9 @@ nmap <silent> <F10> :AirlineToggleWhitespace<CR>:SyntasticToggleMode<CR>
 
 " map F9 to toggle tag bar
 nmap <silent> <F9> :TagbarToggle<CR>
+
+" map F% to toggle gundo
+nnoremap <F5> :GundoToggle<CR>
 
 " otherwise, use cscope for navigation
 set cscopetag
@@ -188,9 +191,6 @@ let mapleader = ","
 
 " highlight last inserted text
 nnoremap gV `[v`]
-
-" toggle gundo
-"nnoremap <leader>u :GundoToggle<CR>
 
 " gui only options
 if has('gui_running')
