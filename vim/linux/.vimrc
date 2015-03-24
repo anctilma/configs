@@ -23,8 +23,9 @@ Plug 'godlygeek/tabular'
 Plug 'rking/ag.vim'
 Plug 'majutsushi/tagbar'
 Plug 'ervandew/supertab'
-Plug 'Shougo/vimproc.vim'
+Plug 'osyo-manga/vim-over'
 Plug 'Shougo/vimshell.vim'
+Plug 'Shougo/vimproc.vim'
 Plug 'sjl/gundo.vim'
 "Plug 'airblade/vim-gitgutter'
 
@@ -36,19 +37,19 @@ Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'alvan/vim-closetag'
 
-" On demand plugins example.
+" on demand plugins example.
 "Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 
 call plug#end()
 
 " map F12 to toggle NERDTree
-nmap <silent> <F12> :NERDTreeToggle<CR>
+noremap <silent> <F12> :NERDTreeToggle<CR>
 
 " map F10 to toggle whitespace detection
-nmap <silent> <F10> :AirlineToggleWhitespace<CR>:SyntasticToggleMode<CR>
+noremap <silent> <F10> :AirlineToggleWhitespace<CR>:SyntasticToggleMode<CR>
 
 " map F9 to toggle tag bar
-nmap <silent> <F9> :TagbarToggle<CR>
+noremap <silent> <F9> :TagbarToggle<CR>
 
 " map F% to toggle gundo
 nnoremap <F5> :GundoToggle<CR>
@@ -60,7 +61,7 @@ set cscopetag
 autocmd FileType cpp,cs setlocal commentstring=//\ %s
 
 " enable closetag for xml,html,htm,xhtml and ndb files.
-let g:closetag_filenames = "*.xml,*.html,*.htm,*.xhtml,*.ndb,*.2db,*.config"
+let g:closetag_filenames = "*.xml,*.html,*.htm,*.xhtml,*.ndb,*.2db,*.config,*.rss"
 
 " You complete me configuration
 let g:ycm_show_diagnostics_ui = 0
@@ -114,18 +115,15 @@ nnoremap <c-x> :bd<CR>
 " map Ctrl-K Ctrl-O to toggle .h/.cpp file (same as Visual Studio)
  map <c-k><c-o> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 
-" map leader key to comma
-let mapleader = ","
-
 " ctrl-p configuration
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_map = '<leader>f'
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-      \ --ignore .git
-      \ --ignore .svn
-      \ --ignore "**/*.pyc"
-      \ -g ""'
+" let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+"       \ --ignore .git
+"       \ --ignore .svn
+"       \ --ignore "**/*.pyc"
+"       \ -g ""'
 
 " quick pairs
 imap <leader>' ''<ESC>i
@@ -137,11 +135,33 @@ imap <leader>[ []<ESC>i
 "nmap n nzz
 "nmap N Nzz
 
+
+" show whitespaces when calling set list
+set listchars=tab:>\ ,eol:¬,extends:>,precedes:<
+
+" set tab and indent configuration based on file type
+if has("autocmd")
+    "enable file type detection
+    filetype on
+
+    "syntax of makefile is fussy over tabs vs spaces
+    autocmd FileType make       setlocal ts=8 sts=8 sw=8 noexpandtab
+    autocmd FileType html       setlocal ts=4 sts=4 sw=4 expandtab
+    autocmd FileType css        setlocal ts=4 sts=4 sw=4 expandtab
+    autocmd FileType xml        setlocal ts=4 sts=4 sw=4 noexpandtab
+    autocmd FileType c          setlocal ts=4 sts=4 sw=4 expandtab
+    autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 expandtab
+    autocmd FileType python     setlocal ts=4 sts=4 sw=4 expandtab
+    autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
+    autocmd FileType vim        setlocal ts=4 sts=4 sw=4 expandtab
+
+    " Treat the files with the following extentions as xml
+    autocmd BufNewFile,BufRead *.rss,*.ndb,*.2db,*.config setfiletype xml 
+endif
+
 " replace tabs with 4 spaces
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
-" enable C language style indentation
-set cindent
 
 " enable line numbers
 set number
@@ -149,24 +169,22 @@ set number
 " enable relative line numbers
 set relativenumber
 
-" show whitespaces when calling set list
-set listchars=tab:>\ ,eol:¬,extends:>,precedes:<
-
 " don't create the ~filename files
 set nobackup
 
 " turn off highlighted search by default, turn on only when needed.
 set nohlsearch
 
-" turn on incremental search (search as character are entered).
+" turn on incremental search (search as character are entered)
 set incsearch
 
-" redraw only when we need to.
+" redraw only when we need to
 set lazyredraw
 
 " briefly hightligh matching [{()}]
+set showmatch
 
-" turn on virtual edit so we can navigate beyond the valid text.
+" turn on virtual edit so we can navigate beyond the valid text
 "set virtualedit=all
 
 " turn on the wildmenu
