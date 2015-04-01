@@ -1,7 +1,7 @@
 set nocompatible
-source $VIMRUNTIME/vimrc_example.vim
-source $VIMRUNTIME/mswin.vim
-behave mswin
+" source $VIMRUNTIME/vimrc_example.vim
+" source $VIMRUNTIME/mswin.vim
+" behave mswin
 
 " my plugins here:
 call plug#begin('~/vimfiles/plugged')
@@ -22,7 +22,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'terryma/vim-expand-region'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'godlygeek/tabular'
-Plug 'mileszs/ack.vim'
+Plug 'rking/ag.vim'
 Plug 'majutsushi/tagbar'
 Plug 'ervandew/supertab'
 Plug 'osyo-manga/vim-over'
@@ -53,8 +53,12 @@ noremap <silent> <F10> :AirlineToggleWhitespace<CR>:SyntasticToggleMode<CR>
 " map F9 to toggle tag bar
 noremap <silent> <F9> :TagbarToggle<CR>
 
-" map F% to toggle gundo
-nnoremap <F5> :GundoToggle<CR>
+" map F5 to toggle gundo
+nnoremap <silent> <F5> :GundoToggle<CR>
+
+" map F4 and Shift-F4 to move up and down the quicklist
+nnoremap <silent> <F4> :cn<CR>
+nnoremap <silent> <S-F4> :cp<CR>
 
 " otherwise, use cscope for navigation
 set cscopetag
