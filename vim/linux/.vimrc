@@ -119,11 +119,13 @@ nnoremap <c-x> :bd<CR>
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_map = '<leader>f'
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-" let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-"       \ --ignore .git
-"       \ --ignore .svn
-"       \ --ignore "**/*.pyc"
-"       \ -g ""'
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+      \ --ignore .git
+      \ --ignore .svn
+      \ --ignore tags
+      \ --ignore cscope.out
+      \ --ignore "**/*.pyc"
+      \ -g ""'
 
 " quick pairs
 imap <leader>' ''<ESC>i
@@ -221,6 +223,8 @@ if has('gui_running')
   set linespace=0
   nmap <c-tab> :bn<CR>
   nmap <c-s-tab> :bp<CR>
+  nmap <F4> :cn<CR>
+  nmap <S-F4> :cp<CR>
 else
   set term=xterm-256color
   set t_ut= "disable Background Color Erase (BCE)
@@ -233,6 +237,10 @@ else
   nmap <F13> :bn<CR>
   " map ctrl-shift-tab to previous buffer
   nmap <F14> :bp<CR>
+
+  nmap <F4> :cn<CR>
+  set <F15>=O1;2S
+  nmap <F15> :cp<CR>
 endif
 
 " disable startup screen
