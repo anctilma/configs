@@ -99,11 +99,13 @@ let g:syntastic_mode_map = {"mode": "passive"}
 "let g:airline_right_sep = ''
 "let g:airline_right_alt_sep = ''
 
-" disable arrow navigation and add line move on arrow up and down
-noremap <Up> ddkP
-noremap <Down> ddp
-noremap <Left> <Nop>
-noremap <Right> <Nop>
+" disable arrow navigation and add line or block of line move on arrow up and down
+nnoremap <Down> :m .+1<CR>==
+nnoremap <Up> :m .-2<CR>==
+inoremap <Down> <Esc>:m .+1<CR>==gi
+inoremap <Up> <Esc>:m .-2<CR>==gi
+vnoremap <Down> :m '>+1<CR>gv=gv
+vnoremap <Up> :m '<-2<CR>gv=gv
 
 " map bashing j and k in random order to ESC
 inoremap jk <esc>
@@ -221,8 +223,14 @@ if has('gui_running')
   colorscheme jellybeans
   set guifont=Inconsolata\ for\ Powerline\ Medium\ 13
   set linespace=0
+  
+  " Map Ctrl-Tab and Ctrl-Shift-Tab to next and previous buffer (similar to 
+  " Visual Studio
   nmap <c-tab> :bn<CR>
   nmap <c-s-tab> :bp<CR>
+  
+  " map F4 and Shift-F4 to move up and down the quicklist, similar to Visual
+  " Studio.
   nmap <F4> :cn<CR>
   nmap <S-F4> :cp<CR>
 else
@@ -230,6 +238,9 @@ else
   set t_ut= "disable Background Color Erase (BCE)
   set t_Co=256
   colorscheme jellybeans
+
+  " Map Ctrl-Tab and Ctrl-Shift-Tab to next and previous buffer (similar to 
+  " Visual Studio
   set timeout timeoutlen=1000 ttimeoutlen=100
   set <F13>=[27;5;9~ " assign the key code sent by putty when tying ctrl-tab to the F13 key (this requires a patched version of putty)
   set <F14>=[27;6;9~ " assign the key code sent by putty when tying ctrl-shift-tab to the F14 key (this requires a patched version of putty)
@@ -238,6 +249,8 @@ else
   " map ctrl-shift-tab to previous buffer
   nmap <F14> :bp<CR>
 
+  " map F4 and Shift-F4 to move up and down the quicklist, similar to Visual
+  " Studio.
   nmap <F4> :cn<CR>
   set <F15>=O1;2S
   nmap <F15> :cp<CR>
