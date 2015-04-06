@@ -19,6 +19,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-unimpaired'
 Plug 'scrooloose/syntastic'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'terryma/vim-expand-region'
@@ -56,10 +57,6 @@ noremap <silent> <F9> :TagbarToggle<CR>
 
 " map F5 to toggle gundo
 nnoremap <silent> <F5> :GundoToggle<CR>
-
-" map F4 and Shift-F4 to move up and down the quicklist
-nnoremap <silent> <F4> :cn<CR>
-nnoremap <silent> <S-F4> :cp<CR>
 
 " otherwise, use cscope for navigation
 set cscopetag

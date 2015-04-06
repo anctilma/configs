@@ -16,6 +16,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-unimpaired'
 Plug 'scrooloose/syntastic'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'terryma/vim-expand-region'
@@ -228,11 +229,6 @@ if has('gui_running')
   " Visual Studio
   nmap <c-tab> :bn<CR>
   nmap <c-s-tab> :bp<CR>
-  
-  " map F4 and Shift-F4 to move up and down the quicklist, similar to Visual
-  " Studio.
-  nmap <F4> :cn<CR>
-  nmap <S-F4> :cp<CR>
 else
   set term=xterm-256color
   set t_ut= "disable Background Color Erase (BCE)
@@ -248,12 +244,6 @@ else
   nmap <F13> :bn<CR>
   " map ctrl-shift-tab to previous buffer
   nmap <F14> :bp<CR>
-
-  " map F4 and Shift-F4 to move up and down the quicklist, similar to Visual
-  " Studio.
-  nmap <F4> :cn<CR>
-  set <F15>=O1;2S
-  nmap <F15> :cp<CR>
 endif
 
 " disable startup screen
