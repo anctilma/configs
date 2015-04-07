@@ -118,11 +118,13 @@ map <c-k><c-o> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_map = '<leader>f'
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-" let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-"       \ --ignore .git
-"       \ --ignore .svn
-"       \ --ignore "**/*.pyc"
-"       \ -g ""'
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+      \ --ignore .git
+      \ --ignore .svn
+      \ --ignore tags
+      \ --ignore cscope.out
+      \ --ignore "**/*.pyc"
+      \ -g ""'
 
 " quick pairs
 imap <leader>' ''<ESC>i

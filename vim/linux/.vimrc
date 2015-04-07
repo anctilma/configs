@@ -52,8 +52,8 @@ noremap <silent> <F10> :AirlineToggleWhitespace<CR>:SyntasticToggleMode<CR>
 " map F9 to toggle tag bar
 noremap <silent> <F9> :TagbarToggle<CR>
 
-" map F% to toggle gundo
-nnoremap <F5> :GundoToggle<CR>
+" map F5 to toggle gundo
+nnoremap <silent> <F5> :GundoToggle<CR>
 
 " otherwise, use cscope for navigation
 set cscopetag
@@ -140,6 +140,8 @@ imap <leader>[ []<ESC>i
 "nmap n nzz
 "nmap N Nzz
 
+" map leader-w to ctrl-w
+nnoremap <leader>w <c-w>
 
 " show whitespaces when calling set list
 set listchars=tab:>\ ,eol:¬,extends:>,precedes:<
@@ -161,7 +163,7 @@ if has("autocmd")
     autocmd FileType vim        setlocal ts=4 sts=4 sw=4 expandtab
 
     " Treat the files with the following extentions as xml
-    autocmd BufNewFile,BufRead *.rss,*.ndb,*.2db,*.config setfiletype xml 
+    autocmd BufNewFile,BufRead *.rss,*.ndb,*.2db,*.config setfiletype xml
 endif
 
 " replace tabs with 4 spaces
@@ -224,6 +226,8 @@ if has('gui_running')
   colorscheme jellybeans
   set guifont=Inconsolata\ for\ Powerline\ Medium\ 13
   set linespace=0
+  set lines=40
+  set columns=170
   
   " Map Ctrl-Tab and Ctrl-Shift-Tab to next and previous buffer (similar to 
   " Visual Studio
