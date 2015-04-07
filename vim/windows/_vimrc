@@ -17,7 +17,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-dispatch'
+
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-unimpaired'
 Plug 'scrooloose/syntastic'
@@ -161,7 +161,7 @@ if has("autocmd")
     autocmd FileType vim        setlocal ts=4 sts=4 sw=4 expandtab
 
     " Treat the files with the following extentions as xml
-    autocmd BufNewFile,BufRead *.rss,*.ndb,*.2db,*.config setfiletype xml 
+    autocmd BufNewFile,BufRead *.rss,*.ndb,*.2db,*.config setfiletype xml
 endif
 
 " replace tabs with 4 spaces
