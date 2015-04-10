@@ -28,6 +28,7 @@ Plug 'ervandew/supertab'
 Plug 'Shougo/vimshell.vim'
 Plug 'Shougo/vimproc.vim'
 Plug 'sjl/gundo.vim'
+Plug 'will133/vim-dirdiff'
 "Plug 'airblade/vim-gitgutter'
 
 " Plugins for snippets support.
@@ -42,6 +43,9 @@ Plug 'alvan/vim-closetag'
 "Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 
 call plug#end()
+
+" map leader key to comma
+let mapleader = ","
 
 " map F12 to toggle NERDTree
 noremap <silent> <F12> :NERDTreeToggle<CR>
@@ -210,9 +214,6 @@ set foldnestmax=10
 nnoremap <space> za
 "set foldmethod=indent
 set foldmethod=marker
-
-" map leader key to comma
-let mapleader = ","
 
 " highlight last inserted text
 nnoremap gV `[v`]

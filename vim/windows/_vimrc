@@ -31,6 +31,7 @@ Plug 'ervandew/supertab'
 Plug 'Shougo/vimshell.vim'
 Plug 'Shougo/vimproc.vim'
 Plug 'sjl/gundo.vim'
+Plug 'will133/vim-dirdiff'
 "Plug 'airblade/vim-gitgutter'
 
 " Plugins for snippets support
