@@ -47,6 +47,9 @@ Plug 'alvan/vim-closetag'
 
 call plug#end()
 
+" map leader key to comma
+let mapleader = ","
+
 " map F12 to toggle NERDTree
 noremap <silent> <F12> :NERDTreeToggle<CR>
 
@@ -214,9 +217,6 @@ set foldnestmax=10
 nnoremap <space> za
 "set foldmethod=indent
 set foldmethod=marker
-
-" map leader key to comma
-let mapleader = ","
 
 " highlight last inserted text
 nnoremap gV `[v`]
