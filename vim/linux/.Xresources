@@ -1,3 +1,142 @@
+!+DEST=$HOME/
+!+FNAME=.Xresources
+
+! this are Xresources to make xterm look good
+! put into ~/.Xresources
+! after changing contents, run xrdb -merge .Xresources
+
+
+#ifdef COLOR
+*customization:	-color
+#endif
+
+*faceName: Inconsolata for Powerline
+*faceSize: 13
+
+XTerm*reverseWrap:      true
+!XTerm*scrollTtyOutput:  false
+XTerm*scrollTtyOutput:  true
+XTerm*loginShell: true
+XTerm*foreground: gray90
+XTerm*background: black
+XTerm*cursorColor: rgb:00/80/00
+XTerm*borderColor: white
+XTerm*scrollColor: black
+XTerm*visualBell: false
+XTerm*saveLines: 5000
+
+xterm*iconPixmap:       /usr/share/pixmaps/xterm-terminal.png
+!xterm*iconMask:         /usr/share/pixmaps/gnome-gemvt-mask.png
+
+XTerm*iconName: terminal
+!Mwm*xterm*iconImage: /home/a/a1111aa/xterm.icon
+
+!! XTerm.VT100.allowSendEvents: True
+XTerm*allowSendEvents: True
+XTerm*sessionMgt: false
+XTerm*eightBitInput:  false
+XTerm*metaSendsEscape: true
+!XTerm*internalBorder:  10
+!XTerm*highlightSelection:  true
+!XTerm*VT100*colorBDMode:  on
+!XTerm*VT100*colorBD:  blue
+!XTerm.VT100.eightBitOutput:  true
+!XTerm.VT100.titeInhibit:  false
+
+! colors
+XTerm*color0: black
+XTerm*color1: red3
+XTerm*color2: green3
+XTerm*color3: yellow3
+XTerm*color4: DodgerBlue1
+XTerm*color5: magenta3
+XTerm*color6: cyan3
+XTerm*color7: gray90
+XTerm*color8: gray50
+XTerm*color9: red
+XTerm*color10: green
+XTerm*color11: yellow
+XTerm*color12: cyan2
+XTerm*color13: magenta
+XTerm*color14: cyan
+XTerm*color15: white
+XTerm*colorUL: yellow
+XTerm*colorBD: white
+
+!XTerm Profiles (idea from dag wieers)
+XTerm*rightScrollBar: true
+
+
+! UXTERM configurations
+
+! [0] black
+UXTerm*color0: #242424
+UXTerm*color8: #242424
+
+! [1] red
+UXTerm*color1: firebrick1
+UXTerm*color9: firebrick1
+
+! [2] green
+UXTerm*color2: palegreen
+UXTerm*color10: palegreen
+
+! [3] yellow
+UXTerm*color3: LightGoldenrod1
+UXTerm*color11: LightGoldenrod1
+
+! [4] blue
+UXTerm*color4: SteelBlue1
+UXTerm*color12: SteelBlue1
+
+! [5] magenta
+UXTerm*color5: violet
+UXTerm*color13: violet
+
+! [6] cyan
+UXTerm*color6: CadetBlue2
+UXTerm*color14: CadetBlue2
+
+! [7] white
+UXTerm*color7: white
+UXTerm*color15: white
+
+! make meta works as expected
+UXTerm*eightBitInput: false
+
+
+! http://blog.ssokolow.com/archives/2011/05/01/modernizing-xterms-paste/
+! {{{ Quick Reference
+!
+! Scrolling:
+! Scroll Wheel
+! Shift-PgUp/PgDn
+!
+! Copy/Paste:
+! Mouse-Select : Copy to PRIMARY
+! Shift + Mouse-Select: Copy to CLIPBOARD
+!
+! Middle-Click : Paste from PRIMARY
+! Shift + Middle-Click: Paste from CLIPBOARD
+!
+! Ctrl+Shift+V : Paste from CLIPBOARD
+! Ctrl+Alt+Shift+V : Paste from PRIMARY
+!
+! }}}
+
+! More Konsole/Yakuake-like keybindings:
+*VT100.Translations: #override \
+                    Shift <Key>Up: scroll-back(1) \n\
+                    Shift <Key>Down: scroll-forw(1) \n\
+                    ~Meta Shift Ctrl <Key>V: insert-selection(CLIPBOARD) \n\
+                     Meta Shift Ctrl <Key>V: insert-selection(PRIMARY) \n\
+                    ~Shift <Btn1Up>: select-end(PRIMARY, CUT_BUFFER0) \n\
+                     Shift <Btn1Up>: select-end(CLIPBOARD, CUT_BUFFER1) \n\
+                    ~Shift ~Ctrl ~Meta <Btn2Up>:insert-selection(PRIMARY, CUT_BUFFER0) \n\
+                     Shift ~Ctrl ~Meta <Btn2Up>:insert-selection(CLIPBOARD, CUT_BUFFER1)
+
+
+! send control+tab control+shift+tab for screen (changing tabs similar to firefox)
 *vt100.translations: #override \n\
-                Ctrl ~Shift <Key>Tab: string(0x1b) string("[27;5;9~") \n \
-                        Ctrl Shift <Key>Tab: string(0x1b) string("[27;6;9~") \n
+        Ctrl ~Shift <Key>Tab: string(0x1b) string("[27;5;9~") \n \
+        Ctrl Shift <Key>Tab: string(0x1b) string("[27;6;9~") \n
