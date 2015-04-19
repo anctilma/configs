@@ -32,7 +32,7 @@ Plug 'will133/vim-dirdiff'
 "Plug 'airblade/vim-gitgutter'
 
 " Plugins for snippets support.
-Plug 'SirVer/ultisnips'
+Plug 'sirver/ultisnips'
 Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'garbas/vim-snipmate'
@@ -104,13 +104,13 @@ let g:syntastic_mode_map = {"mode": "passive"}
 "let g:airline_right_sep = ''
 "let g:airline_right_alt_sep = ''
 
-" bubble text up and down with ctrl-up and down
-nnoremap <C-Down> :m .+1<CR>==
-nnoremap <C-Up> :m .-2<CR>==
-inoremap <C-Down> <Esc>:m .+1<CR>==gi
-inoremap <C-Up> <Esc>:m .-2<CR>==gi
-vnoremap <C-Down> :m '>+1<CR>gv=gv
-vnoremap <C-Up> :m '<-2<CR>gv=gv
+" bubble text up and down with ctrl-up and down (required unimpaired plugin)
+" Bubble single lines
+nmap <C-Up> [e
+nmap <C-Down> ]e
+" Bubble multiple lines
+vmap <C-Up> [egv
+vmap <C-Down> ]egv
 
 " map bashing j and k in random order to ESC
 inoremap jk <esc>
@@ -129,9 +129,9 @@ let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ --ignore .git
       \ --ignore .svn
+      \ --ignore "**/*.pyc"
       \ --ignore tags
       \ --ignore cscope.out
-      \ --ignore "**/*.pyc"
       \ -g ""'
 
 " quick pairs
