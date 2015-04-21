@@ -1,3 +1,9 @@
+global !p
+from datetime import date
+def get_year():
+	return date.today().year
+endglobal
+	
 snippet ///
 /// <summary>$1</summary>
 /// <param name="$4">$5</param>
@@ -8,3 +14,17 @@ endsnippet
 snippet <param
 <param name="$1">$2<param>
 endsnippet
+
+snippet //c
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) Neptec Design Group Limited, `!p snip.rv = get_year()` All rights reserved.
+//
+// System:       $1
+//
+// Filename:     `!p snip.rv = fn`
+////////////////////////////////////////////////////////////////////////////////
+$2
+endsnippet
+
+
+
