@@ -29,6 +29,7 @@ Plug 'Shougo/vimshell.vim'
 Plug 'Shougo/vimproc.vim'
 Plug 'sjl/gundo.vim'
 Plug 'will133/vim-dirdiff'
+Plug 'benmills/vimux'
 "Plug 'airblade/vim-gitgutter'
 
 " Plugins for snippets support.
