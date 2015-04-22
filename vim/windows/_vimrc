@@ -26,20 +26,24 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'godlygeek/tabular'
 Plug 'rking/ag.vim'
 Plug 'majutsushi/tagbar'
-Plug 'ervandew/supertab'
 Plug 'Shougo/vimshell.vim'
 Plug 'Shougo/vimproc.vim'
 Plug 'sjl/gundo.vim'
 Plug 'will133/vim-dirdiff'
+Plug 'osyo-manga/vim-over'
+Plug 'nelstrom/vim-qargs'
+Plug 'alvan/vim-closetag'
 "Plug 'airblade/vim-gitgutter'
 
-" Plugins for snippets support.
+" Plugins for UltiSnips and SuperTab support.
 Plug 'sirver/ultisnips'
 Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'garbas/vim-snipmate'
+Plug 'ervandew/supertab'
+
+" extra snippet 
 Plug 'honza/vim-snippets'
-Plug 'alvan/vim-closetag'
 
 " on demand plugins example.
 "Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
@@ -138,6 +142,10 @@ imap <leader>[ []<ESC>i
 " enable using ctrl-numpad+ for incrementing since ctrl-a is remapped to
 " select all on Windows
 noremap <C-kPlus> <C-A>
+
+" enable using ctrl-numpad- for decrementing since ctrl-x is remapped to
+" buffer delete
+noremap <C-kMinus> <C-X>
 
 " center after search
 "nmap n nzz
