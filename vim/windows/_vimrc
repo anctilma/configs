@@ -3,6 +3,9 @@ source $VIMRUNTIME/vimrc_example.vim
 " source $VIMRUNTIME/mswin.vim
 " behave mswin
 
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
 " my plugins here:
 call plug#begin('~/vimfiles/plugged')
 
@@ -34,6 +37,10 @@ Plug 'osyo-manga/vim-over'
 Plug 'nelstrom/vim-qargs'
 Plug 'alvan/vim-closetag'
 "Plug 'airblade/vim-gitgutter'
+
+" theme plugins
+Plug 'nanotech/jellybeans.vim'
+Plug 'vim-scripts/solarized'
 
 " Plugins for UltiSnips and SuperTab support.
 Plug 'sirver/ultisnips'
@@ -188,6 +195,7 @@ set number
 set relativenumber
 
 " use the jellybeans color scheme
+set background=dark
 colorscheme jellybeans
 
 " don't create the ~filename files
