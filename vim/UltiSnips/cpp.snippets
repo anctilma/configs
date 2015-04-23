@@ -1,8 +1,3 @@
-global !p
-from datetime import date
-def get_year():
-	return date.today().year
-endglobal
 
 snippet ///
 /// <summary>$1</summary>
@@ -17,7 +12,7 @@ endsnippet
 
 snippet //c
 ////////////////////////////////////////////////////////////////////////////////
-// Copyright (c) Neptec Design Group Limited, `!p snip.rv = get_year()` All rights reserved.
+// Copyright (c) Neptec Design Group Limited, `!v strftime("%Y")`. All rights reserved.
 //
 // System:       $1
 //
@@ -26,5 +21,23 @@ snippet //c
 $2
 endsnippet
 
+# python interpolation version
+#
+# global !p
+# from datetime import date
+# def get_year():
+# 	return date.today().year
+# endglobal
+#
+# snippet //c
+# ////////////////////////////////////////////////////////////////////////////////
+# // Copyright (c) Neptec Design Group Limited, `!p snip.rv = get_year()`. All rights reserved.
+# //
+# // System:       $1
+# //
+# // Filename:     `!p snip.rv = fn`
+# ////////////////////////////////////////////////////////////////////////////////
+# $2
+# endsnippet
 
 

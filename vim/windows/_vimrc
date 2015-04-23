@@ -3,6 +3,9 @@ source $VIMRUNTIME/vimrc_example.vim
 " source $VIMRUNTIME/mswin.vim
 " behave mswin
 
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
 " my plugins here:
 call plug#begin('~/vimfiles/plugged')
 
@@ -26,20 +29,29 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'godlygeek/tabular'
 Plug 'rking/ag.vim'
 Plug 'majutsushi/tagbar'
-Plug 'ervandew/supertab'
 Plug 'Shougo/vimshell.vim'
 Plug 'Shougo/vimproc.vim'
 Plug 'sjl/gundo.vim'
 Plug 'will133/vim-dirdiff'
+Plug 'nelstrom/vim-visual-star-search'
+Plug 'nelstrom/vim-qargs'
+Plug 'osyo-manga/vim-over'
+Plug 'alvan/vim-closetag'
 "Plug 'airblade/vim-gitgutter'
 
-" Plugins for snippets support.
+" theme plugins
+Plug 'nanotech/jellybeans.vim'
+Plug 'vim-scripts/solarized'
+
+" plugins for UltiSnips and SuperTab support.
 Plug 'sirver/ultisnips'
 Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'garbas/vim-snipmate'
+Plug 'ervandew/supertab'
+
+" extra snippet 
 Plug 'honza/vim-snippets'
-Plug 'alvan/vim-closetag'
 
 " on demand plugins example.
 "Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
@@ -139,6 +151,10 @@ imap <leader>[ []<ESC>i
 " select all on Windows
 noremap <C-kPlus> <C-A>
 
+" enable using ctrl-numpad- for decrementing since ctrl-x is remapped to
+" buffer delete
+noremap <C-kMinus> <C-X>
+
 " center after search
 "nmap n nzz
 "nmap N Nzz
@@ -180,13 +196,14 @@ set number
 set relativenumber
 
 " use the jellybeans color scheme
+set background=dark
 colorscheme jellybeans
 
 " don't create the ~filename files
 set nobackup
 
 " turn off highlighted search by default, turn on only when needed.
-set nohlsearch
+" set nohlsearch
 
 " turn on incremental search (search as character are entered)
 set incsearch
