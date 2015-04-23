@@ -164,6 +164,10 @@ noremap <C-kMinus> <C-X>
 " map leader-w to ctrl-w
 nnoremap <leader>w <c-w>
 
+" map space k and space j to buffer next and buffer previous
+nnoremap <space>k :bn<CR>
+nnoremap <space>j :bp<CR>
+
 " show whitespaces when calling set list
 set listchars=tab:>\ ,eol:¬,extends:>,precedes:<
 
@@ -228,7 +232,7 @@ set cul
 set foldenable
 set foldlevelstart=10
 set foldnestmax=10
-nnoremap <space> za
+nnoremap <space><space> za
 "set foldmethod=indent
 set foldmethod=marker
 
