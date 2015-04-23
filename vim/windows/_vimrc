@@ -37,6 +37,7 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'nelstrom/vim-qargs'
 Plug 'osyo-manga/vim-over'
 Plug 'alvan/vim-closetag'
+Plug 'tommcdo/vim-exchange'
 "Plug 'airblade/vim-gitgutter'
 
 " theme plugins

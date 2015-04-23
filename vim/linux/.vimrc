@@ -33,6 +33,7 @@ Plug 'nelstrom/vim-qargs'
 Plug 'osyo-manga/vim-over'
 Plug 'alvan/vim-closetag'
 Plug 'benmills/vimux'
+Plug 'tommcdo/vim-exchange'
 "Plug 'airblade/vim-gitgutter'
 
 " theme plugins
