@@ -24,21 +24,30 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'godlygeek/tabular'
 Plug 'rking/ag.vim'
 Plug 'majutsushi/tagbar'
-Plug 'ervandew/supertab'
 Plug 'Shougo/vimshell.vim'
 Plug 'Shougo/vimproc.vim'
 Plug 'sjl/gundo.vim'
 Plug 'will133/vim-dirdiff'
+Plug 'nelstrom/vim-visual-star-search'
+Plug 'nelstrom/vim-qargs'
+Plug 'osyo-manga/vim-over'
+Plug 'alvan/vim-closetag'
 Plug 'benmills/vimux'
 "Plug 'airblade/vim-gitgutter'
 
-" Plugins for snippets support.
+" theme plugins
+Plug 'nanotech/jellybeans.vim'
+Plug 'vim-scripts/solarized'
+
+" plugins for UltiSnips and SuperTab support.
 Plug 'sirver/ultisnips'
 Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'garbas/vim-snipmate'
+Plug 'ervandew/supertab'
+
+" extra snippet 
 Plug 'honza/vim-snippets'
-Plug 'alvan/vim-closetag'
 
 " on demand plugins example.
 "Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
@@ -121,7 +130,7 @@ inoremap kj <esc>
 nnoremap <c-x> :bd<CR>
 
 " map Ctrl-K Ctrl-O to toggle .h/.cpp file (same as Visual Studio)
- map <c-k><c-o> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
+map <c-k><c-o> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 
 " ctrl-p configuration
 let g:ctrlp_working_path_mode = 0
@@ -140,6 +149,12 @@ imap <leader>' ''<ESC>i
 imap <leader>" ""<ESC>i
 imap <leader>( ()<ESC>i
 imap <leader>[ []<ESC>i
+
+" enable using ctrl-numpad+ for incrementing
+noremap <C-kPlus> <C-A>
+
+" enable using ctrl-numpad- for decrementing
+noremap <C-kMinus> <C-X>
 
 " center after search
 "nmap n nzz
@@ -185,7 +200,7 @@ set relativenumber
 set nobackup
 
 " turn off highlighted search by default, turn on only when needed.
-set nohlsearch
+" set nohlsearch
 
 " turn on incremental search (search as character are entered)
 set incsearch
@@ -226,6 +241,7 @@ if has('gui_running')
   set guioptions-=r " remove righ-hand scroll bar
   " use the jellybeans color scheme
   colorscheme jellybeans
+  set background=dark
   set guifont=Inconsolata\ for\ Powerline\ Medium\ 13
   set linespace=0
   set lines=40
@@ -240,7 +256,7 @@ else
   set t_ut= "disable Background Color Erase (BCE)
   set t_Co=256
   colorscheme jellybeans
-
+  set background=dark
   " Map Ctrl-Tab and Ctrl-Shift-Tab to next and previous buffer (similar to 
   " Visual Studio
   set timeout timeoutlen=1000 ttimeoutlen=100

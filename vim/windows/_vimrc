@@ -33,8 +33,9 @@ Plug 'Shougo/vimshell.vim'
 Plug 'Shougo/vimproc.vim'
 Plug 'sjl/gundo.vim'
 Plug 'will133/vim-dirdiff'
-Plug 'osyo-manga/vim-over'
+Plug 'nelstrom/vim-visual-star-search'
 Plug 'nelstrom/vim-qargs'
+Plug 'osyo-manga/vim-over'
 Plug 'alvan/vim-closetag'
 "Plug 'airblade/vim-gitgutter'
 
@@ -42,7 +43,7 @@ Plug 'alvan/vim-closetag'
 Plug 'nanotech/jellybeans.vim'
 Plug 'vim-scripts/solarized'
 
-" Plugins for UltiSnips and SuperTab support.
+" plugins for UltiSnips and SuperTab support.
 Plug 'sirver/ultisnips'
 Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
@@ -202,7 +203,7 @@ colorscheme jellybeans
 set nobackup
 
 " turn off highlighted search by default, turn on only when needed.
-set nohlsearch
+" set nohlsearch
 
 " turn on incremental search (search as character are entered)
 set incsearch
