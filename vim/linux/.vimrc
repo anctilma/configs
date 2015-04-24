@@ -33,6 +33,7 @@ Plug 'nelstrom/vim-qargs'
 Plug 'osyo-manga/vim-over'
 Plug 'alvan/vim-closetag'
 Plug 'benmills/vimux'
+Plug 'tommcdo/vim-exchange'
 "Plug 'airblade/vim-gitgutter'
 
 " theme plugins
@@ -163,6 +164,10 @@ noremap <C-kMinus> <C-X>
 " map leader-w to ctrl-w
 nnoremap <leader>w <c-w>
 
+" map space k and space j to buffer next and buffer previous
+nnoremap <space>k :bn<CR>
+nnoremap <space>j :bp<CR>
+
 " show whitespaces when calling set list
 set listchars=tab:>\ ,eol:¬,extends:>,precedes:<
 
@@ -227,7 +232,7 @@ set cul
 set foldenable
 set foldlevelstart=10
 set foldnestmax=10
-nnoremap <space> za
+nnoremap <space><space> za
 "set foldmethod=indent
 set foldmethod=marker
 
@@ -241,7 +246,6 @@ if has('gui_running')
   set guioptions-=r " remove righ-hand scroll bar
   " use the jellybeans color scheme
   colorscheme jellybeans
-  set background=dark
   set guifont=Inconsolata\ for\ Powerline\ Medium\ 13
   set linespace=0
   set lines=40
@@ -256,7 +260,6 @@ else
   set t_ut= "disable Background Color Erase (BCE)
   set t_Co=256
   colorscheme jellybeans
-  set background=dark
   " Map Ctrl-Tab and Ctrl-Shift-Tab to next and previous buffer (similar to 
   " Visual Studio
   set timeout timeoutlen=1000 ttimeoutlen=100
