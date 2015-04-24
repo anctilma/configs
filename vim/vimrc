@@ -177,8 +177,6 @@ nnoremap <leader>w <c-w>
 nnoremap <space>k :bn<CR>
 nnoremap <space>j :bp<CR>
 
-" show whitespaces when calling set list
-set listchars=tab:>\ ,eol:¬,extends:>,precedes:<
 
 " set tab and indent configuration based on file type
 if has("autocmd")
@@ -262,8 +260,6 @@ if has('gui_running')
         set guifont=Powerline_Consolas:h11:cANSI
     else
         set guifont=Inconsolata\ for\ Powerline\ Medium\ 13
-        set encoding=utf-8
-        scriptencoding=utf-8
     endif
     set linespace=0
     set lines=40
@@ -277,3 +273,7 @@ else
     colorscheme jellybeans
 endif
 
+" show whitespaces when calling set list
+set encoding=utf-8
+scriptencoding=utf-8
+set listchars=tab:>\ ,eol:¬,extends:>,precedes:<
