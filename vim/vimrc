@@ -6,7 +6,11 @@ if (has("win32"))
 endif
 
 " {{{ Plugins                                                                        
-call plug#begin('~/vimfiles/plugged')                                
+if (has("win32"))
+    call plug#begin('~/vimfiles/plugged')                                
+else
+    call plug#begin('~/.vim/plugged')                                
+endif
 
 Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
