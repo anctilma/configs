@@ -79,9 +79,6 @@ autocmd FileType cpp,cs setlocal commentstring=//\ %s
 " enable closetag for xml,html,htm,xhtml and ndb files.
 let g:closetag_filenames = "*.xml,*.html,*.htm,*.xhtml,*.ndb,*.2db,*.config,*.rss"
 
-" You complete me configuration
-let g:ycm_show_diagnostics_ui = 0
-
 " always display airline
 set laststatus=2
 " enable the tabline
