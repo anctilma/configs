@@ -246,7 +246,6 @@ if has('gui_running')
   set guioptions-=r " remove righ-hand scroll bar
   " use the jellybeans color scheme
   colorscheme jellybeans
-  set background=dark
   set guifont=Inconsolata\ for\ Powerline\ Medium\ 13
   set linespace=0
   set lines=40
@@ -261,7 +260,6 @@ else
   set t_ut= "disable Background Color Erase (BCE)
   set t_Co=256
   colorscheme jellybeans
-  set background=dark
   " Map Ctrl-Tab and Ctrl-Shift-Tab to next and previous buffer (similar to 
   " Visual Studio
   set timeout timeoutlen=1000 ttimeoutlen=100

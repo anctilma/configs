@@ -201,7 +201,6 @@ set number
 set relativenumber
 
 " use the jellybeans color scheme
-set background=dark
 colorscheme jellybeans
 
 " don't create the ~filename files
