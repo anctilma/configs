@@ -1,11 +1,15 @@
 set nocompatible
+if (has("win32"))
+    source $VIMRUNTIME/vimrc_example.vim
+    " source $VIMRUNTIME/mswin.vim
+    " behave mswin
+endif
 
-" my pluggins here:
-call plug#begin('~/.vim/plugged')
+" {{{ Plugins                                                                        
+call plug#begin('~/vimfiles/plugged')                                
 
 Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
-Plug 'edkolev/tmuxline.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'tpope/vim-surround'
@@ -32,7 +36,6 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'nelstrom/vim-qargs'
 Plug 'osyo-manga/vim-over'
 Plug 'alvan/vim-closetag'
-Plug 'benmills/vimux'
 Plug 'tommcdo/vim-exchange'
 "Plug 'airblade/vim-gitgutter'
 
@@ -50,10 +53,29 @@ Plug 'ervandew/supertab'
 " extra snippet 
 Plug 'honza/vim-snippets'
 
+" tmux plugins
+if (!has("win32"))
+Plug 'edkolev/tmuxline.vim'
+Plug 'benmills/vimux'
+endif
+
 " on demand plugins example.
 "Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 
 call plug#end()
+" }}}
+
+" {{{ TMUX configuration
+" enable support for timuxline in airline
+let g:airline#extensions#tmuxline#enabled = 1
+let g:tmuxline_powerline_separators = 1
+"let g:tmuxline_separators = {
+"    \ 'left' : '',
+"    \ 'left_alt': '>',
+"    \ 'right' : '',
+"    \ 'right_alt' : '<',
+"    \ 'space' : ' '}
+" }}}
 
 " map leader key to comma
 let mapleader = ","
@@ -76,11 +98,8 @@ set cscopetag
 " change de default comment style to c++ for c++ files
 autocmd FileType cpp,cs setlocal commentstring=//\ %s
 
-" enable closetag for xml,html,htm,xhtml and ndb files.
+" enable closetag for xml,html,htm,xhtml and ndb files
 let g:closetag_filenames = "*.xml,*.html,*.htm,*.xhtml,*.ndb,*.2db,*.config,*.rss"
-
-" You complete me configuration
-let g:ycm_show_diagnostics_ui = 0
 
 " always display airline
 set laststatus=2
@@ -88,23 +107,13 @@ set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 " show only the file name
 let g:airline#extensions#tabline#fnamemod = ':t'
+
 " set jellybeans theme for airline
 let g:airline_theme = 'jellybeans'
 " use the patched fonts
 let g:airline_powerline_fonts = 1
-" enablle support for timuxline
-let g:airline#extensions#tmuxline#enabled = 1
 " disable whitespace detection
 let g:airline#extensions#whitespace#enabled = 0
-
-" tmuxline configuration
-let g:tmuxline_powerline_separators = 1
-"let g:tmuxline_separators = {
-"    \ 'left' : '',
-"    \ 'left_alt': '>',
-"    \ 'right' : '',
-"    \ 'right_alt' : '<',
-"    \ 'space' : ' '}
 
 " disable syntastic active check by default
 let g:syntastic_mode_map = {"mode": "passive"}
@@ -116,10 +125,10 @@ let g:syntastic_mode_map = {"mode": "passive"}
 "let g:airline_right_alt_sep = ''
 
 " bubble text up and down with ctrl-up and down (required unimpaired plugin)
-" Bubble single lines
+" bubble single lines
 nmap <C-Up> [e
 nmap <C-Down> ]e
-" Bubble multiple lines
+" bubble multiple lines
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
 
@@ -168,8 +177,6 @@ nnoremap <leader>w <c-w>
 nnoremap <space>k :bn<CR>
 nnoremap <space>j :bp<CR>
 
-" show whitespaces when calling set list
-set listchars=tab:>\ ,eol:¬,extends:>,precedes:<
 
 " set tab and indent configuration based on file type
 if has("autocmd")
@@ -239,40 +246,34 @@ set foldmethod=marker
 " highlight last inserted text
 nnoremap gV `[v`]
 
-" gui only options
-if has('gui_running')
-  set guioptions-=T " remove tool bar
-  "set guioptions-=m " remove menu bar
-  set guioptions-=r " remove righ-hand scroll bar
-  " use the jellybeans color scheme
-  colorscheme jellybeans
-  set guifont=Inconsolata\ for\ Powerline\ Medium\ 13
-  set linespace=0
-  set lines=40
-  set columns=170
-  
-  " Map Ctrl-Tab and Ctrl-Shift-Tab to next and previous buffer (similar to 
-  " Visual Studio
-  nmap <c-tab> :bn<CR>
-  nmap <c-s-tab> :bp<CR>
-else
-  set term=xterm-256color
-  set t_ut= "disable Background Color Erase (BCE)
-  set t_Co=256
-  colorscheme jellybeans
-  " Map Ctrl-Tab and Ctrl-Shift-Tab to next and previous buffer (similar to 
-  " Visual Studio
-  set timeout timeoutlen=1000 ttimeoutlen=100
-  set <F13>=[27;5;9~ " assign the key code sent by putty when tying ctrl-tab to the F13 key (this requires a patched version of putty)
-  set <F14>=[27;6;9~ " assign the key code sent by putty when tying ctrl-shift-tab to the F14 key (this requires a patched version of putty)
-  " map ctrl-tab to next buffer
-  nmap <F13> :bn<CR>
-  " map ctrl-shift-tab to previous buffer
-  nmap <F14> :bp<CR>
-endif
-
 " disable startup screen
 set shortmess=I
 
-" Enable mouse support.
-set mouse=a
+" gui only options
+if has('gui_running')
+    set guioptions-=T " remove tool bar
+    set guioptions-=m " remove menu bar
+    set guioptions-=r " remove righ-hand scroll bar
+    " use the jellybeans color scheme
+    colorscheme jellybeans
+    if has ('win32')
+        set guifont=Powerline_Consolas:h11:cANSI
+    else
+        set guifont=Inconsolata\ for\ Powerline\ Medium\ 13
+    endif
+    set linespace=0
+    set lines=40
+    set columns=170
+else
+    " Enable mouse support.
+    set mouse=a
+    set term=xterm-256color
+    set t_ut= "disable Background Color Erase (BCE)
+    set t_Co=256
+    colorscheme jellybeans
+endif
+
+" show whitespaces when calling set list
+set encoding=utf-8
+scriptencoding=utf-8
+set listchars=tab:>\ ,eol:¬,extends:>,precedes:<
