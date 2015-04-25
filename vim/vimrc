@@ -1,15 +1,16 @@
+" {{{ compatibility
 set nocompatible
 if (has("win32"))
     source $VIMRUNTIME/vimrc_example.vim
     " source $VIMRUNTIME/mswin.vim
     " behave mswin
 endif
-
-" {{{ Plugins                                                                        
+" }}} compatibility
+" {{{ plugins
 if (has("win32"))
-    call plug#begin('~/vimfiles/plugged')                                
+    call plug#begin('~/vimfiles/plugged')
 else
-    call plug#begin('~/.vim/plugged')                                
+    call plug#begin('~/.vim/plugged')
 endif
 
 Plug 'scrooloose/nerdtree'
@@ -54,7 +55,7 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'garbas/vim-snipmate'
 Plug 'ervandew/supertab'
 
-" extra snippet 
+" extra snippet
 Plug 'honza/vim-snippets'
 
 " tmux plugins
@@ -67,9 +68,8 @@ endif
 "Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 
 call plug#end()
-" }}}
-
-" {{{ TMUX configuration
+" }}} /// plugins
+" {{{ tmux configuration
 " enable support for timuxline in airline
 let g:airline#extensions#tmuxline#enabled = 1
 let g:tmuxline_powerline_separators = 1
@@ -79,7 +79,74 @@ let g:tmuxline_powerline_separators = 1
 "    \ 'right' : '',
 "    \ 'right_alt' : '<',
 "    \ 'space' : ' '}
-" }}}
+" }}} tmux configuration
+" {{{ ctrlp configuration
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_map = '<leader>f'
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+      \ --ignore .git
+      \ --ignore .svn
+      \ --ignore "**/*.pyc"
+      \ --ignore tags
+      \ --ignore cscope.out
+      \ -g ""'
+" }}} ctrlp configuration
+"{{{ closetag configuration
+" enable closetag for xml,html,htm,xhtml and ndb files
+let g:closetag_filenames = "*.xml,*.html,*.htm,*.xhtml,*.ndb,*.2db,*.config,*.rss"
+"}}} closetag configuration
+"{{{ airline configuration
+" always display airline
+set laststatus=2
+" enable the tabline
+let g:airline#extensions#tabline#enabled = 1
+" show only the file name
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+" set jellybeans theme for airline
+let g:airline_theme = 'jellybeans'
+" use the patched fonts
+let g:airline_powerline_fonts = 1
+" disable whitespace detection
+let g:airline#extensions#whitespace#enabled = 0
+" disable arrows
+"let g:airline_left_sep = ''
+"let g:airline_left_alt_sep = ''
+"let g:airline_right_sep = ''
+"let g:airline_right_alt_sep = ''
+"}}} airline configuration
+"{{{ syntastic configuration
+" disable syntastic active check by default
+let g:syntastic_mode_map = {"mode": "passive"}
+"}}} syntastic configuration
+"{{{ autocmd
+" set tab and indent configuration based on file type
+if has("autocmd")
+    "enable file type detection
+    filetype on
+
+    "syntax of makefile is fussy over tabs vs spaces
+    autocmd FileType make       setlocal ts=8 sts=8 sw=8 noexpandtab
+    autocmd FileType html       setlocal ts=4 sts=4 sw=4 expandtab
+    autocmd FileType css        setlocal ts=4 sts=4 sw=4 expandtab
+    autocmd FileType xml        setlocal ts=4 sts=4 sw=4 noexpandtab
+    autocmd FileType c          setlocal ts=4 sts=4 sw=4 expandtab
+    autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 expandtab
+    autocmd FileType python     setlocal ts=4 sts=4 sw=4 expandtab
+    autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
+    autocmd FileType vim        setlocal ts=4 sts=4 sw=4 expandtab
+
+    " change de default comment style to c++ for c++ files
+    autocmd FileType cpp,cs     setlocal commentstring=//\ %s
+    " use cscope for navigation in c and c++
+    autocmd FileType cpp        set cscopetag
+
+    " Treat the files with the following extentions as xml
+    autocmd BufNewFile,BufRead *.rss,*.ndb,*.2db,*.config setfiletype xml
+endif
+"}}} autocmd
+" {{{ mappings
 
 " map leader key to comma
 let mapleader = ","
@@ -95,38 +162,6 @@ noremap <silent> <F9> :TagbarToggle<CR>
 
 " map F5 to toggle gundo
 nnoremap <silent> <F5> :GundoToggle<CR>
-
-" otherwise, use cscope for navigation
-set cscopetag
-
-" change de default comment style to c++ for c++ files
-autocmd FileType cpp,cs setlocal commentstring=//\ %s
-
-" enable closetag for xml,html,htm,xhtml and ndb files
-let g:closetag_filenames = "*.xml,*.html,*.htm,*.xhtml,*.ndb,*.2db,*.config,*.rss"
-
-" always display airline
-set laststatus=2
-" enable the tabline
-let g:airline#extensions#tabline#enabled = 1
-" show only the file name
-let g:airline#extensions#tabline#fnamemod = ':t'
-
-" set jellybeans theme for airline
-let g:airline_theme = 'jellybeans'
-" use the patched fonts
-let g:airline_powerline_fonts = 1
-" disable whitespace detection
-let g:airline#extensions#whitespace#enabled = 0
-
-" disable syntastic active check by default
-let g:syntastic_mode_map = {"mode": "passive"}
-
-" disable arrows
-"let g:airline_left_sep = ''
-"let g:airline_left_alt_sep = ''
-"let g:airline_right_sep = ''
-"let g:airline_right_alt_sep = ''
 
 " bubble text up and down with ctrl-up and down (required unimpaired plugin)
 " bubble single lines
@@ -145,18 +180,6 @@ nnoremap <c-x> :bd<CR>
 
 " map Ctrl-K Ctrl-O to toggle .h/.cpp file (same as Visual Studio)
 map <c-k><c-o> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
-
-" ctrl-p configuration
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_map = '<leader>f'
-let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-      \ --ignore .git
-      \ --ignore .svn
-      \ --ignore "**/*.pyc"
-      \ --ignore tags
-      \ --ignore cscope.out
-      \ -g ""'
 
 " quick pairs
 imap <leader>' ''<ESC>i
@@ -181,30 +204,41 @@ nnoremap <leader>w <c-w>
 nnoremap <space>k :bn<CR>
 nnoremap <space>j :bp<CR>
 
-
-" set tab and indent configuration based on file type
-if has("autocmd")
-    "enable file type detection
-    filetype on
-
-    "syntax of makefile is fussy over tabs vs spaces
-    autocmd FileType make       setlocal ts=8 sts=8 sw=8 noexpandtab
-    autocmd FileType html       setlocal ts=4 sts=4 sw=4 expandtab
-    autocmd FileType css        setlocal ts=4 sts=4 sw=4 expandtab
-    autocmd FileType xml        setlocal ts=4 sts=4 sw=4 noexpandtab
-    autocmd FileType c          setlocal ts=4 sts=4 sw=4 expandtab
-    autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 expandtab
-    autocmd FileType python     setlocal ts=4 sts=4 sw=4 expandtab
-    autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
-    autocmd FileType vim        setlocal ts=4 sts=4 sw=4 expandtab
-
-    " Treat the files with the following extentions as xml
-    autocmd BufNewFile,BufRead *.rss,*.ndb,*.2db,*.config setfiletype xml
+" }}} mappings
+" {{{ folding
+" reasonable folding
+set foldenable
+set foldlevelstart=0
+set foldnestmax=10
+nnoremap <space><space> za
+set foldmethod=marker
+" }}}
+" {{{ gui vs terminal
+if has('gui_running')
+    set guioptions-=T " remove tool bar
+    set guioptions-=m " remove menu bar
+    set guioptions-=r " remove righ-hand scroll bar
+    " use the jellybeans color scheme
+    colorscheme jellybeans
+    if has ('win32')
+        set guifont=Powerline_Consolas:h11:cANSI
+    else
+        set guifont=Inconsolata\ for\ Powerline\ Medium\ 13
+    endif
+    set linespace=0
+    set lines=40
+    set columns=170
+else
+    " Enable mouse support.
+    set mouse=a
+    set term=xterm-256color
+    set t_ut= "disable Background Color Erase (BCE)
+    set t_Co=256
+    colorscheme jellybeans
 endif
 
-" replace tabs with 4 spaces
-set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-
+" }}} gui vs terminal
+" {{{ misc
 
 " enable line numbers
 set number
@@ -239,45 +273,15 @@ set nowrap
 " enable cursorline
 set cul
 
-" reasonable folding
-set foldenable
-set foldlevelstart=10
-set foldnestmax=10
-nnoremap <space><space> za
-"set foldmethod=indent
-set foldmethod=marker
-
 " highlight last inserted text
 nnoremap gV `[v`]
 
 " disable startup screen
 set shortmess=I
 
-" gui only options
-if has('gui_running')
-    set guioptions-=T " remove tool bar
-    set guioptions-=m " remove menu bar
-    set guioptions-=r " remove righ-hand scroll bar
-    " use the jellybeans color scheme
-    colorscheme jellybeans
-    if has ('win32')
-        set guifont=Powerline_Consolas:h11:cANSI
-    else
-        set guifont=Inconsolata\ for\ Powerline\ Medium\ 13
-    endif
-    set linespace=0
-    set lines=40
-    set columns=170
-else
-    " Enable mouse support.
-    set mouse=a
-    set term=xterm-256color
-    set t_ut= "disable Background Color Erase (BCE)
-    set t_Co=256
-    colorscheme jellybeans
-endif
-
 " show whitespaces when calling set list
 set encoding=utf-8
 scriptencoding=utf-8
 set listchars=tab:>\ ,eol:¬,extends:>,precedes:<
+
+" }}}misc
