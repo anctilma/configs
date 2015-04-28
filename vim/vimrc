@@ -101,7 +101,7 @@ let g:closetag_filenames = "*.xml,*.html,*.htm,*.xhtml,*.ndb,*.2db,*.config,*.rs
 " always display airline
 set laststatus=2
 " enable the tabline
-"let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 " show only the file name
 let g:airline#extensions#tabline#fnamemod = ':t'
 
