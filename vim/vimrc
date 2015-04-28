@@ -16,7 +16,7 @@ endif
 Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
 Plug 'kien/ctrlp.vim'
-Plug 'FelikZ/ctrlp-py-matcher'
+Plug 'felikz/ctrlp-py-matcher'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-obsession'
@@ -29,12 +29,12 @@ Plug 'tpope/vim-unimpaired'
 Plug 'scrooloose/syntastic'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'terryma/vim-expand-region'
-Plug 'Lokaltog/vim-easymotion'
+Plug 'lokaltog/vim-easymotion'
 Plug 'godlygeek/tabular'
 Plug 'rking/ag.vim'
 Plug 'majutsushi/tagbar'
-Plug 'Shougo/vimshell.vim'
-Plug 'Shougo/vimproc.vim'
+Plug 'shougo/vimshell.vim'
+Plug 'shougo/vimproc.vim'
 Plug 'sjl/gundo.vim'
 Plug 'will133/vim-dirdiff'
 Plug 'nelstrom/vim-visual-star-search'
@@ -42,6 +42,7 @@ Plug 'nelstrom/vim-qargs'
 Plug 'osyo-manga/vim-over'
 Plug 'alvan/vim-closetag'
 Plug 'tommcdo/vim-exchange'
+Plug 'osse/double-tap'
 "Plug 'airblade/vim-gitgutter'
 
 " theme plugins
@@ -82,7 +83,7 @@ let g:tmuxline_powerline_separators = 1
 " }}} tmux configuration
 " {{{ ctrlp configuration
 let g:ctrlp_working_path_mode = 0
-let g:ctrlp_map = '<leader>f'
+let g:ctrlp_map = '<leader>o'
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ --ignore .git
@@ -100,7 +101,7 @@ let g:closetag_filenames = "*.xml,*.html,*.htm,*.xhtml,*.ndb,*.2db,*.config,*.rs
 " always display airline
 set laststatus=2
 " enable the tabline
-let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#enabled = 1
 " show only the file name
 let g:airline#extensions#tabline#fnamemod = ':t'
 
@@ -149,7 +150,7 @@ endif
 " {{{ mappings
 
 " map leader key to comma
-let mapleader = ","
+let mapleader = " "
 
 " map F12 to toggle NERDTree
 noremap <silent> <F12> :NERDTreeToggle<CR>
@@ -201,8 +202,8 @@ noremap <C-kMinus> <C-X>
 nnoremap <leader>w <c-w>
 
 " map space k and space j to buffer next and buffer previous
-nnoremap <space>k :bn<CR>
-nnoremap <space>j :bp<CR>
+nnoremap <leader>k :bn<CR>
+nnoremap <leader>j :bp<CR>
 
 " }}} mappings
 " {{{ folding
@@ -210,7 +211,7 @@ nnoremap <space>j :bp<CR>
 set foldenable
 set foldlevelstart=0
 set foldnestmax=10
-nnoremap <space><space> za
+nnoremap <leader>f za
 set foldmethod=marker
 " }}}
 " {{{ gui vs terminal
