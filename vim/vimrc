@@ -97,7 +97,7 @@ endif
 " }}} ctrlp configuration
 "{{{ closetag configuration
 " enable closetag for xml,html,htm,xhtml and ndb files
-let g:closetag_filenames = "*.xml,*.html,*.htm,*.xhtml,*.ndb,*.2db,*.config,*.rss, *.scn"
+let g:closetag_filenames = "*.xml,*.html,*.htm,*.xhtml,*.ndb,*.2db,*.config,*.rss,*.scn"
 "}}} closetag configuration
 "{{{ airline configuration
 " always display airline
@@ -146,7 +146,7 @@ if has("autocmd")
     autocmd FileType cpp        set cscopetag
 
     " Treat the files with the following extentions as xml
-    autocmd BufNewFile,BufRead *.rss,*.ndb,*.2db,*.config, *.scn setfiletype xml
+    autocmd BufNewFile,BufRead *.rss,*.ndb,*.2db,*.config,*.scn setfiletype xml
 endif
 "}}} autocmd
 " {{{ mappings
