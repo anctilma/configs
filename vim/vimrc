@@ -221,6 +221,7 @@ if has('gui_running')
     set guioptions-=T " remove tool bar
     set guioptions-=m " remove menu bar
     set guioptions-=r " remove righ-hand scroll bar
+    set guioptions-=L " remove left-hand scroll bar
     " use the jellybeans color scheme
     colorscheme jellybeans
     if has ('win32')
