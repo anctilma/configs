@@ -152,7 +152,7 @@ endif
 " {{{ mappings
 
 " map leader key to space
-map <space> <leader>
+let mapleader="\<space>"
 
 " map F12 to toggle NERDTree
 noremap <silent> <F12> :NERDTreeToggle<CR>
@@ -185,10 +185,10 @@ nnoremap <c-x> :bd<CR>
 map <c-k><c-o> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 
 " quick pairs
-imap <leader>' ''<ESC>i
-imap <leader>" ""<ESC>i
-imap <leader>( ()<ESC>i
-imap <leader>[ []<ESC>i
+" imap <leader>' ''<ESC>i
+" imap <leader>" ""<ESC>i
+" imap <leader>( ()<ESC>i
+" imap <leader>[ []<ESC>i
 
 " enable using ctrl-numpad+ for incrementing
 noremap <C-kPlus> <C-A>
@@ -258,6 +258,9 @@ set nobackup
 
 " turn on incremental search (search as character are entered)
 set incsearch
+
+" always show at least one line above/below the cursor
+set scrolloff=1
 
 " redraw only when we need to
 set lazyredraw
