@@ -42,7 +42,7 @@ Plug 'nelstrom/vim-qargs'
 Plug 'osyo-manga/vim-over'
 Plug 'alvan/vim-closetag'
 Plug 'tommcdo/vim-exchange'
-Plug 'osse/double-tap'
+Plug 'junegunn/goyo.vim'
 "Plug 'airblade/vim-gitgutter'
 
 " theme plugins
@@ -123,6 +123,10 @@ let g:airline#extensions#whitespace#enabled = 0
 " disable syntastic active check by default
 let g:syntastic_mode_map = {"mode": "passive"}
 "}}} syntastic configuration
+" {{{ goyo configuration
+let g:goyo_width  = 80
+let g:goyo_height = 100 
+" }}}
 "{{{ autocmd
 " set tab and indent configuration based on file type
 if has("autocmd")
