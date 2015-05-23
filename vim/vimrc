@@ -42,7 +42,10 @@ Plug 'nelstrom/vim-qargs'
 Plug 'osyo-manga/vim-over'
 Plug 'alvan/vim-closetag'
 Plug 'tommcdo/vim-exchange'
-Plug 'osse/double-tap'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'rust-lang/rust.vim'
+Plug 'junegunn/goyo.vim'
+"Plug 'osse/double-tap'
 "Plug 'airblade/vim-gitgutter'
 
 " theme plugins
@@ -123,6 +126,10 @@ let g:airline#extensions#whitespace#enabled = 0
 " disable syntastic active check by default
 let g:syntastic_mode_map = {"mode": "passive"}
 "}}} syntastic configuration
+" {{{ goyo configuration
+let g:goyo_width  = 80
+let g:goyo_height = 100 
+" }}}
 "{{{ autocmd
 " set tab and indent configuration based on file type
 if has("autocmd")
@@ -143,7 +150,7 @@ if has("autocmd")
     " change de default comment style to c++ for c++ files
     autocmd FileType cpp,cs     setlocal commentstring=//\ %s
     " use cscope for navigation in c and c++
-    autocmd FileType cpp        set cscopetag
+    "autocmd FileType cpp        set cscopetag
 
     " Treat the files with the following extentions as xml
     autocmd BufNewFile,BufRead *.rss,*.ndb,*.2db,*.config,*.scn setfiletype xml
