@@ -48,6 +48,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'xolox/vim-notes'
 Plug 'xolox/vim-misc'
 Plug 'qpkorr/vim-renamer'
+Plug 'edsono/vim-matchit'
 "Plug 'osse/double-tap'
 "Plug 'airblade/vim-gitgutter'
 
@@ -109,7 +110,7 @@ let g:closetag_filenames = "*.xml,*.html,*.htm,*.xhtml,*.ndb,*.2db,*.config,*.rs
 " always display airline
 set laststatus=2
 " enable the tabline
-let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#tabline#enabled = 1
 " show only the file name
 let g:airline#extensions#tabline#fnamemod = ':t'
 
