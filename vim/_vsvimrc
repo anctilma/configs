@@ -1,0 +1,9 @@
+nnoremap <space>k :tabnext<CR>
+nnoremap <space>j :tabprevious<CR>
+
+set incsearch
+set cul
+
+" map bashing j and k in random order to ESC
+inoremap jk <esc> 
+inoremap kj <esc> 
