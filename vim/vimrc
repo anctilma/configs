@@ -223,6 +223,11 @@ nnoremap <leader>j :bp<CR>
 " map leader-t to CtrlPTag
 nnoremap <leader>t :CtrlPTag<CR>
 
+" autoredraw when the window gains back focus on windows.
+if (has('win32'))
+    au FocusGained * :redraw!
+endif
+
 " }}} mappings
 " {{{ folding
 " reasonable folding
