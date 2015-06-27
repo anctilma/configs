@@ -49,6 +49,7 @@ Plug 'xolox/vim-notes'
 Plug 'xolox/vim-misc'
 Plug 'qpkorr/vim-renamer'
 Plug 'edsono/vim-matchit'
+Plug 'davidhalter/jedi'
 "Plug 'osse/double-tap'
 "Plug 'airblade/vim-gitgutter'
 
@@ -145,9 +146,10 @@ if has("autocmd")
     autocmd FileType html       setlocal ts=4 sts=4 sw=4 expandtab
     autocmd FileType css        setlocal ts=4 sts=4 sw=4 expandtab
     autocmd FileType xml        setlocal ts=4 sts=4 sw=4 noexpandtab
-    autocmd FileType c          setlocal ts=4 sts=4 sw=4 expandtab
-    autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 expandtab
-    autocmd FileType python     setlocal ts=4 sts=4 sw=4 expandtab
+    autocmd FileType c          setlocal ts=4 sts=4 sw=4 expandtab cindent
+    autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 expandtab cindent
+    autocmd FileType cs         setlocal ts=4 sts=4 sw=4 expandtab cindent
+    autocmd FileType python     setlocal ts=4 sts=4 sw=4 expandtab autoindent
     autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
     autocmd FileType vim        setlocal ts=4 sts=4 sw=4 expandtab
 
@@ -265,7 +267,19 @@ set number
 set relativenumber
 
 " don't create the ~filename files
-set nobackup
+"set nobackup
+
+" store swap, backup and undo files in a central location instead of the
+" current directory
+if (has("win32"))
+    set dir=~/vimswap//
+    set backupdir=~/vimbackup//
+    set undodir=~/vimundo//
+else
+    set dir=~/.vimswap//
+    set backupdir=~/.vimbackup//
+    set undodir=~/.vimundo//
+endif
 
 " turn off highlighted search by default, turn on only when needed.
 " set nohlsearch
@@ -274,7 +288,7 @@ set nobackup
 set incsearch
 
 " always show at least one line above/below the cursor
-set scrolloff=1
+"set scrolloff=1
 
 " redraw only when we need to
 set lazyredraw
