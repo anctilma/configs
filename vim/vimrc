@@ -49,7 +49,7 @@ Plug 'xolox/vim-notes'
 Plug 'xolox/vim-misc'
 Plug 'qpkorr/vim-renamer'
 Plug 'edsono/vim-matchit'
-"Plug 'osse/double-tap'
+Plug 'davidhalter/jedi'
 "Plug 'airblade/vim-gitgutter'
 
 " theme plugins
@@ -145,10 +145,11 @@ if has("autocmd")
     autocmd FileType html       setlocal ts=4 sts=4 sw=4 expandtab
     autocmd FileType css        setlocal ts=4 sts=4 sw=4 expandtab
     autocmd FileType xml        setlocal ts=4 sts=4 sw=4 noexpandtab
-    autocmd FileType c          setlocal ts=4 sts=4 sw=4 expandtab
-    autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 expandtab
-    autocmd FileType python     setlocal ts=4 sts=4 sw=4 expandtab
-    autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
+    autocmd FileType c          setlocal ts=4 sts=4 sw=4 expandtab cindent comments-=:// comments+=f://
+    autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 expandtab cindent comments-=:// comments+=f://
+    autocmd FileType cs         setlocal ts=4 sts=4 sw=4 expandtab cindent comments-=:// comments+=f://
+    autocmd FileType python     setlocal ts=4 sts=4 sw=4 expandtab autoindent
+    autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab comments-=:// comments+=f://
     autocmd FileType vim        setlocal ts=4 sts=4 sw=4 expandtab
 
     " change de default comment style to c++ for c++ files
@@ -221,6 +222,11 @@ nnoremap <leader>j :bp<CR>
 " map leader-t to CtrlPTag
 nnoremap <leader>t :CtrlPTag<CR>
 
+" autoredraw when the window gains back focus on windows.
+if (has('win32'))
+    au FocusGained * :redraw!
+endif
+
 " }}} mappings
 " {{{ folding
 " reasonable folding
@@ -265,7 +271,19 @@ set number
 set relativenumber
 
 " don't create the ~filename files
-set nobackup
+"set nobackup
+
+" store swap, backup and undo files in a central location instead of the
+" current directory
+if (has("win32"))
+    set dir=~/vimswap//
+    set backupdir=~/vimbackup//
+    set undodir=~/vimundo//
+else
+    set dir=~/.vimswap//
+    set backupdir=~/.vimbackup//
+    set undodir=~/.vimundo//
+endif
 
 " turn off highlighted search by default, turn on only when needed.
 " set nohlsearch
@@ -274,7 +292,7 @@ set nobackup
 set incsearch
 
 " always show at least one line above/below the cursor
-set scrolloff=1
+"set scrolloff=1
 
 " redraw only when we need to
 set lazyredraw
