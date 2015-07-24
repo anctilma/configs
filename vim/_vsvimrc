@@ -11,3 +11,4 @@ inoremap kj <esc>
 "map ctrl-o and ctrl-i to navigate backward and forward
 nmap <C-O> :vsc View.NavigateBackward<CR>
 nmap <C-I> :vsc View.NavigateForward<CR>
+nmap <C-P> :vsc Edit.NavigateTo<CR>
