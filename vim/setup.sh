@@ -22,9 +22,16 @@ cp linux/.gtkrc-2.0 ~
 cp linux/.Xresources ~
 
 # install fonts
-pushd .
-cd ~
-git clone https://github.com/powerline/fonts.git
-sh ./install.sh
-popd
+if [ -d "~/powerline-fonts" ]; then
+  cd ~/powerline-fonts
+  git pull origin master
+  cd ~/configs/vim
+  sudo sh ~/powerline-fonts/install.sh
+else
+  git clone https://github.com/powerline/fonts.git ~/powerline-fonts
+  sudo sh ~/powerline-fonts/install.sh
+fi
+
+# start vim and download plugins
+vim +PlugUpdate +qall
 
