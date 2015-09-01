@@ -1,0 +1,3 @@
+Find or create registry key HKEY_CLASSES_ROOT\Folder\shell\Open Emacs here\command and change the default value to (using the correct path for your system):
+
+wscript.exe "C:\Users\Martin\configs\emacs\windows\invis.vbs" "C:\Users\Martin\configs\emacs\windows\emacsehere.bat %1
