@@ -266,7 +266,10 @@ set number
 set relativenumber
 
 " don't create the ~filename files
-"set nobackup
+set nobackup
+
+" enable hidden buffers by default
+set hidden
 
 " store swap, backup and undo files in a central location instead of the
 " current directory
