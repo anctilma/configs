@@ -62,6 +62,8 @@ Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'garbas/vim-snipmate'
 Plug 'ervandew/supertab'
+Plug 'othree/vim-autocomplpop'
+Plug 'vim-scripts/L9'
 
 " extra snippet
 Plug 'honza/vim-snippets'
@@ -265,11 +267,11 @@ set number
 " enable relative line numbers
 set relativenumber
 
-" don't create the ~filename files
-set nobackup
-
 " enable hidden buffers by default
 set hidden
+
+" don't create the ~filename files
+"set nobackup
 
 " store swap, backup and undo files in a central location instead of the
 " current directory
