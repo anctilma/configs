@@ -4,6 +4,7 @@ copy vimrc ~\_vimrc
 :: copy content over to .vim folder
 copy -r after ~\vimfiles
 copy -r colors ~\vimfiles
+copy -r plugin ~\vimfiles
 copy -r plugins ~\vimfiles
 copy -r UltiSnips ~\vimfiles
 
