@@ -156,8 +156,6 @@ if has("autocmd")
 
     " change de default comment style to c++ for c++ files
     autocmd FileType cpp,cs     setlocal commentstring=//\ %s
-    " use cscope for navigation in c and c++
-    "autocmd FileType cpp        set cscopetag
 
     " Treat the files with the following extentions as xml
     autocmd BufNewFile,BufRead *.rss,*.ndb,*.2db,*.config,*.scn setfiletype xml
