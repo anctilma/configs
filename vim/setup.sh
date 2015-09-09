@@ -18,6 +18,7 @@ cp -r colors ~/.vim
 cp -r plugin ~/.vim
 cp -r plugins ~/.vim
 cp -r UltiSnips ~/.vim
+cp vimshrc ~/.vim
 
 # create temp folders
 if [ ! -d ~/.vimbackup/ ]; then
@@ -51,6 +52,6 @@ else
 fi
 
 # start vim and download plugins
-vim +PlugUpdate +qall
+vim +PlugInstall +qall
 
 echo "Done."
