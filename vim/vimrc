@@ -62,7 +62,7 @@ Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'garbas/vim-snipmate'
 Plug 'ervandew/supertab'
-Plug 'othree/vim-autocomplpop'
+"Plug 'othree/vim-autocomplpop'
 Plug 'vim-scripts/L9'
 
 " extra snippet
@@ -94,15 +94,15 @@ let g:tmuxline_powerline_separators = 1
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_map = '<leader>o'
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-if !(has ('win32'))
-    let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-          \ --ignore .git
-          \ --ignore .svn
-          \ --ignore "**/*.pyc"
-          \ --ignore tags
-          \ --ignore cscope.out
-          \ -g ""'
-endif
+" if !(has ('win32'))
+"     let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+"           \ --ignore .git
+"           \ --ignore .svn
+"           \ --ignore "**/*.pyc"
+"           \ --ignore tags
+"           \ --ignore cscope.out
+"           \ -g ""'
+" endif
 " }}} ctrlp configuration
 "{{{ closetag configuration
 " enable closetag for xml,html,htm,xhtml and ndb files
@@ -135,6 +135,9 @@ let g:syntastic_mode_map = {"mode": "passive"}
 " {{{ goyo configuration
 let g:goyo_width  = 120
 let g:goyo_height = 100 
+" }}}
+" {{{ vimshell configuration
+let g:vimshell_prompt = "-> "
 " }}}
 "{{{ autocmd
 " set tab and indent configuration based on file type
@@ -214,6 +217,10 @@ noremap <C-kMinus> <C-X>
 
 " map leader-w to ctrl-w
 nnoremap <leader>w <c-w>
+
+" map leader-s to buffer save.
+nnoremap <leader>s :w<CR>
+nnoremap <leader>S :wa<CR>
 
 " map space k and space j to buffer next and buffer previous
 nnoremap <leader>k :bn<CR>
