@@ -43,13 +43,10 @@ Plug 'osyo-manga/vim-over'
 Plug 'alvan/vim-closetag'
 Plug 'tommcdo/vim-exchange'
 Plug 'ludovicchabant/vim-gutentags'
-"Plug 'rust-lang/rust.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'xolox/vim-notes'
-Plug 'xolox/vim-misc'
 Plug 'qpkorr/vim-renamer'
 Plug 'edsono/vim-matchit'
 Plug 'davidhalter/jedi'
+Plug 'osse/double-tap'
 "Plug 'airblade/vim-gitgutter'
 
 " theme plugins
@@ -132,12 +129,11 @@ let g:airline#extensions#whitespace#enabled = 0
 " disable syntastic active check by default
 let g:syntastic_mode_map = {"mode": "passive"}
 "}}} syntastic configuration
-" {{{ goyo configuration
-let g:goyo_width  = 120
-let g:goyo_height = 100 
-" }}}
 " {{{ vimshell configuration
 let g:vimshell_prompt = "-> "
+" }}}
+" {{{ gugentags configuration
+let g:gutentags_exclude = ["linux-xlnx"]
 " }}}
 "{{{ autocmd
 " set tab and indent configuration based on file type
@@ -150,11 +146,11 @@ if has("autocmd")
     autocmd FileType html       setlocal ts=4 sts=4 sw=4 expandtab
     autocmd FileType css        setlocal ts=4 sts=4 sw=4 expandtab
     autocmd FileType xml        setlocal ts=4 sts=4 sw=4 noexpandtab
-    autocmd FileType c          setlocal ts=4 sts=4 sw=4 expandtab cindent comments-=:// comments+=f://
-    autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 expandtab cindent comments-=:// comments+=f://
-    autocmd FileType cs         setlocal ts=4 sts=4 sw=4 expandtab cindent comments-=:// comments+=f://
+    autocmd FileType c          setlocal ts=4 sts=4 sw=4 expandtab cindent comments ^=:///
+    autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 expandtab cindent comments ^=:///
+    autocmd FileType cs         setlocal ts=4 sts=4 sw=4 expandtab cindent comments ^=:///
+    autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
     autocmd FileType python     setlocal ts=4 sts=4 sw=4 expandtab autoindent
-    autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab comments-=:// comments+=f://
     autocmd FileType vim        setlocal ts=4 sts=4 sw=4 expandtab
 
     " change de default comment style to c++ for c++ files
