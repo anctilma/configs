@@ -69,6 +69,7 @@ Plug 'honza/vim-snippets'
 if (!has("win32"))
 Plug 'edkolev/tmuxline.vim'
 Plug 'benmills/vimux'
+Plug 'christoomey/vim-tmux-navigator'
 endif
 
 " on demand plugins example.
@@ -85,7 +86,16 @@ let g:tmuxline_powerline_separators = 1
 "    \ 'left_alt': '>',
 "    \ 'right' : '',
 "    \ 'right_alt' : '<',
-"    \ 'space' : ' '}
+    \ 'space' : ' '}
+
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <c-h> :TmuxNavigateLeft<cr>
+nnoremap <c-j> :TmuxNavigateDown<cr>
+nnoremap <c-k> :TmuxNavigateUp<cr>
+nnoremap <c-l> :TmuxNavigateRight<cr>
+nnoremap <c-\> :TmuxNavigatePrevious<cr>
+
 " }}} tmux configuration
 " {{{ ctrlp configuration
 let g:ctrlp_working_path_mode = 0
@@ -210,9 +220,6 @@ noremap <C-kMinus> <C-X>
 " center after search
 "nmap n nzz
 "nmap N Nzz
-
-" map leader-w to ctrl-w
-nnoremap <leader>w <c-w>
 
 " map leader-s to buffer save.
 nnoremap <leader>s :w<CR>
