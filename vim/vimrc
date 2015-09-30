@@ -86,15 +86,23 @@ let g:tmuxline_powerline_separators = 1
 "    \ 'left_alt': '>',
 "    \ 'right' : '',
 "    \ 'right_alt' : '<',
-    \ 'space' : ' '}
+"    \ 'space' : ' '}
 
 let g:tmux_navigator_no_mappings = 1
 
-nnoremap <c-h> :TmuxNavigateLeft<cr>
-nnoremap <c-j> :TmuxNavigateDown<cr>
-nnoremap <c-k> :TmuxNavigateUp<cr>
-nnoremap <c-l> :TmuxNavigateRight<cr>
-nnoremap <c-\> :TmuxNavigatePrevious<cr>
+if has('win32')
+    nnoremap <c-h> <c-w>h
+    nnoremap <c-j> <c-w>j 
+    nnoremap <c-k> <c-w>k
+    nnoremap <c-l> <c-w>l
+    nnoremap <c-\> <c-w>p
+else
+    nnoremap <c-h> :TmuxNavigateLeft<cr>
+    nnoremap <c-j> :TmuxNavigateDown<cr>
+    nnoremap <c-k> :TmuxNavigateUp<cr>
+    nnoremap <c-l> :TmuxNavigateRight<cr>
+    nnoremap <c-\> :TmuxNavigatePrevious<cr>
+endif
 
 " }}} tmux configuration
 " {{{ ctrlp configuration
@@ -223,6 +231,7 @@ noremap <C-kMinus> <C-X>
 
 " map leader-s to buffer save.
 nnoremap <leader>s :w<CR>
+" map leader-S to save all buffers
 nnoremap <leader>S :wa<CR>
 
 " map space k and space j to buffer next and buffer previous
