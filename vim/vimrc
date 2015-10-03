@@ -90,17 +90,17 @@ let g:tmuxline_powerline_separators = 1
 let g:tmux_navigator_no_mappings = 1
 
 if has('win32')
-    nnoremap <c-h> <c-w>h
-    nnoremap <c-j> <c-w>j 
-    nnoremap <c-k> <c-w>k
-    nnoremap <c-l> <c-w>l
-    nnoremap <c-\> <c-w>p
+    nnoremap <silent> <c-h> <c-w>h
+    nnoremap <silent> <c-j> <c-w>j 
+    nnoremap <silent> <c-k> <c-w>k
+    nnoremap <silent> <c-l> <c-w>l
+    nnoremap <silent> <c-\> <c-w>p
 else
-    nnoremap <c-h> :TmuxNavigateLeft<cr>
-    nnoremap <c-j> :TmuxNavigateDown<cr>
-    nnoremap <c-k> :TmuxNavigateUp<cr>
-    nnoremap <c-l> :TmuxNavigateRight<cr>
-    nnoremap <c-\> :TmuxNavigatePrevious<cr>
+    nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+    nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+    nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+    nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+    nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 endif
 
 " }}} tmux configuration
