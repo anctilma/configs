@@ -1,5 +1,15 @@
+echo "Installing vim configuration files..."
 :: copy vimrc to home folder
+
 copy vimrc ~\_vimrc
+
+if exist ~\vimfiles
+    echo "Found vimfiles folder, copying to ~/vimfiles.backup"
+    copy -r ~\vimfiles ~\vimfiles.backup
+    rmdir /s /q ~\vimfiles
+
+mkdir ~\vimfiles
+
 
 :: copy content over to .vim folder
 copy -r after ~\vimfiles
@@ -19,9 +29,6 @@ if not exist ~\vimundo
 :: setup vim plug
 curl -fLo ~\vimfiles\autoload\plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-:: copy vimproc binaries
-copy windows\vimproc\* ~\vimfiles\plugged\vimproc.vim\autoload
-
 :: install consolas powerline fonts
 :: TODO 
 
@@ -31,3 +38,4 @@ copy windows\vimproc\* ~\vimfiles\plugged\vimproc.vim\autoload
 :: start vim and download plugins
 gvim +PlugUpdate +qall
 
+echo "Done."

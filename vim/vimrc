@@ -33,7 +33,6 @@ Plug 'easymotion/vim-easymotion'
 Plug 'godlygeek/tabular'
 Plug 'rking/ag.vim'
 Plug 'majutsushi/tagbar'
-Plug 'shougo/vimshell.vim'
 Plug 'shougo/vimproc.vim'
 Plug 'sjl/gundo.vim'
 Plug 'will133/vim-dirdiff'
@@ -147,9 +146,6 @@ let g:airline#extensions#whitespace#enabled = 0
 " disable syntastic active check by default
 let g:syntastic_mode_map = {"mode": "passive"}
 "}}} syntastic configuration
-" {{{ vimshell configuration
-let g:vimshell_prompt = "-> "
-" }}}
 " {{{ gugentags configuration
 let g:gutentags_exclude = ["linux-xlnx"]
 " }}}
