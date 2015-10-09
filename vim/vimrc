@@ -273,6 +273,15 @@ endif
 " }}} gui vs terminal
 " {{{ misc
 
+" {{{ wildignore
+if has("win32")
+    set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*,tags,cscope.out,*.pyc  " Windows ('noshellslash')
+else
+    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,tags,cscope.out,*.pyc
+endif
+
+" }}}
+
 " enable line numbers
 set number
 
