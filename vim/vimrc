@@ -44,6 +44,7 @@ Plug 'qpkorr/vim-renamer'
 Plug 'edsono/vim-matchit'
 Plug 'davidhalter/jedi'
 Plug 'osse/double-tap'
+Plug 'haya14busa/incsearch.vim'
 if (!has ("win32"))
     Plug 'shougo/vimproc'
 endif
@@ -149,6 +150,11 @@ let g:syntastic_mode_map = {"mode": "passive"}
 "}}} syntastic configuration
 " {{{ gugentags configuration
 let g:gutentags_exclude = ["linux-xlnx"]
+" }}}
+" {{{ incsearch configuration
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
 " }}}
 "{{{ autocmd
 " set tab and indent configuration based on file type
