@@ -45,13 +45,12 @@ if [ -d ~/powerline-fonts ]; then
 	cd ~/powerline-fonts
 	git pull origin master
 	cd ~/configs/vim
-	sudo sh ~/powerline-fonts/install.sh
 else
 	git clone https://github.com/powerline/fonts.git ~/powerline-fonts
-	sudo sh ~/powerline-fonts/install.sh
 fi
+sudo sh ~/powerline-fonts/install.sh
 
 # start vim and download plugins
-vim +PlugInstall +qall
+vim --noplugin +PlugInstall +qall
 
 echo "Done."
