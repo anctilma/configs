@@ -26,7 +26,6 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-rsi'
 Plug 'andrewradev/splitjoin.vim'
 Plug 'scrooloose/syntastic'
 Plug 'terryma/vim-multiple-cursors'
@@ -111,7 +110,7 @@ endif
 " }}} tmux configuration
 " {{{ ctrlp configuration
 let g:ctrlp_working_path_mode = 0
-let g:ctrlp_map = '<leader>o'
+let g:ctrlp_map = '<leader>e'
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 " if !(has ('win32'))
 "     let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
@@ -213,10 +212,6 @@ nmap <C-Down> ]e
 " bubble multiple lines
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
-
-" map bashing j and k in random order to ESC
-inoremap jk <esc>
-inoremap kj <esc>
 
 " map ctrl-x to buffer delete
 nnoremap <c-x> :bd<CR>
