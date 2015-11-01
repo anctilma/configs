@@ -132,6 +132,7 @@ set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 " show only the file name
 let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tagbar#enabled = 0
 
 " set jellybeans theme for airline
 let g:airline_theme = 'jellybeans'
