@@ -223,9 +223,6 @@ vmap <C-Down> ]egv
 " map ctrl-x to buffer delete
 nnoremap <c-x> :bd<CR>
 
-" map Ctrl-K Ctrl-O to toggle .h/.cpp file (same as Visual Studio)
-map <c-k><c-o> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
-
 " quick pairs
 " imap <leader>' ''<ESC>i
 " imap <leader>" ""<ESC>i
@@ -254,6 +251,9 @@ nnoremap <leader>j :bp<CR>
 
 " map leader-t to CtrlPTag
 nnoremap <leader>t :CtrlPTag<CR>
+
+" map leader-o to toggle .h/.cpp file (o for opposite)
+map <leader>o :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 
 " }}} mappings
 " {{{ folding
