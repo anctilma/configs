@@ -91,19 +91,18 @@ let g:tmuxline_powerline_separators = 1
 "    \ 'space' : ' '}
 
 let g:tmux_navigator_no_mappings = 1
-
-if has('win32')
-    nnoremap <silent> <c-h> <c-w>h
-    nnoremap <silent> <c-j> <c-w>j 
-    nnoremap <silent> <c-k> <c-w>k
-    nnoremap <silent> <c-l> <c-w>l
-    nnoremap <silent> <c-\> <c-w>p
-else
+if $TMUX != ''
     nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
     nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
     nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
     nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
     nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
+else
+    nnoremap <silent> <c-h> <c-w>h
+    nnoremap <silent> <c-j> <c-w>j 
+    nnoremap <silent> <c-k> <c-w>k
+    nnoremap <silent> <c-l> <c-w>l
+    nnoremap <silent> <c-\> <c-w>p
 endif
 
 " }}} tmux configuration
