@@ -52,9 +52,6 @@ if (!has ("win32"))
 endif
 "Plug 'airblade/vim-gitgutter'
 
-" theme plugins
-Plug 'nanotech/jellybeans.vim'
-
 " plugins for UltiSnips and SuperTab support.
 Plug 'sirver/ultisnips'
 Plug 'tomtom/tlib_vim'

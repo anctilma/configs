@@ -14,11 +14,9 @@ fi
 
 mkdir ~/.vim
 cp -r after ~/.vim
-cp -r colors ~/.vim
 cp -r plugin ~/.vim
 cp -r plugins ~/.vim
 cp -r UltiSnips ~/.vim
-cp vimshrc ~/.vim
 
 # create temp folders
 if [ ! -d ~/.vimbackup/ ]; then
@@ -35,6 +33,10 @@ fi
 
 # setup vim plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# install jellybeans color theme
+curl -fLo ~/.vim/colors/jellybeans.vim --create-dirs https://raw.githubusercontent.com/nanotech/jellybeans.vim/master/colors/jellybeans.vim
+
 
 # gui border fix
 cp linux/.gtkrc-2.0 ~
