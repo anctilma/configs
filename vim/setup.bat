@@ -10,10 +10,8 @@ if exist ~\vimfiles
 
 mkdir ~\vimfiles
 
-
 :: copy content over to .vim folder
 copy -r after ~\vimfiles
-copy -r colors ~\vimfiles
 copy -r plugin ~\vimfiles
 copy -r plugins ~\vimfiles
 copy -r UltiSnips ~\vimfiles
@@ -29,6 +27,10 @@ if not exist ~\vimundo
 :: setup vim plug
 curl -fLo ~\vimfiles\autoload\plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+# install jellybeans color theme
+curl -fLo ~/vimfiles\colors\jellybeans.vim --create-dirs https://raw.githubusercontent.com/nanotech/jellybeans.vim/master/colors/jellybeans.vim
+
+
 :: install consolas powerline fonts
 :: TODO 
 
@@ -36,6 +38,6 @@ curl -fLo ~\vimfiles\autoload\plug.vim --create-dirs https://raw.githubuserconte
 :: TODO 
 
 :: start vim and download plugins
-gvim +PlugUpdate +qall
+gvim --noplugin +PlugUpdate +qall
 
 echo "Done."
