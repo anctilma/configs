@@ -13,6 +13,8 @@ else
     call plug#begin('~/.vim/plugged')
 endif
 
+let g:plug_timeout=120
+
 Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
 Plug 'kien/ctrlp.vim'
@@ -31,6 +33,7 @@ Plug 'scrooloose/syntastic'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'terryma/vim-expand-region'
 Plug 'easymotion/vim-easymotion'
+Plug 'aykamko/vim-easymotion-segments'
 Plug 'godlygeek/tabular'
 Plug 'rking/ag.vim'
 Plug 'majutsushi/tagbar'
@@ -48,7 +51,7 @@ Plug 'osse/double-tap'
 Plug 'sickill/vim-pasta'
 Plug 'haya14busa/incsearch.vim'
 if (!has ("win32"))
-    Plug 'shougo/vimproc'
+    Plug 'shougo/vimproc', { 'do': 'make' }
 endif
 "Plug 'airblade/vim-gitgutter'
 
@@ -93,13 +96,13 @@ if $TMUX != ''
     nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
     nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
     nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
-    nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
+    nnoremap <silent> <c-p> :TmuxNavigatePrevious<cr>
 else
     nnoremap <silent> <c-h> <c-w>h
     nnoremap <silent> <c-j> <c-w>j 
     nnoremap <silent> <c-k> <c-w>k
     nnoremap <silent> <c-l> <c-w>l
-    nnoremap <silent> <c-\> <c-w>p
+    nnoremap <silent> <c-p> <c-w>p
 endif
 
 " }}} tmux configuration
@@ -234,6 +237,10 @@ noremap <C-kMinus> <C-X>
 " center after search
 "nmap n nzz
 "nmap N Nzz
+
+" center after jump to next function
+nmap ]] ]]zz
+nmap [[ [[zz
 
 " map leader-s to buffer save.
 nnoremap <leader>s :w<CR>
