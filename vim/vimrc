@@ -52,6 +52,8 @@ Plug 'sickill/vim-pasta'
 Plug 'haya14busa/incsearch.vim'
 if (!has ("win32"))
     Plug 'shougo/vimproc', { 'do': 'make' }
+else
+    Plug 'majkinetor/vim-omnipresence' 
 endif
 "Plug 'airblade/vim-gitgutter'
 
@@ -207,6 +209,9 @@ noremap <silent> <F9> :TagbarToggle<CR>
 if (!has("win32"))
     nnoremap <silent> <F7> :Make ARCH=arm -s -j 2<CR>
 endif
+
+" map F6 to omnipresence
+let g:omnipresence_hotkey = 'F6'
 
 " map F5 to toggle gundo
 nnoremap <silent> <F5> :GundoToggle<CR>
