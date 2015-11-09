@@ -224,9 +224,6 @@ nmap <C-Down> ]e
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
 
-" map ctrl-x to buffer delete
-nnoremap <c-x> :bd<CR>
-
 " quick pairs
 " imap <leader>' ''<ESC>i
 " imap <leader>" ""<ESC>i
