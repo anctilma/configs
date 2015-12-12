@@ -15,6 +15,7 @@ endif
 
 let g:plug_timeout=120
 
+Plug 'mhinz/vim-startify'
 Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
 Plug 'kien/ctrlp.vim'
@@ -209,10 +210,10 @@ noremap <silent> <F9> :TagbarToggle<CR>
 " map F7 to save and build
 if (!has("win32"))
     nnoremap <silent> <F7> :Make ARCH=arm -s -j 2<CR>
-endif
-
+else
 " map F6 to omnipresence
 let g:omnipresence_hotkey = 'F6'
+endif
 
 " map F5 to toggle gundo
 nnoremap <silent> <F5> :GundoToggle<CR>
