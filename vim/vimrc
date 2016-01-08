@@ -260,8 +260,8 @@ nnoremap <silent> <leader>j :bp<CR>
 " map leader-t to CtrlPTag
 nnoremap <leader>t :CtrlPTag<CR>
 
-" map leader-b to CtrlPBuffer
-nnoremap <leader>b :CtrlPBuffer<CR>
+" map leader-l to CtrlPBuffer
+nnoremap <leader>l :CtrlPBuffer<CR>
 
 
 " map leader-o to toggle .h/.cpp file (o for opposite)
