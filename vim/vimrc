@@ -18,7 +18,7 @@ let g:plug_timeout=120
 Plug 'mhinz/vim-startify'
 Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'felikz/ctrlp-py-matcher'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
