@@ -254,8 +254,8 @@ nnoremap <leader>s :w<CR>
 nnoremap <leader>S :wa<CR>
 
 " map space k and space j to buffer next and buffer previous
-nnoremap <leader>k :bn<CR>
-nnoremap <leader>j :bp<CR>
+nnoremap <silent> <leader>k :bn<CR>
+nnoremap <silent> <leader>j :bp<CR>
 
 " map leader-t to CtrlPTag
 nnoremap <leader>t :CtrlPTag<CR>
