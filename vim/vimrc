@@ -240,8 +240,8 @@ noremap <C-kPlus> <C-A>
 noremap <C-kMinus> <C-X>
 
 " center after search
-"nmap n nzz
-"nmap N Nzz
+nmap n nzz
+nmap N Nzz
 
 " center after jump to next function
 nmap ]] ]]zz
