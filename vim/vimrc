@@ -54,6 +54,7 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 if (!has ("win32"))
     Plug 'shougo/vimproc', { 'do': 'make' }
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 else
     Plug 'majkinetor/vim-omnipresence' 
 endif
