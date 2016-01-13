@@ -17,7 +17,7 @@ let g:plug_timeout=120
 Plug 'mhinz/vim-startify'
 Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'felikz/ctrlp-py-matcher'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
@@ -50,9 +50,11 @@ Plug 'davidhalter/jedi'
 Plug 'osse/double-tap'
 Plug 'sickill/vim-pasta'
 Plug 'haya14busa/incsearch.vim'
+Plug 'junegunn/goyo.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 if (!has ("win32"))
     Plug 'shougo/vimproc', { 'do': 'make' }
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 else
     Plug 'majkinetor/vim-omnipresence' 
 endif
@@ -235,8 +237,8 @@ noremap <C-kPlus> <C-A>
 noremap <C-kMinus> <C-X>
 
 " center after search
-"nmap n nzz
-"nmap N Nzz
+nmap n nzz
+nmap N Nzz
 
 " center after jump to next function
 nmap ]] ]]zz
@@ -249,15 +251,17 @@ nnoremap <leader>s :w<CR>
 nnoremap <leader>S :wa<CR>
 
 " map space k and space j to buffer next and buffer previous
-nnoremap <leader>k :bn<CR>
-nnoremap <leader>j :bp<CR>
+nnoremap <silent> <leader>k :bn<CR>
+nnoremap <silent> <leader>j :bp<CR>
 
 " map leader-t to CtrlPTag
 nnoremap <leader>t :CtrlPTag<CR>
 
-" map leader-b to CtrlPBuffer
-nnoremap <leader>b :CtrlPBuffer<CR>
+" map leader-l to CtrlPBuffer
+nnoremap <leader>l :CtrlPBuffer<CR>
 
+" map leader-x to delete buffer
+nnoremap <silent> <leader>x :bd<CR>
 
 " map leader-o to toggle .h/.cpp file (o for opposite)
 map <leader>o :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
