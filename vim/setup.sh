@@ -37,10 +37,19 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 # install jellybeans color theme
 curl -fLo ~/.vim/colors/jellybeans.vim --create-dirs https://raw.githubusercontent.com/nanotech/jellybeans.vim/master/colors/jellybeans.vim
 
-
 # gui border fix
 cp linux/.gtkrc-2.0 ~
 cp linux/.Xresources ~
+
+# capslock->ctrl & esc like CapsUnlocked on Windows
+cp linux/.xinitrc ~
+if [ ! -d ~/xcape/ ]; then
+sudo apt-get install git gcc make pkg-config libx11-dev libxtst-dev libxi-dev
+git clone https://github.com/alols/xcape.git ~/xcape
+cd ~/xcape
+make
+sudo make install
+fi
 
 # install fonts
 if [ -d ~/powerline-fonts ]; then
