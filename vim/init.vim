@@ -267,6 +267,15 @@ nnoremap <silent> <leader>x :bd<CR>
 " map leader-o to toggle .h/.cpp file (o for opposite)
 map <leader>o :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 
+" map leader g to fugitive.vim commands
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gl :GV<CR>
+nnoremap <leader>gL :GV!<CR>
+nnoremap <leader>gc :Gcommit<CR>
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gr :Gread<CR>
+nnoremap <leader>gw :Gwrite<CR>
+
 " quit terminal mode on ESC
 tnoremap <Esc> <C-\><C-n>
 
