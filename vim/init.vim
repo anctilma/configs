@@ -16,7 +16,8 @@ let g:plug_timeout=120
 
 Plug 'mhinz/vim-startify'
 Plug 'scrooloose/nerdtree'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'felikz/ctrlp-py-matcher'
 Plug 'tpope/vim-surround'
@@ -84,7 +85,7 @@ endif
 "Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 
 call plug#end()
-" }}} /// plugins
+" }}} plugins
 " {{{ tmux configuration
 " enable support for timuxline in airline
 let g:airline#extensions#tmuxline#enabled = 1
@@ -170,9 +171,9 @@ if has("autocmd")
     autocmd FileType html       setlocal ts=4 sts=4 sw=4 expandtab
     autocmd FileType css        setlocal ts=4 sts=4 sw=4 expandtab
     autocmd FileType xml        setlocal ts=4 sts=4 sw=4 noexpandtab
-    autocmd FileType c          setlocal ts=4 sts=4 sw=4 expandtab cindent comments ^=:///
-    autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 expandtab cindent comments ^=:///
-    autocmd FileType cs         setlocal ts=4 sts=4 sw=4 expandtab cindent comments ^=:///
+    autocmd FileType c          setlocal ts=4 sts=4 sw=4 expandtab cindent comments ^=://
+    autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 expandtab cindent comments ^=://
+    autocmd FileType cs         setlocal ts=4 sts=4 sw=4 expandtab cindent comments ^=://
     autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
     autocmd FileType python     setlocal ts=4 sts=4 sw=4 expandtab autoindent
     autocmd FileType vim        setlocal ts=4 sts=4 sw=4 expandtab
@@ -275,6 +276,9 @@ nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gr :Gread<CR>
 nnoremap <leader>gw :Gwrite<CR>
+
+" map leader w to ctrl-w for window operations
+nnoremap <leader>w <c-w>
 
 " quit terminal mode on ESC
 tnoremap <Esc> <C-\><C-n>
