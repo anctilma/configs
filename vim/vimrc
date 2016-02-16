@@ -36,6 +36,8 @@ Plug 'scrooloose/syntastic'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'terryma/vim-expand-region'
 Plug 'easymotion/vim-easymotion'
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'aykamko/vim-easymotion-segments'
 Plug 'godlygeek/tabular'
 Plug 'rking/ag.vim'
@@ -52,7 +54,6 @@ Plug 'edsono/vim-matchit'
 Plug 'davidhalter/jedi'
 Plug 'osse/double-tap'
 Plug 'sickill/vim-pasta'
-Plug 'haya14busa/incsearch.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 if (!has ("win32"))
@@ -118,15 +119,17 @@ endif
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_map = '<leader>e'
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-" if !(has ('win32'))
-"     let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-"           \ --ignore .git
-"           \ --ignore .svn
-"           \ --ignore "**/*.pyc"
-"           \ --ignore tags
-"           \ --ignore cscope.out
-"           \ -g ""'
-" endif
+let g:ctrlp_clear_cache_on_exit = 0
+if (!has("win32"))
+    let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+          \ --ignore .git
+          \ --ignore .svn
+          \ --ignore "**/*.pyc"
+          \ --ignore tags
+          \ --ignore cscope.out
+          \ -g ""'
+endif
+
 " }}} ctrlp configuration
 "{{{ closetag configuration
 " enable closetag for xml,html,htm,xhtml and ndb files
@@ -164,6 +167,9 @@ let g:gutentags_exclude = ["linux-xlnx"]
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
+map z/ <Plug>(incsearch-easymotion-/)
+map z? <Plug>(incsearch-easymotion-?)
+map zg/ <Plug>(incsearch-easymotion-stay)
 " }}}
 "{{{ autocmd
 " set tab and indent configuration based on file type
