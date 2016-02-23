@@ -16,6 +16,7 @@ endif
 let g:plug_timeout=120
 
 Plug 'mhinz/vim-startify'
+Plug 'qpkorr/vim-bufkill'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -282,8 +283,8 @@ nnoremap <leader>t :CtrlPTag<CR>
 " map leader-l to CtrlPBuffer
 nnoremap <leader>l :CtrlPBuffer<CR>
 
-" map leader-x to delete buffer
-nnoremap <silent> <leader>x :bd<CR>
+" map leader-x to delete buffer to vim-bufkill's BD command
+nnoremap <silent> <leader>x :BD<CR>
 
 " map leader-o to toggle .h/.cpp file (o for opposite)
 map <leader>o :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
