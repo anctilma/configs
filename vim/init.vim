@@ -15,31 +15,24 @@ endif
 let g:plug_timeout=120
 
 Plug 'mhinz/vim-startify'
+Plug 'qpkorr/vim-bufkill'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'felikz/ctrlp-py-matcher'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'junegunn/gv.vim'
-Plug 'tpope/vim-obsession'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-vinegar'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-unimpaired'
 Plug 'andrewradev/splitjoin.vim'
 Plug 'benekastah/neomake'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'terryma/vim-expand-region'
 Plug 'easymotion/vim-easymotion'
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'aykamko/vim-easymotion-segments'
 Plug 'godlygeek/tabular'
 Plug 'rking/ag.vim'
 Plug 'majutsushi/tagbar'
-Plug 'sjl/gundo.vim'
+Plug 'mbbill/undotree'
 Plug 'will133/vim-dirdiff'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'nelstrom/vim-qargs'
@@ -51,12 +44,22 @@ Plug 'edsono/vim-matchit'
 Plug 'davidhalter/jedi'
 Plug 'osse/double-tap'
 Plug 'sickill/vim-pasta'
-Plug 'haya14busa/incsearch.vim'
-Plug 'junegunn/goyo.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-sleuth' " adjust shiftwidth and expandtab automatically
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
+Plug 'junegunn/goyo.vim'
 if (!has ("win32"))
-    Plug 'shougo/vimproc', { 'do': 'make' }
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'shougo/vimproc', { 'do': 'make' }
 else
     Plug 'majkinetor/vim-omnipresence' 
 endif
@@ -117,15 +120,17 @@ endif
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_map = '<leader>e'
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-" if !(has ('win32'))
-"     let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-"           \ --ignore .git
-"           \ --ignore .svn
-"           \ --ignore "**/*.pyc"
-"           \ --ignore tags
-"           \ --ignore cscope.out
-"           \ -g ""'
-" endif
+let g:ctrlp_clear_cache_on_exit = 0
+if (!has("win32"))
+    let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+          \ --ignore .git
+          \ --ignore .svn
+          \ --ignore "**/*.pyc"
+          \ --ignore tags
+          \ --ignore cscope.out
+          \ -g ""'
+endif
+
 " }}} ctrlp configuration
 "{{{ closetag configuration
 " enable closetag for xml,html,htm,xhtml and ndb files
@@ -159,6 +164,9 @@ let g:gutentags_exclude = ["linux-xlnx"]
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
+map z/ <Plug>(incsearch-easymotion-/)
+map z? <Plug>(incsearch-easymotion-?)
+map zg/ <Plug>(incsearch-easymotion-stay)
 " }}}
 "{{{ autocmd
 " set tab and indent configuration based on file type
@@ -183,6 +191,12 @@ if has("autocmd")
 
     " Treat the files with the following extentions as xml
     autocmd BufNewFile,BufRead *.rss,*.ndb,*.2db,*.config,*.scn setfiletype xml
+
+    " Source the vimrc file after saving it
+    if has("autocmd")
+      autocmd bufwritepost init.vim source $MYVIMRC
+    endif
+
 endif
 "}}} autocmd
 " {{{ wildignore
@@ -196,6 +210,9 @@ endif
 
 " map leader key to space
 let mapleader="\<space>"
+
+" edit the vimrc on a vertical split on leader v
+nmap <leader>v :e $MYVIMRC<CR>
 
 " map F12 to toggle NERDTree
 noremap <silent> <F12> :NERDTreeToggle<CR>
@@ -215,8 +232,8 @@ else
 let g:omnipresence_hotkey = 'F6'
 endif
 
-" map F5 to toggle gundo
-nnoremap <silent> <F5> :GundoToggle<CR>
+" map F5 to toggle undotree
+nnoremap <silent> <F5> :UndotreeToggle<CR>
 
 " bubble text up and down with ctrl-up and down (required unimpaired plugin)
 " bubble single lines
@@ -262,8 +279,8 @@ nnoremap <leader>t :CtrlPTag<CR>
 " map leader-l to CtrlPBuffer
 nnoremap <leader>l :CtrlPBuffer<CR>
 
-" map leader-x to delete buffer
-nnoremap <silent> <leader>x :bd<CR>
+" map leader-x to delete buffer to vim-bufkill's BD command
+nnoremap <silent> <leader>x :BD<CR>
 
 " map leader-o to toggle .h/.cpp file (o for opposite)
 map <leader>o :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
