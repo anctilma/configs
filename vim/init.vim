@@ -194,7 +194,7 @@ if has("autocmd")
 
     " Source the vimrc file after saving it
     if has("autocmd")
-      autocmd bufwritepost init.vim source $MYVIMRC
+      autocmd BufWritePost init.vim source $MYVIMRC
     endif
 
 endif
