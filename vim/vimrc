@@ -55,6 +55,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-sleuth' " adjust shiftwidth and expandtab automatically
+Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 Plug 'junegunn/goyo.vim'
@@ -301,6 +302,16 @@ nnoremap <leader>gw :Gwrite<CR>
 " map leader w to ctrl-w for window operations
 nnoremap <leader>w <c-w>
 
+vmap JK <esc>
+vmap KJ <esc>
+imap JK <esc>
+imap KJ <esc>
+
+vmap jk <esc>
+vmap kj <esc>
+imap jk <esc>
+imap kj <esc>
+
 " }}} mappings
 " {{{ folding
 " reasonable folding
@@ -393,11 +404,11 @@ if has('gui_running')
     colorscheme jellybeans
 
     if has ('win32')
-        set guifont=Powerline_Consolas:h11:cANSI
+        set guifont=Powerline_Consolas:h13:cANSI
     else
         set guifont=Inconsolata\ for\ Powerline\ Medium\ 13
     endif
-    set linespace=0
+    set linespace=1
     set lines=40
     set columns=170
 else
