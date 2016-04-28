@@ -54,6 +54,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-sleuth' " adjust shiftwidth and expandtab automatically
+Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 Plug 'junegunn/goyo.vim'

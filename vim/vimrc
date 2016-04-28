@@ -302,16 +302,6 @@ nnoremap <leader>gw :Gwrite<CR>
 " map leader w to ctrl-w for window operations
 nnoremap <leader>w <c-w>
 
-vmap JK <esc>
-vmap KJ <esc>
-imap JK <esc>
-imap KJ <esc>
-
-vmap jk <esc>
-vmap kj <esc>
-imap jk <esc>
-imap kj <esc>
-
 " }}} mappings
 " {{{ folding
 " reasonable folding
