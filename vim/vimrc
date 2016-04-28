@@ -404,11 +404,11 @@ if has('gui_running')
     colorscheme jellybeans
 
     if has ('win32')
-        set guifont=Powerline_Consolas:h13:cANSI
+        set guifont=Powerline_Consolas:h11:cANSI
     else
         set guifont=Inconsolata\ for\ Powerline\ Medium\ 13
     endif
-    set linespace=1
+    set linespace=0
     set lines=40
     set columns=170
 else
