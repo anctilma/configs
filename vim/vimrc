@@ -54,7 +54,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-sleuth' " adjust shiftwidth and expandtab automatically
+" Plug 'tpope/vim-sleuth' " adjust shiftwidth and expandtab automatically
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
@@ -130,6 +130,7 @@ if (!has("win32"))
           \ --ignore "**/*.pyc"
           \ --ignore tags
           \ --ignore cscope.out
+          \ --ignore Session.vim
           \ -g ""'
 endif
 
@@ -207,9 +208,9 @@ endif
 "}}} autocmd
 " {{{ wildignore
 if has("win32")
-    set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*,tags,cscope.out,*.pyc  " Windows ('noshellslash')
+    set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*,tags,cscope.out,*.pyc,Session.vim  " Windows ('noshellslash')
 else
-    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,tags,cscope.out,*.pyc
+    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,tags,cscope.out,*.pyc,Session.vim
 endif
 " }}}
 " {{{ mappings
@@ -394,11 +395,11 @@ if has('gui_running')
     colorscheme jellybeans
 
     if has ('win32')
-        set guifont=Powerline_Consolas:h11:cANSI
+        set guifont=Powerline_Consolas:h13:cANSI
     else
         set guifont=Inconsolata\ for\ Powerline\ Medium\ 13
     endif
-    set linespace=0
+    set linespace=1
     set lines=40
     set columns=170
 else
