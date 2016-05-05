@@ -171,6 +171,10 @@ map z/ <Plug>(incsearch-easymotion-/)
 map z? <Plug>(incsearch-easymotion-?)
 map zg/ <Plug>(incsearch-easymotion-stay)
 " }}}
+" {{{ quickscope configuration
+" Trigger a highlight in the appropriate direction when pressing these keys:
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+" }}} 
 "{{{ autocmd
 " set tab and indent configuration based on file type
 if has("autocmd")
