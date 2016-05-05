@@ -16,6 +16,7 @@ let g:plug_timeout=120
 
 Plug 'mhinz/vim-startify'
 Plug 'qpkorr/vim-bufkill'
+Plug 'unblevable/quick-scope'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -129,6 +130,7 @@ if (!has("win32"))
           \ --ignore "**/*.pyc"
           \ --ignore tags
           \ --ignore cscope.out
+          \ --ignore Session.vim
           \ -g ""'
 endif
 
@@ -202,9 +204,9 @@ endif
 "}}} autocmd
 " {{{ wildignore
 if has("win32")
-    set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*,tags,cscope.out,*.pyc  " Windows ('noshellslash')
+    set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*,tags,cscope.out,*.pyc,Session.vim  " Windows ('noshellslash')
 else
-    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,tags,cscope.out,*.pyc
+    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,tags,cscope.out,*.pyc,Session.vim
 endif
 " }}}
 " {{{ mappings
