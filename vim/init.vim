@@ -182,22 +182,26 @@ if has("autocmd")
     filetype on
 
     "syntax of makefile is fussy over tabs vs spaces
-    autocmd FileType make       setlocal ts=8 sts=8 sw=8 noexpandtab
-    autocmd FileType html       setlocal ts=4 sts=4 sw=4 expandtab
-    autocmd FileType css        setlocal ts=4 sts=4 sw=4 expandtab
-    autocmd FileType xml        setlocal ts=4 sts=4 sw=4 noexpandtab
-    autocmd FileType c          setlocal ts=4 sts=4 sw=4 expandtab cindent comments ^=://
-    autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 expandtab cindent comments ^=://
-    autocmd FileType cs         setlocal ts=4 sts=4 sw=4 expandtab cindent comments ^=://
-    autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
-    autocmd FileType python     setlocal ts=4 sts=4 sw=4 expandtab autoindent
-    autocmd FileType vim        setlocal ts=4 sts=4 sw=4 expandtab
+    " autocmd FileType make       setlocal ts=8 sts=8 sw=8 noexpandtab
+    " autocmd FileType html       setlocal ts=4 sts=4 sw=4 expandtab
+    " autocmd FileType css        setlocal ts=4 sts=4 sw=4 expandtab
+    " autocmd FileType xml        setlocal ts=4 sts=4 sw=4 noexpandtab
+    " autocmd FileType c          setlocal ts=4 sts=4 sw=4 expandtab cindent comments ^=://
+    " autocmd FileType cs         setlocal ts=4 sts=4 sw=4 expandtab cindent comments ^=://
+    " autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
+    " autocmd FileType python     setlocal ts=4 sts=4 sw=4 expandtab autoindent
+    " autocmd FileType vim        setlocal ts=4 sts=4 sw=4 expandtab
+    " autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 expandtab cindent comments ^=://
 
     " change de default comment style to c++ for c++ files
     autocmd FileType cpp,cs     setlocal commentstring=//\ %s
 
     " Treat the files with the following extentions as xml
     autocmd BufNewFile,BufRead *.rss,*.ndb,*.2db,*.config,*.scn setfiletype xml
+
+    " Force this style for c++, since vim-sleuth misreads the initializer
+    " list offset as the file general shiftwidth sometimes.
+    autocmd BufRead *.cpp,*.h setlocal ts=4 sts=4 sw=4 expandtab
 
     " Source the vimrc file after saving it
     if has("autocmd")
