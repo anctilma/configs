@@ -274,6 +274,9 @@ nmap N Nzz
 nmap ]] ]]zz
 nmap [[ [[zz
 
+" map Y to y$ (yank till end of line)
+noremap Y y$
+
 " map leader-s to buffer save.
 nnoremap <leader>s :w<CR>
 
