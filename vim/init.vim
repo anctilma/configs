@@ -379,9 +379,12 @@ set nowrap
 " enable cursorline
 set cul
 
-" move cursor to new split
+" open new split to rignt or bottom and move cursor to new split
 set splitbelow
 set splitright
+
+" Insert one space instead of two after a '.', '?' and '!' with a join command.
+set nojoinspaces
 
 " highlight last inserted text
 nnoremap gV `[v`]
