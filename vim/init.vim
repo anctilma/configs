@@ -46,6 +46,10 @@ Plug 'davidhalter/jedi'
 Plug 'osse/double-tap'
 Plug 'sickill/vim-pasta'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'christoomey/vim-sort-motion'
+Plug 'wellle/targets.vim'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
@@ -54,7 +58,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-sleuth' " adjust shiftwidth and expandtab automatically
+" Plug 'tpope/vim-sleuth' " adjust shiftwidth and expandtab automatically
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
@@ -142,8 +146,8 @@ let g:closetag_filenames = "*.xml,*.html,*.htm,*.xhtml,*.ndb,*.2db,*.config,*.rs
 "{{{ airline configuration
 " always display airline
 set laststatus=2
-" enable the tabline
-let g:airline#extensions#tabline#enabled = 1
+" disable the tabline
+ let g:airline#extensions#tabline#enabled = 0
 " show only the file name
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tagbar#enabled = 0
@@ -181,17 +185,16 @@ if has("autocmd")
     "enable file type detection
     filetype on
 
-    "syntax of makefile is fussy over tabs vs spaces
-    " autocmd FileType make       setlocal ts=8 sts=8 sw=8 noexpandtab
-    " autocmd FileType html       setlocal ts=4 sts=4 sw=4 expandtab
-    " autocmd FileType css        setlocal ts=4 sts=4 sw=4 expandtab
-    " autocmd FileType xml        setlocal ts=4 sts=4 sw=4 noexpandtab
-    " autocmd FileType c          setlocal ts=4 sts=4 sw=4 expandtab cindent comments ^=://
-    " autocmd FileType cs         setlocal ts=4 sts=4 sw=4 expandtab cindent comments ^=://
-    " autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
-    " autocmd FileType python     setlocal ts=4 sts=4 sw=4 expandtab autoindent
-    " autocmd FileType vim        setlocal ts=4 sts=4 sw=4 expandtab
-    " autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 expandtab cindent comments ^=://
+    autocmd FileType make       setlocal ts=8 sts=8 sw=8 noexpandtab
+    autocmd FileType html       setlocal ts=4 sts=4 sw=4 expandtab
+    autocmd FileType css        setlocal ts=4 sts=4 sw=4 expandtab
+    autocmd FileType xml        setlocal ts=4 sts=4 sw=4 noexpandtab
+    autocmd FileType c          setlocal ts=4 sts=4 sw=4 expandtab cindent comments ^=://
+    autocmd FileType cs         setlocal ts=4 sts=4 sw=4 expandtab cindent comments ^=://
+    autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
+    autocmd FileType python     setlocal ts=4 sts=4 sw=4 expandtab autoindent
+    autocmd FileType vim        setlocal ts=4 sts=4 sw=4 expandtab
+    autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 expandtab cindent comments ^=://
 
     " change de default comment style to c++ for c++ files
     autocmd FileType cpp,cs     setlocal commentstring=//\ %s
@@ -201,7 +204,7 @@ if has("autocmd")
 
     " Force this style for c++, since vim-sleuth misreads the initializer
     " list offset as the file general shiftwidth sometimes.
-    autocmd BufRead *.cpp,*.h setlocal ts=4 sts=4 sw=4 expandtab
+    " autocmd BufRead *.cpp,*.h setlocal ts=4 sts=4 sw=4 expandtab
 
     " Source the vimrc file after saving it
     if has("autocmd")
@@ -325,6 +328,9 @@ set foldmethod=marker
 " }}}
 " {{{ misc
 
+" disable the tabline
+set showtabline=0
+
 " enable syntax highligting
 syntax on
 
@@ -408,11 +414,11 @@ if has('gui_running')
     colorscheme jellybeans
 
     if has ('win32')
-        set guifont=Powerline_Consolas:h11:cANSI
+        set guifont=Powerline_Consolas:h13:cANSI
     else
         set guifont=Inconsolata\ for\ Powerline\ Medium\ 13
     endif
-    set linespace=0
+    set linespace=1
     set lines=40
     set columns=170
 else
