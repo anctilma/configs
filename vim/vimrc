@@ -24,6 +24,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'felikz/ctrlp-py-matcher'
 Plug 'andrewradev/splitjoin.vim'
+Plug 'FooSoft/vim-argwrap'
 Plug 'scrooloose/syntastic'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'terryma/vim-expand-region'
@@ -184,6 +185,9 @@ map zg/ <Plug>(incsearch-easymotion-stay)
 " Trigger a highlight in the appropriate direction when pressing these keys:
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 " }}} 
+"{{{ argwrap configuration
+nnoremap <silent> gw :ArgWrap<CR>
+"}}}
 "{{{ autocmd
 " set tab and indent configuration based on file type
 if has("autocmd")
