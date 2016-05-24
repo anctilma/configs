@@ -98,13 +98,13 @@ call plug#end()
 " {{{ tmux configuration
 " enable support for timuxline in airline
 let g:airline#extensions#tmuxline#enabled = 1
-let g:tmuxline_powerline_separators = 1
-"let g:tmuxline_separators = {
-"    \ 'left' : '',
-"    \ 'left_alt': '>',
-"    \ 'right' : '',
-"    \ 'right_alt' : '<',
-"    \ 'space' : ' '}
+let g:tmuxline_powerline_separators = 0
+let g:tmuxline_separators = {
+    \ 'left' : '',
+    \ 'left_alt': '',
+    \ 'right' : '',
+    \ 'right_alt' : '',
+    \ 'space' : ' '}
 
 let g:tmux_navigator_no_mappings = 1
 if $TMUX != ''
@@ -155,14 +155,14 @@ let g:airline#extensions#tagbar#enabled = 0
 " set jellybeans theme for airline
 let g:airline_theme = 'jellybeans'
 " use the patched fonts
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 " disable whitespace detection
 let g:airline#extensions#whitespace#enabled = 0
 " disable arrows
-"let g:airline_left_sep = ''
-"let g:airline_left_alt_sep = ''
-"let g:airline_right_sep = ''
-"let g:airline_right_alt_sep = ''
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
 "}}} airline configuration
 " {{{ gugentags configuration
 let g:gutentags_exclude = ["linux-xlnx"]
@@ -179,6 +179,9 @@ map zg/ <Plug>(incsearch-easymotion-stay)
 " Trigger a highlight in the appropriate direction when pressing these keys:
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 " }}} 
+"{{{ argwrap configuration
+nnoremap <silent> gw :ArgWrap<CR>
+"}}}
 "{{{ autocmd
 " set tab and indent configuration based on file type
 if has("autocmd")
@@ -414,9 +417,11 @@ if has('gui_running')
     colorscheme jellybeans
 
     if has ('win32')
-        set guifont=Powerline_Consolas:h13:cANSI
+        " set guifont=Powerline_Consolas:h13:cANSI
+        set guifont=Consolas:h13:cANSI
     else
-        set guifont=Inconsolata\ for\ Powerline\ Medium\ 13
+        " set guifont=Inconsolata\ for\ Powerline\ Medium\ 13
+        set guifont=Inconsolata\ Medium\ 13
     endif
     set linespace=1
     set lines=40
