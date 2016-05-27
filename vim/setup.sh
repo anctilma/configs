@@ -42,24 +42,24 @@ cp linux/.gtkrc-2.0 ~
 cp linux/.Xresources ~
 
 # capslock->ctrl & esc like CapsUnlocked on Windows
-# cp linux/.xinitrc ~
-# if [ ! -d ~/xcape/ ]; then
-# sudo apt-get install git gcc make pkg-config libx11-dev libxtst-dev libxi-dev
-# git clone https://github.com/alols/xcape.git ~/xcape
-# cd ~/xcape
-# make
-# sudo make install
-# fi
+cp linux/.xinitrc ~
+if [ ! -d ~/xcape/ ]; then
+sudo apt-get install git gcc make pkg-config libx11-dev libxtst-dev libxi-dev
+git clone https://github.com/alols/xcape.git ~/xcape
+cd ~/xcape
+make
+sudo make install
+fi
 
 # install fonts
-# if [ -d ~/powerline-fonts ]; then
-# 	cd ~/powerline-fonts
-# 	git pull origin master
-# 	cd ~/configs/vim
-# else
-# 	git clone https://github.com/powerline/fonts.git ~/powerline-fonts
-# fi
-# sudo sh ~/powerline-fonts/install.sh
+if [ -d ~/powerline-fonts ]; then
+	cd ~/powerline-fonts
+	git pull origin master
+	cd ~/configs/vim
+else
+	git clone https://github.com/powerline/fonts.git ~/powerline-fonts
+fi
+sudo sh ~/powerline-fonts/install.sh
 
 # start vim and download plugins
 vim --noplugin +PlugInstall +qall

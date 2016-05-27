@@ -30,6 +30,10 @@ curl -fLo ~\vimfiles\autoload\plug.vim --create-dirs https://raw.githubuserconte
 # install jellybeans color theme
 curl -fLo ~/vimfiles\colors\jellybeans.vim --create-dirs https://raw.githubusercontent.com/nanotech/jellybeans.vim/master/colors/jellybeans.vim
 
+
+:: install consolas powerline fonts
+:: TODO 
+
 :: add "Open vim here" windows explorer context menu entry
 :: TODO 
 
