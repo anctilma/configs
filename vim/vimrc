@@ -420,7 +420,8 @@ if has('gui_running')
     colorscheme jellybeans
 
     if has ('win32')
-        set guifont=Powerline_Consolas:h13:cANSI
+        set guifont=Powerline_Consolas:h14:cANSI " works great on 16:9 screens
+        set guifont=Powerline_Consolas:h13:cANSI " works great on 16:10 screens
     else
         set guifont=Inconsolata\ for\ Powerline\ Medium\ 13
     endif
