@@ -408,6 +408,9 @@ set encoding=utf-8
 scriptencoding=utf-8
 set listchars=tab:>\ ,eol:¬,extends:>,precedes:<
 
+" share clipboard with system
+set clipboard=unnamed
+
 " }}}misc
 " {{{ gui vs terminal
 if has('gui_running')
