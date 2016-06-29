@@ -140,6 +140,9 @@ if (!has("win32"))
 endif
 
 " }}} ctrlp configuration
+" {{{ NERDTree configuration
+let g:NERDTreeRespectWildIgnore = 1
+" }}}
 "{{{ closetag configuration
 " enable closetag for xml,html,htm,xhtml and ndb files
 let g:closetag_filenames = "*.xml,*.html,*.htm,*.xhtml,*.ndb,*.2db,*.config,*.rss,*.scn"
@@ -219,7 +222,7 @@ endif
 "}}} autocmd
 " {{{ wildignore
 if has("win32")
-    set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*,tags,cscope.out,*.pyc,Session.vim  " Windows ('noshellslash')
+    set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*,tags,cscope.out,*.pyc,*.sdf,*.suo,Session.vim  " Windows ('noshellslash')
 else
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,tags,cscope.out,*.pyc,Session.vim
 endif
