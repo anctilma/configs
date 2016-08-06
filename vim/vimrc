@@ -14,7 +14,8 @@ else
 endif
 
 let g:plug_timeout=120
-
+Plug 'xolox/vim-notes'
+Plug 'xolox/vim-misc'
 Plug 'mhinz/vim-startify'
 Plug 'qpkorr/vim-bufkill'
 Plug 'unblevable/quick-scope'
@@ -97,6 +98,9 @@ endif
 
 call plug#end()
 " }}} plugins
+" {{{ startify configuration
+let g:startify_list_order = ['files', 'dir', 'bookmarks', 'sessions', 'commands']
+" }}}
 " {{{ tmux configuration
 " enable support for timuxline in airline
 let g:airline#extensions#tmuxline#enabled = 1
@@ -191,6 +195,10 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 "{{{ argwrap configuration
 nnoremap <silent> gw :ArgWrap<CR>
 "}}}
+"{{{ vim-notes configuration
+let g:notes_directories = ['D:\Dropbox\Notes']
+let g:notes_suffix = '.txt'
+"}}}
 "{{{ autocmd
 " set tab and indent configuration based on file type
 if has("autocmd")
@@ -219,10 +227,11 @@ if has("autocmd")
     " autocmd BufRead *.cpp,*.h setlocal ts=4 sts=4 sw=4 expandtab
 
     " Source the vimrc file after saving it
-    if has("autocmd")
-      autocmd BufWritePost .vimrc source $MYVIMRC
+    if has("win32")
+        autocmd BufWritePost _vimrc source $MYVIMRC
+    else
+        autocmd BufWritePost .vimrc source $MYVIMRC
     endif
-
 endif
 "}}} autocmd
 " {{{ wildignore
