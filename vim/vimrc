@@ -1,16 +1,22 @@
 " {{{ compatibility
-set nocompatible
-if (has("win32"))
+if !has("nvim")
+    set nocompatible
+endif
+if has("win32")
     source $VIMRUNTIME/vimrc_example.vim
     " source $VIMRUNTIME/mswin.vim
     " behave mswin
 endif
 " }}} compatibility
 " {{{ plugins
-if (has("win32"))
+if has("win32")
     call plug#begin('~/vimfiles/plugged')
 else
-    call plug#begin('~/.vim/plugged')
+    if has("nvim")
+        call plug#begin('~/.config/nvim/plugged')
+    else
+        call plug#begin('~/.vim/plugged')
+    endif
 endif
 
 let g:plug_timeout=120
@@ -26,6 +32,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'felikz/ctrlp-py-matcher'
 Plug 'andrewradev/splitjoin.vim'
 Plug 'FooSoft/vim-argwrap'
+" if has ("nvim")
+"     Plug 'benekastah/neomake'
+" endif
 Plug 'scrooloose/syntastic'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'terryma/vim-expand-region'
@@ -66,7 +75,7 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 Plug 'junegunn/goyo.vim'
-if (!has ("win32"))
+if !has ("win32")
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'shougo/vimproc', { 'do': 'make' }
 else
@@ -87,7 +96,7 @@ Plug 'vim-scripts/L9'
 Plug 'honza/vim-snippets'
 
 " tmux plugins
-if (!has("win32"))
+if !has("win32")
 Plug 'edkolev/tmuxline.vim'
 Plug 'benmills/vimux'
 Plug 'christoomey/vim-tmux-navigator'
@@ -133,7 +142,7 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_map = '<leader>e'
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:ctrlp_clear_cache_on_exit = 0
-if (!has("win32"))
+if !has("win32")
     let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
           \ --ignore .git
           \ --ignore .svn
@@ -196,7 +205,9 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 nnoremap <silent> gw :ArgWrap<CR>
 "}}}
 "{{{ vim-notes configuration
-let g:notes_directories = ['D:\Dropbox\Notes']
+if has("win32")
+    let g:notes_directories = ['D:\Dropbox\Notes']
+endif
 let g:notes_suffix = '.txt'
 "}}}
 "{{{ autocmd
@@ -215,6 +226,7 @@ if has("autocmd")
     autocmd FileType python     setlocal ts=4 sts=4 sw=4 expandtab autoindent
     autocmd FileType vim        setlocal ts=4 sts=4 sw=4 expandtab
     autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 expandtab cindent comments ^=://
+    autocmd FileType txt        setlocal ts=4 sts=4 sw=4 expandtab
 
     " change de default comment style to c++ for c++ files
     autocmd FileType cpp,cs     setlocal commentstring=//\ %s
@@ -230,7 +242,11 @@ if has("autocmd")
     if has("win32")
         autocmd BufWritePost _vimrc source $MYVIMRC
     else
-        autocmd BufWritePost .vimrc source $MYVIMRC
+        if has("nvim")
+            autocmd BufWritePost init.vim source $MYVIMRC
+        else
+            autocmd BufWritePost .vimrc source $MYVIMRC
+        endif
     endif
 endif
 "}}} autocmd
@@ -259,7 +275,8 @@ noremap <silent> <F10> :AirlineToggleWhitespace<CR>:SyntasticToggleMode<CR>
 noremap <silent> <F9> :TagbarToggle<CR>
 
 " map F7 to save and build
-if (!has("win32"))
+if !has("win32")
+    "nnoremap <silent> <F7> :Neomake ARCH=arm -s -j 2<CR>
     nnoremap <silent> <F7> :Make ARCH=arm -s -j 2<CR>
 else
 " map F6 to omnipresence
@@ -334,6 +351,11 @@ nnoremap <leader>gw :Gwrite<CR>
 " map leader w to ctrl-w for window operations
 nnoremap <leader>w <c-w>
 
+" quit terminal mode on ESC in neovim
+if has("nvim")
+tnoremap <Esc> <C-\><C-n>
+endif
+
 " }}} mappings
 " {{{ folding
 " reasonable folding
@@ -365,7 +387,7 @@ set hidden
 
 " store swap, backup and undo files in a central location instead of the
 " current directory
-if (has("win32"))
+if has("win32")
     set dir=~/vimswap//
     set backupdir=~/vimbackup//
     set undodir=~/vimundo//
@@ -416,13 +438,16 @@ nnoremap gV `[v`]
 set shortmess=I
 
 " show whitespaces when calling set list
+if !has("nvim")
 set encoding=utf-8
+endif
 scriptencoding=utf-8
 set listchars=tab:>\ ,eol:¬,extends:>,precedes:<
 
 " share clipboard with system
+if !has("nvim")
 set clipboard=unnamed
-
+endif
 " }}}misc
 " {{{ gui vs terminal
 if has('gui_running')
@@ -434,7 +459,7 @@ if has('gui_running')
     set background=dark
     colorscheme jellybeans
 
-    if has ('win32')
+    if has ("win32")
         " set guifont=Powerline_Consolas:h14:cANSI " works great on 16:9 screens
         set guifont=Powerline_Consolas:h13:cANSI " works great on 16:10 screens
     else
@@ -446,9 +471,11 @@ if has('gui_running')
 else
     " Enable mouse support.
     set mouse=a
-    set term=xterm-256color
     set t_ut= "disable Background Color Erase (BCE)
-    set t_Co=256
+    if !has("nvim")
+        set term=xterm-256color
+        set t_Co=256
+    endif
     set background=dark
     colorscheme jellybeans
 endif
