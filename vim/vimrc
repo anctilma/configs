@@ -274,13 +274,9 @@ noremap <silent> <F10> :AirlineToggleWhitespace<CR>:SyntasticToggleMode<CR>
 " map F9 to toggle tag bar
 noremap <silent> <F9> :TagbarToggle<CR>
 
-" map F7 to save and build
-if !has("win32")
-    "nnoremap <silent> <F7> :Neomake ARCH=arm -s -j 2<CR>
-    nnoremap <silent> <F7> :Make ARCH=arm -s -j 2<CR>
-else
 " map F6 to omnipresence
-let g:omnipresence_hotkey = 'F6'
+if has("win32")
+    let g:omnipresence_hotkey = 'F6'
 endif
 
 " map F5 to toggle undotree
@@ -481,3 +477,7 @@ else
 endif
 
 " }}} gui vs terminal
+" {{{ external vimrc support
+set exrc
+set secure
+" }}}
