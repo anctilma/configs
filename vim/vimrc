@@ -481,3 +481,9 @@ endif
 set exrc
 set secure
 " }}}
+" {{{ custom commands and functions
+function! RemoveTrailingWhitespacesFunction()
+    silent %s/\s\+$//
+endfunction
+command! RemoteTrailingWhitespaces call RemoveTrailingWhitespacesFunction()
+" }}}
