@@ -40,6 +40,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 # gui border fix
 cp linux/.gtkrc-2.0 ~
 cp linux/.Xresources ~
+cp linux/.xinitrc ~
 
 # install fonts
 if [ -d ~/powerline-fonts ]; then

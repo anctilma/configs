@@ -27,8 +27,8 @@ if not exist ~\vimundo
 :: setup vim plug
 curl -fLo ~\vimfiles\autoload\plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# install jellybeans color theme
-curl -fLo ~/vimfiles\colors\jellybeans.vim --create-dirs https://raw.githubusercontent.com/nanotech/jellybeans.vim/master/colors/jellybeans.vim
+:: install jellybeans color theme
+::curl -fLo ~/vimfiles\colors\jellybeans.vim --create-dirs https://raw.githubusercontent.com/nanotech/jellybeans.vim/master/colors/jellybeans.vim
 
 
 :: install consolas powerline fonts
