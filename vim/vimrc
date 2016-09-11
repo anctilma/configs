@@ -105,6 +105,10 @@ endif
 " on demand plugins example.
 "Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 
+" colorschemes
+Plug 'morhetz/gruvbox'
+Plug 'nanotech/jellybeans.vim'
+
 call plug#end()
 " }}} plugins
 " {{{ startify configuration
