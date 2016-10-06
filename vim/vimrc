@@ -367,11 +367,17 @@ set foldmethod=marker
 " }}}
 " {{{ misc
 
+" load filetype plugins
+filetype plugin on
+
 " disable the tabline
 set showtabline=0
 
 " enable syntax highligting
 syntax on
+
+" find files recursively from the cwd
+set path+=**
 
 " enable line numbers
 set number
@@ -489,5 +495,5 @@ set secure
 function! RemoveTrailingWhitespacesFunction()
     silent %s/\s\+$//
 endfunction
-command! RemoteTrailingWhitespaces call RemoveTrailingWhitespacesFunction()
+command! RemoveTrailingWhitespaces call RemoveTrailingWhitespacesFunction()
 " }}}
