@@ -44,6 +44,7 @@ Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'aykamko/vim-easymotion-segments'
 Plug 'godlygeek/tabular'
 Plug 'rking/ag.vim'
+" Plug 'mhinz/vim-grepper'
 Plug 'majutsushi/tagbar'
 Plug 'mbbill/undotree'
 Plug 'will133/vim-dirdiff'
@@ -79,7 +80,7 @@ if !has ("win32")
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'shougo/vimproc', { 'do': 'make' }
 else
-    Plug 'majkinetor/vim-omnipresence' 
+    Plug 'majkinetor/vim-omnipresence'
 endif
 "Plug 'airblade/vim-gitgutter'
 
@@ -134,7 +135,7 @@ if $TMUX != ''
     nnoremap <silent> <c-p> :TmuxNavigatePrevious<cr>
 else
     nnoremap <silent> <c-h> <c-w>h
-    nnoremap <silent> <c-j> <c-w>j 
+    nnoremap <silent> <c-j> <c-w>j
     nnoremap <silent> <c-k> <c-w>k
     nnoremap <silent> <c-l> <c-w>l
     nnoremap <silent> <c-p> <c-w>p
@@ -204,7 +205,7 @@ map zg/ <Plug>(incsearch-easymotion-stay)
 " {{{ quickscope configuration
 " Trigger a highlight in the appropriate direction when pressing these keys:
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-" }}} 
+" }}}
 "{{{ argwrap configuration
 nnoremap <silent> gw :ArgWrap<CR>
 "}}}
@@ -214,6 +215,14 @@ if has("win32")
 endif
 let g:notes_suffix = '.txt'
 "}}}
+" {{{ custom commands and functions
+function! RemoveTrailingWhitespacesFunction()
+    execute "normal! mz"
+    silent %s/\s\+$//
+    execute "normal! 'z"
+endfunction
+command! RemoveTrailingWhitespaces call RemoveTrailingWhitespacesFunction()
+" }}}
 "{{{ autocmd
 " set tab and indent configuration based on file type
 if has("autocmd")
@@ -241,6 +250,9 @@ if has("autocmd")
     " Force this style for c++, since vim-sleuth misreads the initializer
     " list offset as the file general shiftwidth sometimes.
     " autocmd BufRead *.cpp,*.h setlocal ts=4 sts=4 sw=4 expandtab
+
+    " Remove trailing whitespaces when saving
+    autocmd BufWritePre * call RemoveTrailingWhitespacesFunction()
 
     " Source the vimrc file after saving it
     if has("win32")
@@ -490,10 +502,4 @@ endif
 " {{{ external vimrc support
 set exrc
 set secure
-" }}}
-" {{{ custom commands and functions
-function! RemoveTrailingWhitespacesFunction()
-    silent %s/\s\+$//
-endfunction
-command! RemoveTrailingWhitespaces call RemoveTrailingWhitespacesFunction()
 " }}}
