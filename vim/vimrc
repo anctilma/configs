@@ -218,7 +218,7 @@ let g:notes_suffix = '.txt'
 " {{{ custom commands and functions
 function! RemoveTrailingWhitespacesFunction()
     execute "normal! mz"
-    silent %s/\s\+$//
+    silent %s/\s\+$//ge
     execute "normal! 'z"
 endfunction
 command! RemoveTrailingWhitespaces call RemoveTrailingWhitespacesFunction()
