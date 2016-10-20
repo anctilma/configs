@@ -388,8 +388,9 @@ set showtabline=0
 " enable syntax highligting
 syntax on
 
-" find files recursively from the cwd
-set path+=**
+" find files recursively from the cwd. this should be added to the project
+" vimrc, the the global one. keeping it here as a note
+" set path+=**
 
 " enable line numbers
 set number
