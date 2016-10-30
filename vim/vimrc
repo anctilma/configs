@@ -54,7 +54,7 @@ Plug 'alvan/vim-closetag'
 Plug 'tommcdo/vim-exchange'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'qpkorr/vim-renamer'
-Plug 'edsono/vim-matchit'
+Plug 'vim-scripts/matchit.zip'
 Plug 'davidhalter/jedi'
 Plug 'osse/double-tap'
 Plug 'sickill/vim-pasta'
@@ -389,7 +389,7 @@ set showtabline=0
 syntax on
 
 " find files recursively from the cwd
-set path+=**
+" set path+=**
 
 " enable line numbers
 set number
