@@ -293,6 +293,11 @@ noremap <silent> <F12> :NERDTreeToggle<CR>
 " map F10 to toggle whitespace detection
 noremap <silent> <F10> :AirlineToggleWhitespace<CR>:SyntasticToggleMode<CR>
 
+" map F11 to toggle fullscreen on Windows
+if has("win32")
+    noremap <silent> <F11> :WToggleFullscreen<CR>
+endif
+
 " map F9 to toggle tag bar
 noremap <silent> <F9> :TagbarToggle<CR>
 
