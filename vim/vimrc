@@ -20,6 +20,7 @@ else
 endif
 
 let g:plug_timeout=120
+Plug 'kkoenig/wimproved.vim'
 Plug 'xolox/vim-notes'
 Plug 'xolox/vim-misc'
 Plug 'mhinz/vim-startify'
@@ -263,6 +264,11 @@ if has("autocmd")
         else
             autocmd BufWritePost .vimrc source $MYVIMRC
         endif
+    endif
+
+    " Fix the white bars on Windows, this is using the wimproved plugin
+    if has("win32")
+        autocmd GUIEnter * silent! WToggleClean
     endif
 endif
 "}}} autocmd
