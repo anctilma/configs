@@ -20,7 +20,6 @@ else
 endif
 
 let g:plug_timeout=120
-Plug 'kkoenig/wimproved.vim'
 Plug 'xolox/vim-notes'
 Plug 'xolox/vim-misc'
 Plug 'mhinz/vim-startify'
@@ -82,6 +81,7 @@ if !has ("win32")
     Plug 'shougo/vimproc', { 'do': 'make' }
 else
     Plug 'majkinetor/vim-omnipresence'
+    Plug 'kkoenig/wimproved.vim'
 endif
 "Plug 'airblade/vim-gitgutter'
 
