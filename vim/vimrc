@@ -23,7 +23,7 @@ let g:plug_timeout=120
 Plug 'kkoenig/wimproved.vim'
 Plug 'xolox/vim-notes'
 Plug 'xolox/vim-misc'
-Plug 'mhinz/vim-startify'
+" Plug 'mhinz/vim-startify'
 Plug 'qpkorr/vim-bufkill'
 Plug 'unblevable/quick-scope'
 Plug 'scrooloose/nerdtree'
@@ -44,8 +44,8 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'aykamko/vim-easymotion-segments'
 Plug 'godlygeek/tabular'
-Plug 'rking/ag.vim'
-" Plug 'mhinz/vim-grepper'
+" Plug 'rking/ag.vim'
+Plug 'mhinz/vim-grepper'
 Plug 'majutsushi/tagbar'
 Plug 'mbbill/undotree'
 Plug 'will133/vim-dirdiff'
@@ -64,6 +64,7 @@ Plug 'christoomey/vim-sort-motion'
 Plug 'wellle/targets.vim'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'reedes/vim-pencil'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
@@ -81,7 +82,7 @@ if !has ("win32")
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'shougo/vimproc', { 'do': 'make' }
 else
-    Plug 'majkinetor/vim-omnipresence'
+    Plug 'kkoenig/wimproved.vim'
 endif
 "Plug 'airblade/vim-gitgutter'
 
@@ -114,7 +115,7 @@ Plug 'nanotech/jellybeans.vim'
 call plug#end()
 " }}} plugins
 " {{{ startify configuration
-let g:startify_list_order = ['files', 'dir', 'bookmarks', 'sessions', 'commands']
+" let g:startify_list_order = ['files', 'dir', 'bookmarks', 'sessions', 'commands']
 " }}}
 " {{{ tmux configuration
 " enable support for timuxline in airline
@@ -223,6 +224,10 @@ function! RemoveTrailingWhitespacesFunction()
     execute "normal! 'z"
 endfunction
 command! RemoveTrailingWhitespaces call RemoveTrailingWhitespacesFunction()
+function! ShrugFunction()
+    execute "normal i¯\\_(ツ)_/¯"
+endfunction
+command! Shrug call ShrugFunction()
 " }}}
 "{{{ autocmd
 " set tab and indent configuration based on file type
@@ -389,6 +394,9 @@ nnoremap <leader>f za
 set foldmethod=marker
 " }}}
 " {{{ misc
+
+" Scroll all the way to the edge
+set scrolloff=0
 
 " load filetype plugins
 filetype plugin on
