@@ -238,12 +238,12 @@ if has("autocmd")
     autocmd FileType html       setlocal ts=4 sts=4 sw=4 expandtab
     autocmd FileType css        setlocal ts=4 sts=4 sw=4 expandtab
     autocmd FileType xml        setlocal ts=4 sts=4 sw=4 noexpandtab
-    autocmd FileType c          setlocal ts=4 sts=4 sw=4 expandtab cindent comments ^=://
+    autocmd FileType c          setlocal ts=4 sts=4 sw=4 cc=80 expandtab cindent comments ^=://
     autocmd FileType cs         setlocal ts=4 sts=4 sw=4 expandtab cindent comments ^=://
     autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
     autocmd FileType python     setlocal ts=4 sts=4 sw=4 expandtab autoindent
     autocmd FileType vim        setlocal ts=4 sts=4 sw=4 expandtab
-    autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 expandtab cindent comments ^=://
+    autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 cc=80 expandtab cindent comments ^=:///
     autocmd FileType txt        setlocal ts=4 sts=4 sw=4 expandtab
 
     " change de default comment style to c++ for c++ files
@@ -278,7 +278,7 @@ endif
 "}}} autocmd
 " {{{ wildignore
 if has("win32")
-    set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*,tags,cscope.out,*.pyc,*.sdf,*.suo,Session.vim  " Windows ('noshellslash')
+    set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*,tags,cscope.out,*.pyc,*.sdf,*.opensdf,*.suo,Session.vim  " Windows ('noshellslash')
 else
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,tags,cscope.out,*.pyc,Session.vim
 endif
@@ -304,11 +304,6 @@ endif
 
 " map F9 to toggle tag bar
 noremap <silent> <F9> :TagbarToggle<CR>
-
-" map F6 to omnipresence
-if has("win32")
-    let g:omnipresence_hotkey = 'F6'
-endif
 
 " map F5 to toggle undotree
 nnoremap <silent> <F5> :UndotreeToggle<CR>
