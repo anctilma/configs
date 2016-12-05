@@ -20,7 +20,6 @@ else
 endif
 
 let g:plug_timeout=120
-Plug 'kkoenig/wimproved.vim'
 Plug 'xolox/vim-notes'
 Plug 'xolox/vim-misc'
 " Plug 'mhinz/vim-startify'
