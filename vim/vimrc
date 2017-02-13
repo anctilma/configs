@@ -75,6 +75,7 @@ Plug 'tpope/vim-unimpaired'
 " Plug 'tpope/vim-sleuth' " adjust shiftwidth and expandtab automatically
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/gv.vim'
 Plug 'junegunn/goyo.vim'
 if !has ("win32")
@@ -212,9 +213,21 @@ nnoremap <silent> gw :ArgWrap<CR>
 "}}}
 "{{{ vim-notes configuration
 if has("win32")
-    let g:notes_directories = ['D:\Dropbox\Notes']
+    let g:notes_directories = ['C:\Users\manctil\vimnotes']
 endif
 let g:notes_suffix = '.txt'
+"}}}
+"{{{ goyo configuration
+let g:goyo_width=80
+let g:goyo_height=100
+"}}}
+"{{{ grepper configuration
+let g:grepper = {
+      \ 'tools': ['git', 'ag', 'vimgrep'],
+      \ 'vimgrep': {
+      \   'grepprg':    "vim -es +'set nonu nornu | vimgrep /$*/ ** | cw | %p | qa'",
+      \   'grepprgbuf': "vim -es +'set nonu nornu | vimgrep /$*/ $. | cw | %p | qa'",
+      \   'grepformat': '%f|%l col %c|%m' }}
 "}}}
 " {{{ custom commands and functions
 function! RemoveTrailingWhitespacesFunction()
@@ -329,12 +342,12 @@ noremap <C-kPlus> <C-A>
 noremap <C-kMinus> <C-X>
 
 " center after search
-nmap n nzz
-nmap N Nzz
+" nmap n nzz
+" nmap N Nzz
 
 " center after jump to next function
-nmap ]] ]]zz
-nmap [[ [[zz
+" nmap ]] ]]zz
+" nmap [[ [[zz
 
 " map Y to y$ (yank till end of line)
 noremap Y y$
