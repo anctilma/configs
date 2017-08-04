@@ -12,11 +12,7 @@ endif
 if has("win32")
     call plug#begin('~/vimfiles/plugged')
 else
-    if has("nvim")
-        call plug#begin('~/.config/nvim/plugged')
-    else
-        call plug#begin('~/.vim/plugged')
-    endif
+    call plug#begin('~/.vim/plugged')
 endif
 
 let g:plug_timeout=120
@@ -194,7 +190,7 @@ let g:airline#extensions#whitespace#enabled = 0
 let g:syntastic_mode_map = {"mode": "passive"}
 "}}} syntastic configuration
 " {{{ gugentags configuration
-let g:gutentags_exclude = ["linux-xlnx"]
+let g:gutentags_ctags_exclude = ["linux-xlnx"]
 " }}}
 " {{{ incsearch configuration
 map /  <Plug>(incsearch-forward)
@@ -276,11 +272,7 @@ if has("autocmd")
     if has("win32")
         autocmd BufWritePost _vimrc source $MYVIMRC
     else
-        if has("nvim")
-            autocmd BufWritePost init.vim source $MYVIMRC
-        else
-            autocmd BufWritePost .vimrc source $MYVIMRC
-        endif
+        autocmd BufWritePost .vimrc source $MYVIMRC
     endif
 
     " Fix the white bars on Windows, this is using the wimproved plugin
