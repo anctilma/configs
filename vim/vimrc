@@ -245,7 +245,7 @@ if has("autocmd")
     autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
     autocmd FileType python     setlocal ts=4 sts=4 sw=4 expandtab autoindent
     autocmd FileType vim        setlocal ts=4 sts=4 sw=4 expandtab
-    autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 cc=80 expandtab cindent comments ^=:///
+    autocmd FileType cpp        setlocal inde=4 ts=4 sts=4 sw=4 cc=80 expandtab cindent comments ^=:///
     autocmd FileType txt        setlocal ts=4 sts=4 sw=4 expandtab
 
     " change de default comment style to c++ for c++ files
