@@ -16,7 +16,6 @@ else
 endif
 
 let g:plug_timeout=120
-Plug 'xolox/vim-notes'
 Plug 'xolox/vim-misc'
 " Plug 'mhinz/vim-startify'
 Plug 'qpkorr/vim-bufkill'
@@ -206,12 +205,6 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 " }}}
 "{{{ argwrap configuration
 nnoremap <silent> gw :ArgWrap<CR>
-"}}}
-"{{{ vim-notes configuration
-if has("win32")
-    let g:notes_directories = ['C:\Users\manctil\vimnotes']
-endif
-let g:notes_suffix = '.txt'
 "}}}
 "{{{ goyo configuration
 let g:goyo_width=80
@@ -448,6 +441,9 @@ set lazyredraw
 
 " briefly hightligh matching [{()}]
 set showmatch
+
+" match angle brackets
+:set matchpairs+=<:>
 
 " turn on virtual edit so we can navigate beyond the valid text
 "set virtualedit=all
