@@ -17,6 +17,7 @@ endif
 
 let g:plug_timeout=120
 Plug 'justinmk/vim-sneak'
+Plug 'plasticboy/vim-markdown'
 Plug 'xolox/vim-misc'
 Plug 'mhinz/vim-startify'
 Plug 'qpkorr/vim-bufkill'
@@ -82,6 +83,7 @@ else
     Plug 'kkoenig/wimproved.vim'
 endif
 "Plug 'airblade/vim-gitgutter'
+Plug 'vim-scripts/Windows-PowerShell-Syntax-Plugin'
 
 " plugins for UltiSnips and SuperTab support.
 Plug 'sirver/ultisnips'
@@ -108,6 +110,8 @@ endif
 " colorschemes
 Plug 'morhetz/gruvbox'
 Plug 'nanotech/jellybeans.vim'
+" cmake syntax
+Plug 'nickhutchinson/vim-cmake-syntax'
 
 Plug 'machakann/vim-highlightedyank'
 
@@ -148,6 +152,7 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_map = '<leader>e'
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_extensions = ['tag']
 if !has("win32")
     let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
           \ --ignore .git
@@ -193,7 +198,7 @@ let g:airline#extensions#whitespace#enabled = 0
 let g:syntastic_mode_map = {"mode": "passive"}
 "}}} syntastic configuration
 " {{{ gugentags configuration
-let g:gutentags_ctags_exclude = ["linux-xlnx"]
+" let g:gutentags_ctags_exclude = ["linux-xlnx"]
 " }}}
 " {{{ incsearch configuration
 map /  <Plug>(incsearch-forward)
@@ -246,6 +251,7 @@ if has("autocmd")
     filetype on
 
     autocmd FileType make       setlocal ts=8 sts=8 sw=8 noexpandtab
+    autocmd FileType cmake      setlocal ts=4 sts=4 sw=4 expandtab commentstring=#\ %s
     autocmd FileType html       setlocal ts=4 sts=4 sw=4 expandtab
     autocmd FileType css        setlocal ts=4 sts=4 sw=4 expandtab
     autocmd FileType xml        setlocal ts=4 sts=4 sw=4 noexpandtab
@@ -437,7 +443,7 @@ else
 endif
 
 " turn off highlighted search by default, turn on only when needed.
-" set nohlsearch
+set nohlsearch
 
 " turn on incremental search (search as character are entered)
 set incsearch
