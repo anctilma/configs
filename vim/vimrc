@@ -16,8 +16,9 @@ else
 endif
 
 let g:plug_timeout=120
+Plug 'justinmk/vim-sneak'
 Plug 'xolox/vim-misc'
-" Plug 'mhinz/vim-startify'
+Plug 'mhinz/vim-startify'
 Plug 'qpkorr/vim-bufkill'
 Plug 'unblevable/quick-scope'
 Plug 'scrooloose/nerdtree'
@@ -31,6 +32,7 @@ Plug 'FooSoft/vim-argwrap'
 "     Plug 'benekastah/neomake'
 " endif
 Plug 'scrooloose/syntastic'
+" Plug 'w0rp/ale'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'terryma/vim-expand-region'
 Plug 'easymotion/vim-easymotion'
@@ -107,10 +109,12 @@ endif
 Plug 'morhetz/gruvbox'
 Plug 'nanotech/jellybeans.vim'
 
+Plug 'machakann/vim-highlightedyank'
+
 call plug#end()
 " }}} plugins
 " {{{ startify configuration
-" let g:startify_list_order = ['files', 'dir', 'bookmarks', 'sessions', 'commands']
+let g:startify_list_order = ['files', 'dir', 'bookmarks', 'sessions', 'commands']
 " }}}
 " {{{ tmux configuration
 " enable support for timuxline in airline
@@ -218,7 +222,12 @@ let g:grepper = {
       \   'grepprgbuf': "vim -es +'set nonu nornu | vimgrep /$*/ $. | cw | %p | qa'",
       \   'grepformat': '%f|%l col %c|%m' }}
 "}}}
-" {{{ custom commands and functions
+"{{{ highlightedyank configuration
+if !has("nvim")
+    map y <Plug>(highlightedyank)
+endif
+"}}}
+"{{{ custom commands and functions
 function! RemoveTrailingWhitespacesFunction()
     execute "normal! mz"
     silent %s/\s\+$//ge
@@ -245,7 +254,7 @@ if has("autocmd")
     autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
     autocmd FileType python     setlocal ts=4 sts=4 sw=4 expandtab autoindent
     autocmd FileType vim        setlocal ts=4 sts=4 sw=4 expandtab
-    autocmd FileType cpp        setlocal inde=4 ts=4 sts=4 sw=4 cc=80 expandtab cindent comments ^=:///
+    autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 cc=80 expandtab cindent comments ^=:///
     autocmd FileType txt        setlocal ts=4 sts=4 sw=4 expandtab
 
     " change de default comment style to c++ for c++ files
@@ -262,11 +271,11 @@ if has("autocmd")
     autocmd BufWritePre * call RemoveTrailingWhitespacesFunction()
 
     " Source the vimrc file after saving it
-    if has("win32")
-        autocmd BufWritePost _vimrc source $MYVIMRC
-    else
-        autocmd BufWritePost .vimrc source $MYVIMRC
-    endif
+    " if has("win32")
+    "     autocmd BufWritePost _vimrc source $MYVIMRC
+    " else
+    "     autocmd BufWritePost .vimrc source $MYVIMRC
+    " endif
 
     " Fix the white bars on Windows, this is using the wimproved plugin
     if has("win32")
@@ -335,7 +344,7 @@ noremap <C-kMinus> <C-X>
 " nmap [[ [[zz
 
 " map Y to y$ (yank till end of line)
-noremap Y y$
+nmap Y y$
 
 " map leader-s to buffer save.
 nnoremap <leader>s :w<CR>
