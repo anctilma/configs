@@ -494,7 +494,7 @@ set listchars=tab:>\ ,eol:¬,extends:>,precedes:<
 
 " share clipboard with system
 if !has("nvim")
-set clipboard=unnamed
+set clipboard^=unnamed,unnamedplus
 endif
 " }}}misc
 " {{{ gui vs terminal
