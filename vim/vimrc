@@ -80,10 +80,10 @@ if !has ("win32")
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'shougo/vimproc', { 'do': 'make' }
 else
+    Plug 'vim-scripts/Windows-PowerShell-Syntax-Plugin'
     Plug 'kkoenig/wimproved.vim'
 endif
 "Plug 'airblade/vim-gitgutter'
-Plug 'vim-scripts/Windows-PowerShell-Syntax-Plugin'
 
 " plugins for UltiSnips and SuperTab support.
 Plug 'sirver/ultisnips'
