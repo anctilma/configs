@@ -1,8 +1,5 @@
 " {{{ compatibility
-if !has("nvim")
-    set nocompatible
-endif
-if has("win32")
+if has("win32") && !has("nvim")
     source $VIMRUNTIME/vimrc_example.vim
     " source $VIMRUNTIME/mswin.vim
     " behave mswin
@@ -19,7 +16,8 @@ let g:plug_timeout=120
 Plug 'justinmk/vim-sneak'
 Plug 'plasticboy/vim-markdown'
 Plug 'xolox/vim-misc'
-Plug 'mhinz/vim-startify'
+" Plug 'mhinz/vim-startify'
+Plug 'mhinz/vim-signify'
 Plug 'qpkorr/vim-bufkill'
 Plug 'unblevable/quick-scope'
 Plug 'scrooloose/nerdtree'
@@ -73,7 +71,6 @@ Plug 'tpope/vim-unimpaired'
 " Plug 'tpope/vim-sleuth' " adjust shiftwidth and expandtab automatically
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/gv.vim'
 Plug 'junegunn/goyo.vim'
 if !has ("win32")
@@ -81,9 +78,10 @@ if !has ("win32")
     Plug 'shougo/vimproc', { 'do': 'make' }
 else
     Plug 'vim-scripts/Windows-PowerShell-Syntax-Plugin'
-    Plug 'kkoenig/wimproved.vim'
+    if !has("neovim")
+        Plug 'kkoenig/wimproved.vim'
+    endif
 endif
-"Plug 'airblade/vim-gitgutter'
 
 " plugins for UltiSnips and SuperTab support.
 Plug 'sirver/ultisnips'
@@ -113,12 +111,15 @@ Plug 'nanotech/jellybeans.vim'
 " cmake syntax
 Plug 'nickhutchinson/vim-cmake-syntax'
 
-Plug 'machakann/vim-highlightedyank'
 
 call plug#end()
 " }}} plugins
 " {{{ startify configuration
-let g:startify_list_order = ['files', 'dir', 'bookmarks', 'sessions', 'commands']
+" let g:startify_list_order = ['files', 'dir', 'bookmarks', 'sessions', 'commands']
+" }}}
+" {{{ signify configuration
+let g:signify_vcs_list = ['git', 'svn']
+let g:signify_realtime = 0
 " }}}
 " {{{ tmux configuration
 " enable support for timuxline in airline
@@ -153,17 +154,23 @@ let g:ctrlp_map = '<leader>e'
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_extensions = ['tag']
-if !has("win32")
-    let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-          \ --ignore .git
-          \ --ignore .svn
-          \ --ignore "**/*.pyc"
-          \ --ignore tags
-          \ --ignore cscope.out
-          \ --ignore Session.vim
-          \ -g ""'
-endif
+" Use The Silver Searcher if available
+if executable('ag')
+    " Use ag over grep
+    set grepprg=ag\ --nogroup\ --nocolor
+    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+    let g:ctrlp_user_command = 'ag %s -l --nocolor
+    \ --ignore .svn
+    \ --ignore "**/*.pyc"
+    \ --ignore tags
+    \ --ignore cscope.out
+    \ --ignore Session.vim
+    \ -g ""'
 
+
+    " Ag is sometimes fast enough that CtrlP doesn't need to cache
+    " let g:ctrlp_use_caching = 0
+endif
 " }}} ctrlp configuration
 " {{{ NERDTree configuration
 let g:NERDTreeRespectWildIgnore = 1
@@ -227,11 +234,6 @@ let g:grepper = {
       \   'grepprgbuf': "vim -es +'set nonu nornu | vimgrep /$*/ $. | cw | %p | qa'",
       \   'grepformat': '%f|%l col %c|%m' }}
 "}}}
-"{{{ highlightedyank configuration
-if !has("nvim")
-    map y <Plug>(highlightedyank)
-endif
-"}}}
 "{{{ custom commands and functions
 function! RemoveTrailingWhitespacesFunction()
     execute "normal! mz"
@@ -284,7 +286,7 @@ if has("autocmd")
     " endif
 
     " Fix the white bars on Windows, this is using the wimproved plugin
-    if has("win32")
+    if has("win32") && !has("nvim")
         autocmd GUIEnter * silent! WToggleClean
     endif
 endif
@@ -311,7 +313,7 @@ noremap <silent> <F12> :NERDTreeToggle<CR>
 noremap <silent> <F10> :AirlineToggleWhitespace<CR>:SyntasticToggleMode<CR>
 
 " map F11 to toggle fullscreen on Windows
-if has("win32")
+if has("win32") && !has("nvim")
     noremap <silent> <F11> :WToggleFullscreen<CR>
 endif
 
@@ -493,8 +495,14 @@ scriptencoding=utf-8
 set listchars=tab:>\ ,eol:¬,extends:>,precedes:<
 
 " share clipboard with system
-if !has("nvim")
-set clipboard^=unnamed,unnamedplus
+if !has("win32")
+    if !has("nvim")
+        set clipboard=unnamedplus
+    else
+        set clipboard=unnamed
+    endif
+else
+    set clipboard=unnamed
 endif
 " }}}misc
 " {{{ gui vs terminal
