@@ -84,7 +84,13 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# Note: This should be placed in your .bashrc or .bash or .profile or whatever it is you use to control your 
+# colored GCC warnings and errors
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# change default LS colors
+export LS_COLORS='ow=01;36;40'
+
+# Note: This should be placed in your .bashrc or .bash or .profile or whatever it is you use to control your
 # terminals appearance.
 
 # Reset
