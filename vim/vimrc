@@ -487,6 +487,11 @@ nnoremap gV `[v`]
 " disable startup screen
 set shortmess=I
 
+" setup the search such that if the pattern contains an uppercase letter, it
+" is case sensitive, otherwise, it is not
+set ignorecase
+set smartcase
+
 " show whitespaces when calling set list
 if !has("nvim")
 set encoding=utf-8

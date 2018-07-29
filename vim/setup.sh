@@ -15,7 +15,6 @@ fi
 mkdir ~/.vim
 cp -r after ~/.vim
 cp -r plugin ~/.vim
-cp -r plugins ~/.vim
 cp -r UltiSnips ~/.vim
 
 # create temp folders
