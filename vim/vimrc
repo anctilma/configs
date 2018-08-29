@@ -234,6 +234,9 @@ let g:grepper = {
       \   'grepprgbuf': "vim -es +'set nonu nornu | vimgrep /$*/ $. | cw | %p | qa'",
       \   'grepformat': '%f|%l col %c|%m' }}
 "}}}
+"{{{ vim-pasta configuration
+let g:pasta_disabled_filetypes = ['ctrlp']
+"}}}
 "{{{ custom commands and functions
 function! RemoveTrailingWhitespacesFunction()
     execute "normal! mz"
