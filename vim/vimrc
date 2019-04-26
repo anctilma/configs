@@ -1,12 +1,12 @@
 " {{{ compatibility
-if has("win32") && !has("nvim")
+if has("windows") && !has("nvim")
     source $VIMRUNTIME/vimrc_example.vim
     " source $VIMRUNTIME/mswin.vim
     " behave mswin
 endif
 " }}} compatibility
 " {{{ plugins
-if has("win32")
+if has("windows")
     call plug#begin('~/vimfiles/plugged')
 else
     call plug#begin('~/.vim/plugged')
@@ -20,7 +20,7 @@ Plug 'xolox/vim-misc'
 Plug 'mhinz/vim-signify'
 Plug 'qpkorr/vim-bufkill'
 Plug 'unblevable/quick-scope'
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -72,8 +72,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
-Plug 'junegunn/goyo.vim'
-if !has ("win32")
+if !has ("windows")
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'shougo/vimproc', { 'do': 'make' }
 else
@@ -96,7 +95,7 @@ Plug 'vim-scripts/L9'
 Plug 'honza/vim-snippets'
 
 " tmux plugins
-if !has("win32")
+if !has("windows")
 Plug 'edkolev/tmuxline.vim'
 Plug 'benmills/vimux'
 Plug 'christoomey/vim-tmux-navigator'
@@ -173,7 +172,7 @@ if executable('ag')
 endif
 " }}} ctrlp configuration
 " {{{ NERDTree configuration
-let g:NERDTreeRespectWildIgnore = 1
+" let g:NERDTreeRespectWildIgnore = 1
 " }}}
 "{{{ closetag configuration
 " enable closetag for xml,html,htm,xhtml and ndb files
@@ -194,6 +193,7 @@ let g:airline_theme = 'jellybeans'
 let g:airline_powerline_fonts = 1
 " disable whitespace detection
 let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#wordcount#enabled = 0
 " disable arrows
 "let g:airline_left_sep = ''
 "let g:airline_left_alt_sep = ''
@@ -221,10 +221,6 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 " }}}
 "{{{ argwrap configuration
 nnoremap <silent> gw :ArgWrap<CR>
-"}}}
-"{{{ goyo configuration
-let g:goyo_width=80
-let g:goyo_height=100
 "}}}
 "{{{ grepper configuration
 let g:grepper = {
@@ -255,18 +251,19 @@ if has("autocmd")
     "enable file type detection
     filetype on
 
-    autocmd FileType make       setlocal ts=8 sts=8 sw=8 noexpandtab
-    autocmd FileType cmake      setlocal ts=4 sts=4 sw=4 expandtab commentstring=#\ %s
-    autocmd FileType html       setlocal ts=4 sts=4 sw=4 expandtab
+    autocmd FileType c          setlocal ts=4 sts=4 sw=4 tw=100 cc=100 expandtab cindent comments ^=://
+    autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 tw=100 cc=100 expandtab cindent comments ^=:///
+    autocmd FileType cmake      setlocal ts=4 sts=4 sw=4 tw=100 expandtab commentstring=#\ %s
+    autocmd FileType cs         setlocal ts=4 sts=4 sw=4 tw=100 expandtab cindent comments ^=://
     autocmd FileType css        setlocal ts=4 sts=4 sw=4 expandtab
+    autocmd FileType html       setlocal ts=4 sts=4 sw=4 expandtab
+    autocmd FileType javascript setlocal ts=4 sts=4 sw=4 tw=100 expandtab
+    autocmd FileType java       setlocal ts=8 sts=4 sw=4 tw=100 expandtab
+    autocmd FileType make       setlocal ts=8 sts=8 sw=8 tw=100 noexpandtab
+    autocmd FileType python     setlocal ts=4 sts=4 sw=4 tw=100 expandtab autoindent
+    autocmd FileType vim        setlocal ts=4 sts=4 sw=4 tw=100 expandtab
+    autocmd FileType text       setlocal ts=4 sts=4 sw=4 tw=205 expandtab
     autocmd FileType xml        setlocal ts=4 sts=4 sw=4 noexpandtab
-    autocmd FileType c          setlocal ts=4 sts=4 sw=4 cc=80 expandtab cindent comments ^=://
-    autocmd FileType cs         setlocal ts=4 sts=4 sw=4 expandtab cindent comments ^=://
-    autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
-    autocmd FileType python     setlocal ts=4 sts=4 sw=4 expandtab autoindent
-    autocmd FileType vim        setlocal ts=4 sts=4 sw=4 expandtab
-    autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 cc=80 expandtab cindent comments ^=:///
-    autocmd FileType txt        setlocal ts=4 sts=4 sw=4 expandtab
 
     " change de default comment style to c++ for c++ files
     autocmd FileType cpp,cs     setlocal commentstring=//\ %s
@@ -282,20 +279,20 @@ if has("autocmd")
     autocmd BufWritePre * call RemoveTrailingWhitespacesFunction()
 
     " Source the vimrc file after saving it
-    " if has("win32")
+    " if has("windows")
     "     autocmd BufWritePost _vimrc source $MYVIMRC
     " else
     "     autocmd BufWritePost .vimrc source $MYVIMRC
     " endif
 
     " Fix the white bars on Windows, this is using the wimproved plugin
-    if has("win32") && !has("nvim")
+    if has("windows") && !has("nvim")
         autocmd GUIEnter * silent! WToggleClean
     endif
 endif
 "}}} autocmd
 " {{{ wildignore
-if has("win32")
+if has("windows")
     set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*,tags,cscope.out,*.pyc,*.sdf,*.opensdf,*.suo,Session.vim  " Windows ('noshellslash')
 else
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,tags,cscope.out,*.pyc,Session.vim
@@ -316,7 +313,7 @@ noremap <silent> <F12> :NERDTreeToggle<CR>
 noremap <silent> <F10> :AirlineToggleWhitespace<CR>:SyntasticToggleMode<CR>
 
 " map F11 to toggle fullscreen on Windows
-if has("win32") && !has("nvim")
+if has("windows") && !has("nvim")
     noremap <silent> <F11> :WToggleFullscreen<CR>
 endif
 
@@ -390,6 +387,7 @@ nnoremap <leader>gw :Gwrite<CR>
 
 " map leader w to ctrl-w for window operations
 nnoremap <leader>w <c-w>
+tnoremap <leader>w <c-w>
 
 " quit terminal mode on ESC in neovim
 if has("nvim")
@@ -437,7 +435,7 @@ set hidden
 
 " store swap, backup and undo files in a central location instead of the
 " current directory
-if has("win32")
+if has("windows")
     set dir=~/vimswap//
     set backupdir=~/vimbackup//
     set undodir=~/vimundo//
@@ -503,7 +501,7 @@ scriptencoding=utf-8
 set listchars=tab:>\ ,eol:¬,extends:>,precedes:<
 
 " share clipboard with system
-if !has("win32")
+if !has("windows")
     if !has("nvim")
         set clipboard=unnamedplus
     else
@@ -523,7 +521,7 @@ if has('gui_running')
     set background=dark
     colorscheme jellybeans
 
-    if has ("win32")
+    if has ("windows")
         " set guifont=Powerline_Consolas:h14:cANSI " works great on 16:9 screens
         set guifont=Powerline_Consolas:h13:cANSI " works great on 16:10 screens
     else
@@ -537,7 +535,9 @@ else
     set mouse=a
     set t_ut= "disable Background Color Erase (BCE)
     if !has("nvim")
-        set term=xterm-256color
+        if !has("windows")
+            set term=xterm-256color
+        endif
         set t_Co=256
     endif
     set background=dark
