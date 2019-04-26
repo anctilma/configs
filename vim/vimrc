@@ -387,7 +387,9 @@ nnoremap <leader>gw :Gwrite<CR>
 
 " map leader w to ctrl-w for window operations
 nnoremap <leader>w <c-w>
+if has("nvim")
 tnoremap <leader>w <c-w>
+endif
 
 " quit terminal mode on ESC in neovim
 if has("nvim")
