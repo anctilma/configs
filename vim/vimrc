@@ -237,7 +237,7 @@ let g:pasta_disabled_filetypes = ['ctrlp']
 function! RemoveTrailingWhitespacesFunction()
     execute "normal! mz"
     silent %s/\s\+$//ge
-    execute "normal! 'z"
+    execute "normal! `z"
 endfunction
 command! RemoveTrailingWhitespaces call RemoveTrailingWhitespacesFunction()
 function! ShrugFunction()
