@@ -1,12 +1,12 @@
 " {{{ compatibility
-if has("windows") && !has("nvim")
+if has("win32") && !has("nvim")
     source $VIMRUNTIME/vimrc_example.vim
     " source $VIMRUNTIME/mswin.vim
     " behave mswin
 endif
 " }}} compatibility
 " {{{ plugins
-if has("windows")
+if has("win32")
     call plug#begin('~/vimfiles/plugged')
 else
     call plug#begin('~/.vim/plugged')
@@ -72,7 +72,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
-if !has ("windows")
+if !has ("win32")
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'shougo/vimproc', { 'do': 'make' }
 else
@@ -95,7 +95,7 @@ Plug 'vim-scripts/L9'
 Plug 'honza/vim-snippets'
 
 " tmux plugins
-if !has("windows")
+if !has("win32")
 Plug 'edkolev/tmuxline.vim'
 Plug 'benmills/vimux'
 Plug 'christoomey/vim-tmux-navigator'
@@ -279,20 +279,20 @@ if has("autocmd")
     autocmd BufWritePre * call RemoveTrailingWhitespacesFunction()
 
     " Source the vimrc file after saving it
-    " if has("windows")
+    " if has("win32")
     "     autocmd BufWritePost _vimrc source $MYVIMRC
     " else
     "     autocmd BufWritePost .vimrc source $MYVIMRC
     " endif
 
     " Fix the white bars on Windows, this is using the wimproved plugin
-    if has("windows") && !has("nvim")
+    if has("win32") && !has("nvim")
         autocmd GUIEnter * silent! WToggleClean
     endif
 endif
 "}}} autocmd
 " {{{ wildignore
-if has("windows")
+if has("win32")
     set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*,tags,cscope.out,*.pyc,*.sdf,*.opensdf,*.suo,Session.vim  " Windows ('noshellslash')
 else
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,tags,cscope.out,*.pyc,Session.vim
@@ -313,7 +313,7 @@ noremap <silent> <F12> :NERDTreeToggle<CR>
 noremap <silent> <F10> :AirlineToggleWhitespace<CR>:SyntasticToggleMode<CR>
 
 " map F11 to toggle fullscreen on Windows
-if has("windows") && !has("nvim")
+if has("win32") && !has("nvim")
     noremap <silent> <F11> :WToggleFullscreen<CR>
 endif
 
@@ -387,7 +387,9 @@ nnoremap <leader>gw :Gwrite<CR>
 
 " map leader w to ctrl-w for window operations
 nnoremap <leader>w <c-w>
+if has("nvim")
 tnoremap <leader>w <c-w>
+endif
 
 " quit terminal mode on ESC in neovim
 if has("nvim")
@@ -435,7 +437,7 @@ set hidden
 
 " store swap, backup and undo files in a central location instead of the
 " current directory
-if has("windows")
+if has("win32")
     set dir=~/vimswap//
     set backupdir=~/vimbackup//
     set undodir=~/vimundo//
@@ -501,7 +503,7 @@ scriptencoding=utf-8
 set listchars=tab:>\ ,eol:¬,extends:>,precedes:<
 
 " share clipboard with system
-if !has("windows")
+if !has("win32")
     if !has("nvim")
         set clipboard=unnamedplus
     else
@@ -521,7 +523,7 @@ if has('gui_running')
     set background=dark
     colorscheme jellybeans
 
-    if has ("windows")
+    if has ("win32")
         " set guifont=Powerline_Consolas:h14:cANSI " works great on 16:9 screens
         set guifont=Powerline_Consolas:h13:cANSI " works great on 16:10 screens
     else
@@ -535,7 +537,7 @@ else
     set mouse=a
     set t_ut= "disable Background Color Erase (BCE)
     if !has("nvim")
-        if !has("windows")
+        if !has("win32")
             set term=xterm-256color
         endif
         set t_Co=256
