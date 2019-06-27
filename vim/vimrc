@@ -110,6 +110,11 @@ Plug 'nanotech/jellybeans.vim'
 " cmake syntax
 Plug 'nickhutchinson/vim-cmake-syntax'
 
+" unicode
+Plug 'chrisbra/unicode.vim'
+
+"
+
 
 call plug#end()
 " }}} plugins
@@ -150,7 +155,7 @@ endif
 " {{{ ctrlp configuration
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_map = '<leader>e'
-let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+"let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_extensions = ['tag']
 " Use The Silver Searcher if available
@@ -176,7 +181,7 @@ endif
 " }}}
 "{{{ closetag configuration
 " enable closetag for xml,html,htm,xhtml and ndb files
-let g:closetag_filenames = "*.xml,*.html,*.htm,*.xhtml,*.ndb,*.2db,*.config,*.rss,*.scn"
+let g:closetag_filenames = "*.xml,*.html,*.htm,*.xhtml,*.ndb,*.2db,*.config,*.rss,*.scn,*.settings"
 "}}} closetag configuration
 "{{{ airline configuration
 " always display airline
