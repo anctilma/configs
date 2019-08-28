@@ -113,9 +113,6 @@ Plug 'nickhutchinson/vim-cmake-syntax'
 " unicode
 Plug 'chrisbra/unicode.vim'
 
-"
-
-
 call plug#end()
 " }}} plugins
 " {{{ startify configuration
