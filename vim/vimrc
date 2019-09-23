@@ -15,8 +15,6 @@ endif
 let g:plug_timeout=120
 Plug 'justinmk/vim-sneak'
 Plug 'plasticboy/vim-markdown'
-Plug 'xolox/vim-misc'
-" Plug 'mhinz/vim-startify'
 Plug 'mhinz/vim-signify'
 Plug 'qpkorr/vim-bufkill'
 Plug 'unblevable/quick-scope'
@@ -51,7 +49,7 @@ Plug 'tommcdo/vim-exchange'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'qpkorr/vim-renamer'
 Plug 'vim-scripts/matchit.zip'
-Plug 'davidhalter/jedi'
+" Plug 'davidhalter/jedi-vim'
 Plug 'osse/double-tap'
 Plug 'sickill/vim-pasta'
 Plug 'octol/vim-cpp-enhanced-highlight'
@@ -59,7 +57,7 @@ Plug 'christoomey/vim-sort-motion'
 Plug 'wellle/targets.vim'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'vim-scripts/ReplaceWithRegister'
-Plug 'reedes/vim-pencil'
+" Plug 'reedes/vim-pencil'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
@@ -107,6 +105,7 @@ endif
 " colorschemes
 Plug 'morhetz/gruvbox'
 Plug 'nanotech/jellybeans.vim'
+
 " cmake syntax
 Plug 'nickhutchinson/vim-cmake-syntax'
 
@@ -115,9 +114,6 @@ Plug 'chrisbra/unicode.vim'
 
 call plug#end()
 " }}} plugins
-" {{{ startify configuration
-" let g:startify_list_order = ['files', 'dir', 'bookmarks', 'sessions', 'commands']
-" }}}
 " {{{ signify configuration
 let g:signify_vcs_list = ['git', 'svn']
 let g:signify_realtime = 0
@@ -206,6 +202,9 @@ let g:airline#extensions#wordcount#enabled = 0
 " disable syntastic active check by default
 let g:syntastic_mode_map = {"mode": "passive"}
 "}}} syntastic configuration
+" {{{ goyo configuration
+let g:goyo_width = 96
+" }}}
 " {{{ gugentags configuration
 " let g:gutentags_ctags_exclude = ["linux-xlnx"]
 " }}}
@@ -325,7 +324,7 @@ noremap <silent> <F9> :TagbarToggle<CR>
 " map F5 to toggle undotree
 nnoremap <silent> <F5> :UndotreeToggle<CR>
 
-" bubble text up and down with ctrl-up and down (required unimpaired plugin)
+" bubble text up and down with ctrl-up and down (requires unimpaired plugin)
 " bubble single lines
 nmap <C-Up> [e
 nmap <C-Down> ]e
@@ -456,7 +455,7 @@ set nohlsearch
 set incsearch
 
 " always show at least one line above/below the cursor
-"set scrolloff=1
+set scrolloff=1
 
 " redraw only when we need to
 set lazyredraw
