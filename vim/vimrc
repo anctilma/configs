@@ -252,17 +252,17 @@ if has("autocmd")
     "enable file type detection
     filetype on
 
-    autocmd FileType c          setlocal ts=4 sts=4 sw=4 tw=90 cc=90 expandtab cindent comments ^=://
-    autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 tw=90 cc=90 expandtab cindent comments ^=:///
-    autocmd FileType cmake      setlocal ts=4 sts=4 sw=4 tw=90 expandtab commentstring=#\ %s
-    autocmd FileType cs         setlocal ts=4 sts=4 sw=4 tw=90 expandtab cindent comments ^=://
+    autocmd FileType c          setlocal ts=4 sts=4 sw=4 tw=100 cc=100 expandtab cindent comments ^=://
+    autocmd FileType cpp        setlocal ts=4 sts=4 sw=4 tw=100 cc=100 expandtab cindent comments ^=:///
+    autocmd FileType cmake      setlocal ts=4 sts=4 sw=4 tw=100 expandtab commentstring=#\ %s
+    autocmd FileType cs         setlocal ts=4 sts=4 sw=4 tw=100 expandtab cindent comments ^=://
     autocmd FileType css        setlocal ts=4 sts=4 sw=4 expandtab
     autocmd FileType html       setlocal ts=4 sts=4 sw=4 expandtab
-    autocmd FileType javascript setlocal ts=4 sts=4 sw=4 tw=90 expandtab
-    autocmd FileType java       setlocal ts=8 sts=4 sw=4 tw=90 expandtab
-    autocmd FileType make       setlocal ts=8 sts=8 sw=8 tw=90 noexpandtab
-    autocmd FileType python     setlocal ts=4 sts=4 sw=4 tw=90 expandtab autoindent
-    autocmd FileType vim        setlocal ts=4 sts=4 sw=4 tw=90 expandtab
+    autocmd FileType javascript setlocal ts=4 sts=4 sw=4 tw=100 expandtab
+    autocmd FileType java       setlocal ts=8 sts=4 sw=4 tw=100 expandtab
+    autocmd FileType make       setlocal ts=8 sts=8 sw=8 tw=100 noexpandtab
+    autocmd FileType python     setlocal ts=4 sts=4 sw=4 tw=100 expandtab autoindent
+    autocmd FileType vim        setlocal ts=4 sts=4 sw=4 tw=100 expandtab
     autocmd FileType text       setlocal ts=4 sts=4 sw=4 tw=205 expandtab
     autocmd FileType xml        setlocal ts=4 sts=4 sw=4 noexpandtab
 
