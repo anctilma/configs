@@ -53,6 +53,8 @@ Plug 'vim-scripts/matchit.zip'
 Plug 'osse/double-tap'
 Plug 'sickill/vim-pasta'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'kana/vim-operator-user' " recommended for clang-format
+Plug 'rhysd/vim-clang-format'
 Plug 'christoomey/vim-sort-motion'
 Plug 'wellle/targets.vim'
 Plug 'michaeljsmith/vim-indent-object'
