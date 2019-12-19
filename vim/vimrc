@@ -82,17 +82,18 @@ else
     endif
 endif
 
-" plugins for UltiSnips and SuperTab support.
-Plug 'sirver/ultisnips'
-Plug 'tomtom/tlib_vim'
-Plug 'marcWeber/vim-addon-mw-utils'
-Plug 'garbas/vim-snipmate'
-Plug 'ervandew/supertab'
-"Plug 'othree/vim-autocomplpop'
-Plug 'vim-scripts/L9'
-
-" extra snippet
-Plug 'honza/vim-snippets'
+if has ("python")
+    " plugins for UltiSnips and SuperTab support.
+    Plug 'sirver/ultisnips'
+    Plug 'tomtom/tlib_vim'
+    Plug 'marcWeber/vim-addon-mw-utils'
+    Plug 'garbas/vim-snipmate'
+    Plug 'ervandew/supertab'
+    "Plug 'othree/vim-autocomplpop'
+    Plug 'vim-scripts/L9'
+    " extra snippet
+    Plug 'honza/vim-snippets'
+endif
 
 " tmux plugins
 if !has("win32")
