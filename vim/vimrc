@@ -82,12 +82,16 @@ else
     endif
 endif
 
-if has ("python")
-    " plugins for UltiSnips and SuperTab support.
+if has("win32")
+    " this file tells vim where the python library is
+    source ~/configs/vim/windows/python_setup.vim
+endif
+
+if has ("python3")
+    " plugins for UltiSnips and SuperTab support
     Plug 'sirver/ultisnips'
     Plug 'tomtom/tlib_vim'
     Plug 'marcWeber/vim-addon-mw-utils'
-    Plug 'garbas/vim-snipmate'
     Plug 'ervandew/supertab'
     "Plug 'othree/vim-autocomplpop'
     Plug 'vim-scripts/L9'
