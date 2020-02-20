@@ -13,7 +13,6 @@ else
 endif
 
 let g:plug_timeout=120
-Plug 'justinmk/vim-sneak'
 Plug 'plasticboy/vim-markdown'
 Plug 'mhinz/vim-signify'
 Plug 'qpkorr/vim-bufkill'
