@@ -1,3 +1,3 @@
-set pythonthreehome=C:\Users\ma015013\AppData\Local\Programs\Python\Python37
-set pythonthreedll=C:\Users\ma015013\AppData\Local\Programs\Python\Python37\python37.dll
+set pythonthreehome=C:\Users\Martin\anaconda3
+set pythonthreedll=C:\Users\Martin\anaconda3\python37.dll
 
