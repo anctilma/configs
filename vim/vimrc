@@ -80,10 +80,10 @@ else
     endif
 endif
 
-if has("win32")
-    " this file tells vim where the python library is
-    source ~/configs/vim/windows/python_setup.vim
-endif
+" if has("win32")
+"     " this file tells vim where the python library is
+"     source ~/configs/vim/windows/python_setup.vim
+" endif
 
 if has ("python3")
     " plugins for UltiSnips and SuperTab support
@@ -104,8 +104,6 @@ Plug 'benmills/vimux'
 Plug 'christoomey/vim-tmux-navigator'
 endif
 
-" on demand plugins example.
-"Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 
 " colorschemes
 Plug 'morhetz/gruvbox'
@@ -174,9 +172,6 @@ if executable('ag')
     " let g:ctrlp_use_caching = 0
 endif
 " }}} ctrlp configuration
-" {{{ NERDTree configuration
-" let g:NERDTreeRespectWildIgnore = 1
-" }}}
 "{{{ closetag configuration
 " enable closetag for xml,html,htm,xhtml and ndb files
 let g:closetag_filenames = "*.xml,*.html,*.htm,*.xhtml,*.ndb,*.2db,*.config,*.rss,*.scn,*.settings"
@@ -257,6 +252,7 @@ if has("autocmd")
     autocmd FileType html       setlocal ts=4 sts=4 sw=4 expandtab
     autocmd FileType javascript setlocal ts=4 sts=4 sw=4 tw=100 expandtab
     autocmd FileType java       setlocal ts=8 sts=4 sw=4 tw=100 expandtab
+    autocmd FileType json       setlocal ts=4 sts=4 sw=4 tw=100 expandtab
     autocmd FileType make       setlocal ts=8 sts=8 sw=8 tw=100 noexpandtab
     autocmd FileType python     setlocal ts=4 sts=4 sw=4 tw=100 expandtab autoindent
     autocmd FileType vim        setlocal ts=4 sts=4 sw=4 tw=100 expandtab
@@ -274,7 +270,7 @@ if has("autocmd")
     " autocmd BufRead *.cpp,*.h setlocal ts=4 sts=4 sw=4 expandtab
 
     " Remove trailing whitespaces when saving
-    autocmd BufWritePre * call RemoveTrailingWhitespacesFunction()
+    " autocmd BufWritePre * call RemoveTrailingWhitespacesFunction()
 
     " Source the vimrc file after saving it
     " if has("win32")
@@ -532,8 +528,6 @@ if has('gui_running')
         set guifont=Inconsolata\ for\ Powerline\ Medium\ 13
     endif
     set linespace=1
-    set lines=40
-    set columns=170
 else
     " Enable mouse support.
     set mouse=a
