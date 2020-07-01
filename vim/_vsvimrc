@@ -4,6 +4,7 @@ nnoremap <space>j :tabprevious<CR>
 set incsearch
 set cul
 set clipboard=unnamed
+set ignorecase
 set smartcase
 set textwidth=100
 set relativenumber
