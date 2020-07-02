@@ -7,6 +7,7 @@ set clipboard=unnamed
 set ignorecase
 set smartcase
 set textwidth=100
+set number
 set relativenumber
 
 "map ctrl-o and ctrl-i to navigate backward and forward
