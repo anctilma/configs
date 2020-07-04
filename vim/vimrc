@@ -282,6 +282,7 @@ if has("autocmd")
     " Fix the white bars on Windows, this is using the wimproved plugin
     if has("win32") && !has("nvim")
         autocmd GUIEnter * silent! WToggleClean
+        autocmd GUIEnter * simalt ~x
     endif
 endif
 "}}} autocmd
