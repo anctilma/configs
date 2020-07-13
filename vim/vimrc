@@ -402,6 +402,8 @@ set foldmethod=marker
 " }}}
 " {{{ misc
 
+" Autoload file changes. You can undo by pressing u.
+set autoread 
 " Scroll all the way to the edge
 set scrolloff=0
 
