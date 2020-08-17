@@ -37,19 +37,19 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 # curl -fLo ~/.vim/colors/jellybeans.vim --create-dirs https://raw.githubusercontent.com/nanotech/jellybeans.vim/master/colors/jellybeans.vim
 
 # gui border fix
-cp linux/.gtkrc-2.0 ~
-cp linux/.Xresources ~
-cp linux/.xinitrc ~
+#cp linux/.gtkrc-2.0 ~
+#cp linux/.Xresources ~
+#cp linux/.xinitrc ~
 
 # install fonts
-if [ -d ~/powerline-fonts ]; then
-	cd ~/powerline-fonts
-	git pull origin master
-	cd ~/configs/vim
-else
-	git clone https://github.com/powerline/fonts.git ~/powerline-fonts
-fi
-sudo sh ~/powerline-fonts/install.sh
+#if [ -d ~/powerline-fonts ]; then
+#	cd ~/powerline-fonts
+#	git pull origin master
+#	cd ~/configs/vim
+#else
+#	git clone https://github.com/powerline/fonts.git ~/powerline-fonts
+#fi
+#sudo sh ~/powerline-fonts/install.sh
 
 # start vim and download plugins
 vim --noplugin +PlugInstall +qall
