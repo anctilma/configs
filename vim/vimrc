@@ -255,6 +255,7 @@ if has("autocmd")
     autocmd FileType json       setlocal ts=2 sts=2 sw=2 expandtab
     autocmd FileType make       setlocal ts=8 sts=8 sw=8 tw=100 noexpandtab
     autocmd FileType python     setlocal ts=4 sts=4 sw=4 tw=100 expandtab autoindent
+    autocmd FileType sh         setlocal ts=2 sts=2 sw=2 expandtab " this works for bost sh and bash
     autocmd FileType vim        setlocal ts=4 sts=4 sw=4 tw=100 expandtab
     autocmd FileType text       setlocal ts=4 sts=4 sw=4 tw=205 expandtab
     autocmd FileType xml        setlocal ts=4 sts=4 sw=4 noexpandtab
