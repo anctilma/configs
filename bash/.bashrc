@@ -140,9 +140,14 @@ echo " '$Color_Off'\$ "; \
 fi)'
 
 # some more ls aliases
-alias ll='ls -alF'
+alias ll='ls -alhF'
 alias la='ls -A'
 alias l='ls -CF'
+alias t='tmux -2'
+alias ta='tmux -2 a'
+alias tl='tmux list-sessions'
+alias gs='git status'
+alias gl='git lg'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
