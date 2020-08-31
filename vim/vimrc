@@ -80,10 +80,11 @@ else
     endif
 endif
 
-" if has("win32")
-"     " this file tells vim where the python library is
-"     source ~/configs/vim/windows/python_setup.vim
-" endif
+ if has("win32")
+     " this file tells vim where the python library is. this works reliably whereas using
+     " environment variables sometimes fails.
+     source ~/configs/vim/windows/python_setup.vim
+ endif
 
 if has ("python3")
     " plugins for UltiSnips and SuperTab support
@@ -154,8 +155,23 @@ let g:ctrlp_map = '<leader>e'
 "let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_extensions = ['tag']
-" Use The Silver Searcher if available
-if executable('ag')
+if executable('rg')
+     " Use ripgrep if available
+     " Use rg over grep
+     set grepprg=rg\ --vimgrep\ --no-heading
+     set grepformat=%f:%l:%c:%m,%f:%l:%m
+     " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+     let g:ctrlp_user_command = 'rg %s --files --glob ""
+     \ --ignore .svn
+     \ --ignore "**/*.pyc"
+     \ --ignore tags
+     \ --ignore cscope.out
+     \ --ignore Session.vim
+     \ -g ""'
+     " Ripgrep is sometimes fast enough that CtrlP doesn't need to cache
+     " let g:ctrlp_use_caching = 0
+elseif executable('ag')
+   " Use The Silver Searcher if available
     " Use ag over grep
     set grepprg=ag\ --nogroup\ --nocolor
     " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
@@ -166,7 +182,6 @@ if executable('ag')
     \ --ignore cscope.out
     \ --ignore Session.vim
     \ -g ""'
-
 
     " Ag is sometimes fast enough that CtrlP doesn't need to cache
     " let g:ctrlp_use_caching = 0
@@ -532,6 +547,8 @@ if has('gui_running')
         set guifont=Inconsolata\ for\ Powerline\ Medium\ 13
     endif
     set linespace=1
+    " set lines=40
+    " set columns=170
 else
     " Enable mouse support.
     set mouse=a
