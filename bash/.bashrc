@@ -118,13 +118,13 @@ BWhite="\[\033[1;37m\]"       # White
 
 Time12h="\T"
 Time12a="\@"
-PathShort="\W"
+PathShort="-[\W]"
 PathFull="\w"
 NewLine="\n"
 Jobs="\j"
-Login="${debian_chroot:+($debian_chroot)}$BBlue\u@\h$Color_Off:"
+Login="┌──(${debian_chroot:+($debian_chroot)}$BBlue\u@\h$Green)"
 
-export PS1=$Color_Off$Login$BPurple$PathShort$Color_Off'$(git branch &>/dev/null;\
+export PS1=$Green$Login$BPurple$PathShort$Color_Off'$(git branch &>/dev/null;\
 	if [ $? -eq 0 ]; then \
 		echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
 		if [ "$?" -eq "0" ]; then \
@@ -133,10 +133,10 @@ echo "'$Green'"$(__git_ps1 " {%s}"); \
 else \
 	# @5 - Changes to working tree
 echo "'$BRed'"$(__git_ps1 " {%s}"); \
-fi) '$Color_Off'\$ "; \
+fi) '$Green'\n└─'$Color_Off'\$ "; \
 	else \
 		# @2 - Prompt when not in GIT repo
-echo " '$Color_Off'\$ "; \
+echo " '$Green'\n└─'$Color_Off'\$ "; \
 fi)'
 
 # some more ls aliases
