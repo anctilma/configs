@@ -51,7 +51,17 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 #fi
 #sudo sh ~/powerline-fonts/install.sh
 
+if [ ! -x /usr/bin/nvim ] ; then
+	vim --noplugin +PlugInstall +qall
+else
+	if [ ! -d ~/.config/nvim ]; then
+		mkdir ~/.config/nvim
+	fi
+	cp init.vim ~/.config/nvim
+	nvim --noplugin +PlugInstall +qall
+fi
+
+
 # start vim and download plugins
-vim --noplugin +PlugInstall +qall
 
 echo "Done."
