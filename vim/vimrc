@@ -270,6 +270,7 @@ if has("autocmd")
     autocmd FileType java       setlocal ts=8 sts=4 sw=4 tw=100 expandtab
     autocmd FileType json       setlocal ts=2 sts=2 sw=2 expandtab
     autocmd FileType make       setlocal ts=8 sts=8 sw=8 tw=100 noexpandtab
+    autocmd FileType ps1        setlocal ts=4 sts=4 sw=4 tw=100 expandtab autoindent
     autocmd FileType python     setlocal ts=4 sts=4 sw=4 tw=100 expandtab autoindent
     autocmd FileType sh         setlocal ts=2 sts=2 sw=2 expandtab " this works for bost sh and bash
     autocmd FileType vim        setlocal ts=4 sts=4 sw=4 tw=100 expandtab
@@ -366,6 +367,10 @@ noremap <C-kMinus> <C-X>
 " map Y to y$ (yank till end of line)
 nmap Y y$
 
+" map é to search so I can search when when the keyboard is in french
+nmap é /
+nmap É ?
+
 " map leader-s to buffer save.
 nnoremap <leader>s :w<CR>
 
@@ -389,11 +394,12 @@ nnoremap <silent> <leader>x :BD<CR>
 map <leader>o :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 
 " map leader g to fugitive.vim commands
-nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gs :Git<CR>
 nnoremap <leader>gl :GV<CR>
 nnoremap <leader>gL :GV!<CR>
-nnoremap <leader>gc :Gcommit<CR>
-nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gc :Git commit<CR>
+nnoremap <leader>gd :Gdiffsplit<CR>
+nnoremap <leader>gv :Gvdiffsplit<CR>
 nnoremap <leader>gr :Gread<CR>
 nnoremap <leader>gw :Gwrite<CR>
 
