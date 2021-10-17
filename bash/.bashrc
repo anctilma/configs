@@ -122,7 +122,7 @@ PathShort="-[\W]"
 PathFull="\w"
 NewLine="\n"
 Jobs="\j"
-Login="┌──(${debian_chroot:+($debian_chroot)}$BBlue\u@\h$Green)"
+Login="(${debian_chroot:+($debian_chroot)}$BBlue\u@\h$Green)"
 
 export PS1=$Green$Login$BPurple$PathShort$Color_Off'$(git branch &>/dev/null;\
 	if [ $? -eq 0 ]; then \
@@ -133,10 +133,10 @@ echo "'$Green'"$(__git_ps1 " {%s}"); \
 else \
 	# @5 - Changes to working tree
 echo "'$BRed'"$(__git_ps1 " {%s}"); \
-fi) '$Green'\n└─'$Color_Off'\$ "; \
+fi) '$Color_Off'\$ "; \
 	else \
 		# @2 - Prompt when not in GIT repo
-echo " '$Green'\n└─'$Color_Off'\$ "; \
+echo " \$ "; \
 fi)'
 
 # some more ls aliases
