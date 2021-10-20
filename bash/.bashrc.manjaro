@@ -98,7 +98,7 @@ if ${use_color} ; then
   PathFull="\w"
   NewLine="\n"
   Jobs="\j"
-  Login="┌──(${debian_chroot:+($debian_chroot)}$BBlue\u@\h$Green)"
+  Login="(${debian_chroot:+($debian_chroot)}$BBlue\u@\h$Green)"
 
   source ~/.bash/git-prompt.sh
   export GIT_PS1_SHOWCOLORHINTS=true
@@ -112,10 +112,10 @@ if ${use_color} ; then
   else \
     # @5 - Changes to working tree
   echo "'$BRed'"$(__git_ps1 " {%s}"); \
-  fi) '$Green'\n└─'$Color_Off'\$ "; \
+  fi) '$Color_Off'\$ "; \
     else \
       # @2 - Prompt when not in GIT repo
-  echo " '$Green'\n└─'$Color_Off'\$ "; \
+  echo " \$ "; \
   fi)'
 
   # if root
@@ -132,10 +132,10 @@ if ${use_color} ; then
   else \
     # @5 - Changes to working tree
   echo "'$BRed'"$(__git_ps1 " {%s}"); \
-  fi) '$Green'\n└─'$Color_Off'\$ "; \
+  fi) '$Color_Off'\$ "; \
     else \
       # @2 - Prompt when not in GIT repo
-  echo " '$Green'\n└─'$Color_Off'\$ "; \
+  echo " \$ "; \
   fi)'
   fi
 
