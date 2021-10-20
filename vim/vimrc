@@ -110,8 +110,14 @@ endif
 Plug 'morhetz/gruvbox'
 Plug 'nanotech/jellybeans.vim'
 
+" typescript syntax
+Plug 'herringtondarkholme/yats.vim'
+
 " cmake syntax
 Plug 'nickhutchinson/vim-cmake-syntax'
+
+" cmake parsing
+Plug 'ilyachur/cmake4vim'
 
 " unicode
 Plug 'chrisbra/unicode.vim'
