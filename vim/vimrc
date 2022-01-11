@@ -228,7 +228,6 @@ let g:goyo_width = 96
 " }}}
 " {{{ gugentags configuration
 " let g:gutentags_ctags_exclude = ["linux-xlnx"]
-let g:gutentags_enabled = 0 " dont generate a tag file automatically for new repositories
 " }}}
 " {{{ quickscope configuration
 " Trigger a highlight in the appropriate direction when pressing these keys:
@@ -259,6 +258,10 @@ function! ShrugFunction()
     execute "normal i¯\\_(ツ)_/¯"
 endfunction
 command! Shrug call ShrugFunction()
+function! Underline()
+    execute "normal yypVr-"
+endfunction
+command! Underline call Underline()
 " }}}
 "{{{ autocmd
 " set tab and indent configuration based on file type
@@ -287,7 +290,7 @@ if has("autocmd")
     autocmd FileType cpp,cs     setlocal commentstring=//\ %s
 
     " Treat the files with the following extentions as xml
-    autocmd BufNewFile,BufRead *.rss,*.ndb,*.2db,*.config,*.scn setfiletype xml
+    autocmd BufNewFile,BufRead *.rss,*.ndb,*.2db,*.config,*.scn,*.qrc setfiletype xml
 
     " Force this style for c++, since vim-sleuth misreads the initializer
     " list offset as the file general shiftwidth sometimes.
@@ -405,6 +408,7 @@ nnoremap <leader>gl :GV<CR>
 nnoremap <leader>gL :GV!<CR>
 nnoremap <leader>gc :Git commit<CR>
 nnoremap <leader>gd :Gdiffsplit<CR>
+nnoremap <leader>gh :Ghdiffsplit<CR>
 nnoremap <leader>gv :Gvdiffsplit<CR>
 nnoremap <leader>gr :Gread<CR>
 nnoremap <leader>gw :Gwrite<CR>
@@ -414,6 +418,8 @@ nnoremap <leader>w <c-w>
 if has("nvim")
 tnoremap <leader>w <c-w>
 endif
+
+nmap <leader>u :Underline<CR>
 
 " quit terminal mode on ESC in neovim
 if has("nvim")
