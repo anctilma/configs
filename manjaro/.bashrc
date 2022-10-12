@@ -171,6 +171,8 @@ alias tl='tmux list-sessions'
 alias gs='git status'
 alias gl='git lg'
 
+alias weather='curl --silent wttr.in | head -n -1'
+
 xhost +local:root > /dev/null 2>&1
 
 # Bash won't get SIGWINCH if another process is in the foreground.
