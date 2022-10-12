@@ -185,6 +185,8 @@ shopt -s expand_aliases
 
 # export QT_SELECT=4
 
+HISTCONTROL=ignoreboth # same as HISTCONTROL=ignorespace:ignoredups
+
 # Enable history appending instead of overwriting.  #139609
 shopt -s histappend
 
