@@ -28,7 +28,7 @@ shopt -s checkwinsize
 #shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr//lesspipe ] && eval "$(SHELL=/bin/sh )"
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
@@ -133,10 +133,10 @@ echo "'$Green'"$(__git_ps1 " {%s}"); \
 else \
 	# @5 - Changes to working tree
 echo "'$BRed'"$(__git_ps1 " {%s}"); \
-fi) '$Color_Off' "; \
+fi) '$Color_Off'❱ "; \
 	else \
 		# @2 - Prompt when not in GIT repo
-echo "  "; \
+echo " ❱ "; \
 fi)'
 
 # some more ls aliases
@@ -148,6 +148,9 @@ alias ta='tmux -2 a'
 alias tl='tmux list-sessions'
 alias gs='git status'
 alias gl='git lg'
+
+alias vi='nvim'
+alias vim='nvim'
 
 alias weather='curl --silent wttr.in | head -n -1'
 
