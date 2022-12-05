@@ -152,7 +152,7 @@ alias gl='git lg'
 alias vi='nvim'
 alias vim='nvim'
 
-alias weather='curl --silent wttr.in | head -n -1'
+alias weather='curl --silent wttr.in/gatineau | head -n -1'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
