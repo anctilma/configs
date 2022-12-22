@@ -19,6 +19,9 @@ shopt -s histappend
 HISTSIZE=1000
 HISTFILESIZE=2000
 
+# keep the same history for all sessions (including tmux)
+export PROMPT_COMMAND="history -a; history -n"
+
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
@@ -148,9 +151,9 @@ alias ta='tmux -2 a'
 alias tl='tmux list-sessions'
 alias gs='git status'
 alias gl='git lg'
-
 alias vi='nvim'
 alias vim='nvim'
+alias v='nvim'
 
 alias weather='curl --silent wttr.in/gatineau | head -n -1'
 
