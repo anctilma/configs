@@ -146,11 +146,15 @@ fi)'
 alias ll='ls -alhF'
 alias la='ls -A'
 alias l='ls -CF'
+
 alias t='tmux -2'
 alias ta='tmux -2 a'
 alias tl='tmux list-sessions'
+
 alias gs='git status'
 alias gl='git lg'
+alias gsl="git stash list"
+
 alias vi='nvim'
 alias vim='nvim'
 alias v='nvim'
