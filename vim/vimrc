@@ -399,6 +399,12 @@ if has("nvim")
 tnoremap <Esc> <C-\><C-n>
 endif
 
+" Make "[[" and "]]" work even if '{' or '}' are not in the first column
+map [[ ?{<CR>w99[{
+map ][ /}<CR>b99]}
+map ]] j0[[%/{<CR>
+map [] k$][%?}<CR>
+
 " }}} mappings
 " {{{ folding
 " reasonable folding
