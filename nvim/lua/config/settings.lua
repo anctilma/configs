@@ -27,8 +27,13 @@ vim.o.mouse = 'a'
 -- turn on the wildmenu (not sure if this is needed anymore)
 vim.o.wildmenu = true
 
--- disable line wrap
-vim.o.nowrap = true
+-- disable line wrap and linebreak by default
+vim.o.wrap = false
+vim.o.linebreak = false;
+
+-- easy switch to proper soft wrapping mode
+vim.cmd( [[ command! -nargs=* Wrap set wrap linebreak nolist ]] )
+vim.cmd( [[ command! -nargs=* NoWrap set nowrap nolinebreak ]] )
 
 -- enable cursorline
 vim.o.cursor = true
@@ -64,10 +69,6 @@ vim.o.foldlevelstart=0
 vim.o.foldnestmax=10
 vim.o.foldmethod='marker'
 
--- easy switch to proper soft wrapping mode
-vim.cmd( [[ command! -nargs=* Wrap set wrap linebreak nolist ]] )
-vim.cmd( [[ command! -nargs=* NoWrap set nowrap nolinebreak ]] )
-
 -- show whitespaces when calling set list
 -- vim.o.listchars = 'space: ,tab:>,eol:¬'
 
@@ -87,7 +88,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Keep signcolumn on by default
--- vim.wo.signcolumn = 'yes'
+vim.wo.signcolumn = 'yes'
 
 -- Decrease update time
 vim.o.updatetime = 250

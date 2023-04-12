@@ -199,10 +199,6 @@ require('lazy').setup({
   { import = 'custom.plugins' },
 }, {})
 
-require('config.autocmds')
-require('config.settings')
-require('config.keymaps')
-
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
@@ -447,6 +443,10 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+require('config.autocmds')
+require('config.settings')
+require('config.keymaps')
 
 -- {{{ custom commands and functions
 vim.cmd(
