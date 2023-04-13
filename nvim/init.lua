@@ -121,10 +121,10 @@ require('lazy').setup({
   },
 
   {
-    'nanotech/jellybeans.vim',
+    'folke/tokyonight.nvim',
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'jellybeans'
+      vim.cmd.colorscheme 'tokyonight-night'
     end,
   },
 
@@ -134,7 +134,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = true,
-        theme = 'jellybeans',
+        theme = 'tokyonight',
         -- component_separators = '|',
         -- section_separators = '',
         component_separators = { left = '', right = ''},
