@@ -27,10 +27,6 @@ vim.o.mouse = 'a'
 -- turn on the wildmenu (not sure if this is needed anymore)
 vim.o.wildmenu = true
 
--- disable line wrap and linebreak by default
-vim.o.wrap = false
-vim.o.linebreak = false;
-
 -- easy switch to proper soft wrapping mode
 vim.cmd( [[ command! -nargs=* Wrap set wrap linebreak nolist ]] )
 vim.cmd( [[ command! -nargs=* NoWrap set nowrap nolinebreak ]] )

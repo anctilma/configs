@@ -12,6 +12,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- set tab and indent configuration based on file type
 vim.api.nvim_create_autocmd('FileType', {
+  pattern = {'*'},
+  command = 'setlocal nowrap nolinebreak'
+})
+
+vim.api.nvim_create_autocmd('FileType', {
   pattern = {'c', 'cpp', 'cmake', 'cs', 'css', 'java', 'html', 'ps1', 'python', 'text', 'vim', 'xml'},
   command = 'setlocal ts=4 sts=4 sw=4'
 })
