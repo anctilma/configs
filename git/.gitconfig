@@ -3,5 +3,8 @@
 [user]
 	email = anctilma@gmail.com
 	name = Martin Anctil
+[core]
+	editor = nvim
+
 [init]
 	defaultBranch = main
