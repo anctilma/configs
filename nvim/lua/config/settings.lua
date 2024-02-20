@@ -66,7 +66,7 @@ vim.o.foldnestmax=10
 vim.o.foldmethod='marker'
 
 -- show whitespaces when calling set list
--- vim.o.listchars = 'space: ,tab:>,eol:¬'
+vim.o.listchars = 'space: ,tab: >,eol:¬'
 
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.

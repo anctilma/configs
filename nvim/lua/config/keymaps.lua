@@ -39,7 +39,7 @@ vim.keymap.set('n', '<leader>gw', ':Gwrite<CR>', { noremap = true })
 vim.keymap.set('n', '<F9>', ':TagbarToggle<CR>', { silent = true, noremap = true })
 
 -- map F5 to toggle undotree
--- nnoremap <silent> <F5> :UndotreeToggle<CR>
+vim.keymap.set('n', '<F5>', ':UndotreeToggle<CR>', { silent = true, noremap = true })
 
 -- bubble text up and down with ctrl-up and down (requires unimpaired plugin)
 -- bubble single lines
@@ -84,5 +84,5 @@ vim.keymap.set('n', '<leader>j', ':bp<CR>', { silent = true, noremap = true })
 vim.keymap.set('n', '<leader>x', ':BD<CR>', { noremap = true, silent = true })
 
 -- map leader-o to toggle .h/.cpp file (o for opposite) - TODO: only configure this mapping when loading a cpp file.
-vim.keymap.set('', '<leader>o', ':e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>')
+vim.keymap.set('', '<M-o>', ':e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>')
 

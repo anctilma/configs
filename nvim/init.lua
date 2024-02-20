@@ -54,6 +54,8 @@ require('lazy').setup({
   'majutsushi/tagbar',
 
   'qpkorr/vim-bufkill',
+  'qpkorr/vim-renamer',
+  'mbbill/undotree',
 
   -- 'github/copilot.vim',
 
@@ -92,6 +94,9 @@ require('lazy').setup({
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
+
+      -- Enables toggling lsp diagnostics
+      'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
     },
   },
 
@@ -119,12 +124,15 @@ require('lazy').setup({
   {
     'kyazdani42/nvim-web-devicons'
   },
-
   {
-    'folke/tokyonight.nvim',
+    'rktjmp/lush.nvim'
+  },
+  {
+    -- 'folke/tokyonight.nvim',
+    'metalelf0/jellybeans-nvim',
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd.colorscheme 'jellybeans-nvim'
     end,
   },
 
@@ -134,7 +142,8 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = true,
-        theme = 'tokyonight',
+        -- theme = 'tokyonight',
+        theme = 'auto',
         -- component_separators = '|',
         -- section_separators = '',
         component_separators = { left = '', right = ''},
@@ -443,6 +452,10 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+-- toggle_lsp_diagnostics configuration
+require('toggle_lsp_diagnostics').init()
+
 
 require('config.autocmds')
 require('config.settings')
