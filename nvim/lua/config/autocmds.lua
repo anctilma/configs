@@ -81,8 +81,8 @@ vim.api.nvim_create_autocmd('FileType', {
   command = 'setlocal commentstring=#\\ %s'
 })
 
-vim.api.nvim_create_autocmd('BufWritePre', {
-  pattern = {'*'},
-  command = 'call RemoveTrailingWhitespacesFunction()'
-})
+-- vim.api.nvim_create_autocmd('BufWritePre', {
+--   pattern = {'*'},
+--   command = 'call RemoveTrailingWhitespacesFunction()'
+-- })
 
