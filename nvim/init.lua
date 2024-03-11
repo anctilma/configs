@@ -50,7 +50,7 @@ require('lazy').setup({
   'vim-scripts/matchit.zip',
 
   'andrewradev/splitjoin.vim',
-  'ludovicchabant/vim-gutentags',
+  -- 'ludovicchabant/vim-gutentags',
   'majutsushi/tagbar',
 
   'qpkorr/vim-bufkill',
