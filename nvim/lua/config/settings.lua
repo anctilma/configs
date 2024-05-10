@@ -41,9 +41,6 @@ vim.o.splitright = true
 -- insert one space instead of two after a '.', '?' and '!' with a join command.
 vim.o.joinspaces = false
 
--- briefly hightligh matching [{()}]
-vim.o.showmatch = true
-
 -- enable hidden buffers by default
 vim.o.hidden = true
 

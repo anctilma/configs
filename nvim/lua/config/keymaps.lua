@@ -84,5 +84,6 @@ vim.keymap.set('n', '<leader>j', ':bp<CR>', { silent = true, noremap = true })
 vim.keymap.set('n', '<leader>x', ':BD<CR>', { noremap = true, silent = true })
 
 -- map leader-o to toggle .h/.cpp file (o for opposite) - TODO: only configure this mapping when loading a cpp file.
-vim.keymap.set('', '<M-o>', ':e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>')
+-- vim.keymap.set('', '<M-o>', ':e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>')
+vim.keymap.set('', '<M-o>', ':ClangdSwitchSourceHeader<CR>')
 
