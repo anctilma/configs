@@ -51,7 +51,6 @@ require('lazy').setup({
 
   'andrewradev/splitjoin.vim',
   -- 'ludovicchabant/vim-gutentags',
-  'majutsushi/tagbar',
 
   'qpkorr/vim-bufkill',
   'qpkorr/vim-renamer',
@@ -261,6 +260,16 @@ require('lazy').setup({
     config = function()
       pcall(require('nvim-treesitter.install').update { with_sync = true })
     end,
+  },
+
+  {
+    'stevearc/aerial.nvim',
+    opts = {},
+    -- Optional dependencies
+    dependencies = {
+       "nvim-treesitter/nvim-treesitter",
+       "nvim-tree/nvim-web-devicons"
+    },
   },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
@@ -525,6 +534,15 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+require("aerial").setup({
+  -- optionally use on_attach to set keymaps when aerial has attached to a buffer
+  on_attach = function(bufnr)
+    -- Jump forwards/backwards with '{' and '}'
+    vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr })
+    vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
+  end,
+})
 
 -- toggle_lsp_diagnostics configuration
 require('toggle_lsp_diagnostics').init()

@@ -35,11 +35,11 @@ vim.keymap.set('n', '<leader>gv', ':Gvdiffsplit<CR>', { noremap = true })
 vim.keymap.set('n', '<leader>gr', ':Gread<CR>', { noremap = true })
 vim.keymap.set('n', '<leader>gw', ':Gwrite<CR>', { noremap = true })
 
--- map F9 to toggle tag bar
-vim.keymap.set('n', '<F9>', ':TagbarToggle<CR>', { silent = true, noremap = true })
-
 -- map F5 to toggle undotree
 vim.keymap.set('n', '<F5>', ':UndotreeToggle<CR>', { silent = true, noremap = true })
+
+-- map F9 to toggle Aerial
+vim.keymap.set("n", "<F9>", "<cmd>AerialToggle!<CR>")
 
 -- bubble text up and down with ctrl-up and down (requires unimpaired plugin)
 -- bubble single lines
