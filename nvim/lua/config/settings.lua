@@ -32,7 +32,7 @@ vim.cmd( [[ command! -nargs=* Wrap set wrap linebreak nolist ]] )
 vim.cmd( [[ command! -nargs=* NoWrap set nowrap nolinebreak ]] )
 
 -- enable cursorline
-vim.o.cursor = true
+vim.o.cursorline = true
 
 -- open new split to rignt or bottom and move cursor to new split
 vim.o.splitbelow = true
@@ -44,14 +44,11 @@ vim.o.joinspaces = false
 -- enable hidden buffers by default
 vim.o.hidden = true
 
--- enable syntax highligting
-vim.o.syntax = true
-
 -- disable the tabline
-vim.o.showtabline = false
+vim.o.showtabline = 0
 
 -- Scroll all the way to the edge
-vim.o.scrolloff = false
+vim.o.scrolloff = 0
 
 -- Autoload file changes. You can undo by pressing u.
 vim.o.autoread = true
